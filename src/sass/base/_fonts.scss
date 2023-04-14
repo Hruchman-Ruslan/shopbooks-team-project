@@ -1,0 +1,47 @@
+//  DMSans-Bold
+@font-face {
+  font-family: 'DMSans-Bold';
+  src: url('../fonts/DMSans-Bold.woff2') format('woff2'),
+    url('../fonts/DMSans-Bold.eot') format('embedded-opentype'),
+    url('../fonts/DMSans-Bold.woff') format('woff'),
+    url('../fonts/DMSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// DMSans-Regular
+@font-face {
+  font-family: 'DMSans-Regular';
+  src: url('../fonts/DMSans-Regular.woff2') format('woff2'),
+    url('../fonts/DMSans-Regular.eot') format('embedded-opentype'),
+    url('../fonts/DMSans-Regular.woff') format('woff'),
+    url('../fonts/DMSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// DMSans-Italic
+@font-face {
+  font-family: 'DMSans-Italic';
+  src: url('../fonts/DMSans-Italic.woff2') format('woff2'),
+    url('../fonts/DMSans-Italic.eot') format('embedded-opentype'),
+    url('../fonts/DMSans-Italic.woff') format('woff'),
+    url('../fonts/DMSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+// DMSans-Medium
+@font-face {
+  font-family: 'DMSans-Medium';
+  src: url('../fonts/DMSans-Medium.woff2') format('woff2'),
+    url('../fonts/DMSans-Medium.eot') format('embedded-opentype'),
+    url('../fonts/DMSans-Medium.woff') format('woff'),
+    url('../fonts/DMSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

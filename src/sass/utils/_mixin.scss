@@ -1,0 +1,59 @@
+// Міксин для анімації transitions or opasity
+@mixin animated($property...) {
+  transition-property: $property;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+// Для використання - в дужках прописуэмо властивысть яку анімуємо, якщо потрібно - то вписуємо декілька властивостей через кому. ПРИКЛАД:
+// a {
+//   @include animated(color, opasity);
+// }
+
+// For media rules - set min-width OR max-width for breakpoints
+$breakpoints: (
+  'phone': 375px,
+  'tablet': 768px,
+  'desktop': 1280px,
+);
+@mixin media($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: calc($width - 0.02px);
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// For media rules - set the range between breakpoints
+@mixin min-max($min-width, $max-width) {
+  @if map_has_key($breakpoints, $min-width) {
+    $min-width: map_get($breakpoints, $min-width);
+
+    @if map_has_key($breakpoints, $max-width) {
+      $max-width: calc(map_get($breakpoints, $max-width) - 0.02px);
+    }
+
+    @media only screen and (min-width: $min-width) and (max-width: $max-width) {
+      @content;
+    }
+  }
+}
+
+// Для використання медіа з правилом MIN-WIDTH - вписуємо лише назву брекпоінта в круглі дужки. ПРИКЛАД:
+// @include media('desktop') {
+//   width: 1600px;
+// }
+
+// Для використання медіа з правилом MAX-WIDTH - вписуємо назву брекпоінта в круглі дужки і через кому додаємо слово "max". ПРИКЛАД:
+// @include media('tablet', max) {
+//     text-align: center;
+//   }
+
+// Для використання в діапазоні, через кому прописуємо брекпоінти між якими потрібно щоб спрацювало правило.
+// ! ЗВЕРТАЮ УВАГУ - назва міксина для діапазона інша!!! ПРИКЛАД ВИКЛИКУ:
+// @include min-max('tablet', 'desktop') {
+//     width: 768px;
+// }

@@ -1,2 +1,71 @@
-@import './common';
-@import './example';
+// normalize
+// ==============================
+@import './base/normalize';
+// ==============================
+
+// Base reset
+// ==============================
+@import './base/reset';
+// ==============================
+
+// utilits SASS
+// ==============================
+@import './utils/variables';
+@import './utils/mixin';
+// ==============================
+
+// Fonts
+// ==============================
+@import './base/fonts';
+// ==============================
+
+// Basics styles
+// ==============================
+@import './base/base';
+// ==============================
+
+// Sections
+// ==============================
+
+// Header
+// Юрій Дегтяренко
+@import './components/header';
+// ==============================
+// Home
+// Миленушкина Екатерина
+@import './components/home';
+// ==============================
+// Category
+// Потапова Олена
+@import './components/category';
+// ==============================
+//  Support-Ukraine
+// Ольга Криушичева
+@import './components/support-ukraine';
+// ==============================
+// Shopping-list
+// Микола Тарабукін
+@import './components/shopping-list';
+// ==============================
+// Burger-menu
+// Юлія Футуймас
+@import './components/burger-menu';
+// ==============================
+
+// ==============================
+// Modal windows
+// ==============================
+// Authorisation-modal
+// Ігор Радченко
+@import './components/authorization-modal';
+// ==============================
+// Pop-up Modal
+// Грабський Дмитро
+@import './components/pop-up';
+
+// ==============================
+// Scroll to up
+// Вівчарюк Ярослав
+@import './components/scroll-up';
+@import './utils/button';
+// ==============================

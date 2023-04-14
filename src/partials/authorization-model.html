@@ -1,0 +1,69 @@
+<div class="backdrop--form is-hidden">
+  <div class="form__wrap">
+    <button class="form__icon btn-close" type="button" aria-label="close">
+      <svg class="form__icon form__icon--close">
+        <use href="./images/sprite.svg#close"></use>
+      </svg>
+    </button>
+
+    <form role="group" class="form form--signup">
+      <label class="form__label">
+        <span class="form__field-name">name</span>
+        <input class="form__field-text" type="text" name="name" required />
+      </label>
+
+      <label class="form__label">
+        <span class="form__field-name">eMAIL</span>
+        <input class="form__field-text" type="email" name="mail" required />
+        <svg class="form__icon">
+          <use href="./images/sprite.svg#mail"></use>
+        </svg>
+      </label>
+
+      <label class="form__label">
+        <span class="form__field-name">pASSWORD</span>
+        <input
+          type="password"
+          class="form__field-text"
+          name="password"
+          required
+        />
+        <svg class="form__icon">
+          <use href="./images/sprite.svg#lock"></use>
+        </svg>
+      </label>
+
+      <button class="form__btn" type="submit">Sign up</button>
+    </form>
+
+    <form role="group" class="form form--signin">
+      <label class="form__label">
+        <span class="form__field-name">eMAIL</span>
+        <input class="form__field-text" type="email" name="mail" required />
+        <svg class="form__icon">
+          <use href="./images/sprite.svg#mail"></use>
+        </svg>
+      </label>
+
+      <label class="form__label">
+        <span class="form__field-name">pASSWORD</span>
+        <input
+          type="password"
+          class="form__field-text"
+          name="password"
+          required
+        />
+        <svg class="form__icon">
+          <use href="./images/sprite.svg#lock"></use>
+        </svg>
+      </label>
+
+      <button class="form__btn" type="submit">Sign in</button>
+    </form>
+
+    <div class="sign-wrap">
+      <button class="sign-page is-active" type="button">sign up</button>
+      <button class="sign-page" type="button">sIGN In</button>
+    </div>
+  </div>
+</div>

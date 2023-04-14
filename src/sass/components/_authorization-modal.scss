@@ -1,0 +1,174 @@
+.backdrop--form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  background: getColor('link-focus');
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+.form__wrap {
+  position: relative;
+  width: 89.33%;
+  padding: 40px 20px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(18 / 16);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-align: center;
+
+  background-color: getColor('background-color');
+  border: 2px solid getColor('primary-text');
+  border-radius: 18px;
+
+  @include media('tablet') {
+    padding: 80px 40px 40px;
+    max-width: 579px;
+
+    font-size: 18px;
+    line-height: calc(24 / 18);
+  }
+}
+
+.btn-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  transition-property: color, transform;
+  transition-duration: 500ms;
+
+  &:hover,
+  &:focus {
+    color: getColor('link-focus');
+    transform: rotate(360deg);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form__label {
+  position: relative;
+
+  cursor: pointer;
+}
+
+.form__field-name {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+
+  @include media('tablet') {
+    top: 20px;
+    left: 40px;
+  }
+}
+
+.form__field-text,
+.form__btn {
+  width: 100%;
+  height: 50px;
+  padding-right: 42px;
+  padding-left: 24px;
+
+  border: 2px solid getColor('primary-text');
+  border-radius: 40px;
+
+  @include media('tablet') {
+    height: 64px;
+    padding-right: 60px;
+    padding-left: 40px;
+  }
+}
+
+.form__icon {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+
+  width: 18px;
+  height: 18px;
+
+  fill-opacity: 0;
+  display: flex;
+  margin: auto;
+  stroke-width: 0;
+  stroke: currentColor;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &--close {
+    position: static;
+  }
+
+  @include media('tablet') {
+    top: 18px;
+    right: 32px;
+
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.form__btn,
+.sign-page {
+  font: inherit;
+  line-height: calc(18 / 16);
+  letter-spacing: -0.01em;
+
+  text-transform: uppercase;
+}
+
+.form__btn {
+  padding-right: 24px;
+
+  color: getColor('dark-btn');
+  background-color: getColor('primary-text');
+}
+
+.sign-wrap {
+  margin-top: 14px;
+
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  @include media('tablet') {
+    margin-top: 20px;
+  }
+}
+
+.sign-page {
+  color: getColor('primary-text');
+  opacity: 0.5;
+
+  &.is-active {
+    color: getColor('hover');
+    text-decoration-line: underline;
+    opacity: 1;
+  }
+}
+
+.form--signin {
+  display: none;
+}

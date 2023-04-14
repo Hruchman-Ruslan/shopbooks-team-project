@@ -1,0 +1,22 @@
+// Use of colors in the project
+$colors: (
+  // Colors for text
+  'primary-text': #111111,
+
+  //Colors for link
+  'link-default': #ffffff,
+  'link-focus': #4f2ee8,
+  'hover': #4f2ee8,
+  //Colors dark or light there
+  'background-color': #f6f6f6,
+
+  // Colors for btn-form
+  'dark-btn': #f3f3f3,
+  'light-btn': #202024
+);
+@function getColor($key) {
+  @return map-get($colors, $key);
+}
+
+// Для використання - пишемо властивість, замість значення викликаємо функцію getColor('тут назва необхідного кольору з карти'). ПРИКЛАД:
+// color: getColor('primary-text');

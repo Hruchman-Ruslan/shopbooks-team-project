@@ -1,0 +1,50 @@
+body {
+  font-family: 'DMSans-Bold', sans-serif;
+  font-size: 14px;
+  line-height: calc(18 / 16);
+
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+// Container
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  max-width: 480px;
+
+  @include media('tablet') {
+    padding-right: 32px;
+    padding-left: 32px;
+    max-width: 768px;
+  }
+
+  @include media('desktop') {
+    padding-right: 24px;
+    padding-left: 24px;
+    max-width: 1280px;
+  }
+}
+
+// Generic class for hidden blocks
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+// класс для скроллу модалок

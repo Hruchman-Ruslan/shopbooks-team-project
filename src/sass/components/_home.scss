@@ -1,0 +1,133 @@
+.home {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.gallery {
+    display: block;
+    margin-left: 40px;
+    max-width: 996px;
+
+    &__title {
+        font-size: 48px;
+        line-height: 108%;
+        letter-spacing: -0.04em;
+        margin-bottom: 40px;
+        
+    
+        &--span {
+            color: getColor('link-focus');
+        }
+    }
+
+    &__btn{
+        min-width: 124px;
+        min-height: 46px;
+        padding: 14px 28px;
+        align-items: center;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 129%;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        display: flex;
+        float: right;
+        
+    
+        border: 2px solid #4F2EE8;
+    border-radius: 40px;
+    
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    
+    }
+
+    &__link{
+        display: block;
+        font-family: 'DMSans-Regular';
+        font-weight: 400;
+        font-size: inherit;
+        line-height: 171%;
+        letter-spacing: 0.03em;
+        color: #B4AFAF;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+}
+
+
+.card-container {
+display: flex;
+gap: 24px;
+margin-bottom: 32px;
+
+&__item{
+    flex-basis: calc((100% - 2*30px)/5);
+}
+
+&__link {
+    display: block;
+    border-radius: 8px;
+
+    &:hover .overlay,
+    &:focus .overlay {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+  } 
+&__thumb {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    width: 180px;
+    }
+
+}
+
+
+.desk__subtitle{
+    margin-bottom: 4px;
+    font-size: 16px;
+    line-height: calc(18/16);
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+
+}
+
+.desk__text {
+    font-family: 'DMSans-Italic';
+    font-size: 12px;
+    line-height: calc(14/12);
+    letter-spacing: -0.04em;
+    color: #B4AFAF;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 27%;
+    background-color: rgba(234, 198, 67, 0.75);
+    border-radius: 0px 0px 8px 8px;
+    opacity: 0;
+   
+    transform: translateY(100%);
+    transition: transform cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &__text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-transform: uppercase;
+   
+
+
+    }  
+}
