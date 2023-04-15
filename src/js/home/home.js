@@ -4,15 +4,16 @@ import { Notify } from 'notiflix';
 
 const refs = {
     container: document.querySelector('.gallery__list'),
-
 }
 
 const newsApiBooksService =  new NewsApiBooksService();
-console.log(newsApiBooksService);
 
 newsApiBooksService.GetTopBooks()
 .then(renderBestSellersBooks)
 .catch(onError);
+
+const seeMore = document.querySelector('.gallery__list');
+seeMore.addEventListener('click', onClick)
 
 
 function renderBestSellersBooks(data){
@@ -51,10 +52,6 @@ function renderBestSellersBooks(data){
 function onError(){
     Notify.failure('an error occurred, please try again later');
 }   
-
-const seeMore = document.querySelector('.gallery__list');
-console.log(seeMore);
-seeMore.addEventListener('click', onClick)
 
 function onClick(e){
 
