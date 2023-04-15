@@ -1,13 +1,14 @@
+
 const btnEl = document.querySelector('#open');
-console.log(btnEl);
+
 const bodyEl = document.querySelector('.menu');
-console.log(bodyEl);
+
 const btnCloseEl = document.querySelector('#close');
-console.log(btnCloseEl);
+
 const body = document.body;
-console.log(body);
+
 const btnLogEl = document.querySelector('.menu__authenticator-button');
-console.log(btnLogEl);
+
 
 
 btnEl.addEventListener('click', toggleMenu);
@@ -23,7 +24,7 @@ function toggleMenu() {
 };
 
 document.addEventListener('keydown', ({ code }) => {
-    console.log(code);
+    
     if (code === 'Escape') {
         bodyEl.classList.remove('active');
         btnEl.classList.remove('visible');
@@ -33,10 +34,11 @@ document.addEventListener('keydown', ({ code }) => {
     }
 })
 
-// btnLogEl.addEventListener('click', handleFormAvtorisation);
-// const formEl = document.querySelector('.backdrop--form');
-// console.log(formEl);
+btnLogEl.addEventListener('click', handleFormAvtorisation);
+const formEl = document.querySelector('.backdrop--form');
 
-// function handleFormAvtorisation() {
-//     formEl.classList.remove('is-hidden');
-// }
+
+function handleFormAvtorisation() {
+    formEl.classList.remove('is-hidden');
+
+}
