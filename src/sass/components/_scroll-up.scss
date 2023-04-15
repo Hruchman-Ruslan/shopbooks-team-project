@@ -1,0 +1,31 @@
+.btn__up {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 99;
+  width: 54px;
+  height: 54px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-color: transparent;
+  border-radius: 50%;
+  background-color: #4f2ee8;
+  transition: 0.4s linear;
+  opacity: 1;
+}
+
+.btn__uphide {
+  display: none;
+}
+
+.btn__uphiding {
+  opacity: 0;
+}
+
+.btn__upicon {
+  fill: #ffffff;
+}

@@ -1,0 +1,36 @@
+.button {
+  box-sizing: border-box;
+
+  display: inline-block;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 149.5px;
+  gap: 10px;
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+
+  color: #111111;
+  background-color: inherit;
+
+  position: absolute;
+  min-width: 499px;
+  left: 40px;
+  top: 421px;
+
+  border: 2px solid #4f2ee8;
+  border-radius: 40px;
+
+  &:hover,
+  &:focus {
+    color: #ffffff;
+    background-color: #4f2ee8;
+  }
+}

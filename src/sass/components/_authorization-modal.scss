@@ -22,7 +22,7 @@
 .form__wrap {
   position: relative;
   width: 89.33%;
-  padding: 40px 20px;
+  padding: 30px 20px;
 
   font-weight: 700;
   font-size: 16px;
@@ -36,7 +36,7 @@
   border-radius: 18px;
 
   @include media('tablet') {
-    padding: 80px 40px 40px;
+    padding: 70px 40px 40px;
     max-width: 579px;
 
     font-size: 18px;
@@ -57,10 +57,30 @@
   }
 }
 
+.form__inner {
+  position: relative;
+  overflow: hidden;
+}
+
 .form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  transform: translateY(100%);
+
+  @include animated(transform);
+
+  &[data-sign='active'] {
+    position: relative;
+    transform: translateY(0);
+  }
 }
 
 .form__label {
@@ -177,13 +197,11 @@
   color: getColor('primary-text');
   opacity: 0.5;
 
-  &.is-active {
+  @include animated(color, opacity);
+
+  &[data-sign='active'] {
     color: getColor('hover');
     text-decoration-line: underline;
     opacity: 1;
   }
-}
-
-.form--signin {
-  display: none;
 }
