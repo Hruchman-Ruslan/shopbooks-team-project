@@ -1,0 +1,148 @@
+@media screen and (min-width:768px) {
+    .menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width:767px) {
+    body.noscroll {
+        overflow: hidden;
+    }
+
+    .menu {
+        display: block;
+        position: fixed;
+        top: 64px;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        z-index: 100;
+        background: linear-gradient(rgb(79, 46, 232) 0%, rgb(220, 220, 220) 100%);
+        overflow: auto;
+        transition: 250ms;
+    }
+
+    .menu.active {
+        left: 0;
+
+    }
+
+
+    .menu__list {
+
+        padding-top: 183px;
+        margin-bottom: 427px;
+        text-align: center;
+    }
+
+
+    .menu__item:not(:last-child) {
+        margin-bottom: 16px;
+        padding-right: 75px;
+    }
+
+
+    .menu__link {
+    
+        align-items: center;
+        justify-content: center;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: calc(18 / 14);
+        letter-spacing: -0.04em;
+        color: #111111;
+
+        width: 156px;
+        height: 34px;
+        border-radius: 36px;
+          
+        text-transform: uppercase;
+        color: #fff;
+
+    }
+
+    .current {
+        margin-left: 30px;
+        padding: 8px 16px;
+        background: #EAC645;
+        border-radius: 36px;
+        color: #111111;
+
+    }
+
+    .menu__link__icon {
+        margin-left: 4px;
+        fill: #fff;
+    }
+
+    .menu__authenticator-button {
+        position: relative;
+        left: -20px;
+        align-items: center;
+        min-width: 118px;
+        min-height: 48px;
+        background-color: #fff;
+        border: 1.5px solid #111111;
+        border-radius: 18px;
+        margin-left: 20px;
+
+        z-index: 80;
+    }
+
+    .menu__authenticator-button-text {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: calc(18 / 14);
+        letter-spacing: -0.04em;
+        color: #111111;
+        margin-left: 14px;
+        margin-right: auto;
+
+    }
+
+
+    .menu__img {
+        position: absolute;
+        top: 400px;
+        left: 0px;
+        width: 100%;
+
+        z-index: 2;
+    }
+
+    .header__burger-menu-button {
+        width: 28px;
+        height: 28px;
+        margin-left: 14px;
+        display: block;
+
+        @include media('tablet') {
+            display: none;
+        }
+
+    }
+
+    .close {
+
+        position: relative;
+        right: 28px;
+        // opacity: 0;
+        margin-left: 0;
+        transition: opacity 250ms;
+        z-index: 200;
+    }
+
+
+    .opacity {
+        opacity: 1;
+    }
+
+    .visible {
+        opacity: 0;
+    }
+
+}
