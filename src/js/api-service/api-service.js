@@ -27,9 +27,3 @@ export default class NewsApiBooksService {
     return data;
   }
 }
-
-const test = new NewsApiBooksService();
-console.log(test.GetCategoryList());
-// console.log(test.GetBooksByCategory('Series Books'));
-// console.log(test.GetBooksById('643282b1e85766588626a083'));
-// console.log(test.GetTopBooks());
