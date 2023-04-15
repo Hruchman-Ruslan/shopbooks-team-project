@@ -1,4 +1,4 @@
-import NewsApiBooksService from './api-service/api-service';
+import NewsApiBooksService from '../api-service/api-service';
 import { Notify } from 'notiflix';
 // import bestSellersCardTpl from '../templates/bestSellersCard.hbs'
 
