@@ -6,28 +6,43 @@
       </svg>
     </button>
 
-    <form role="group" class="form form--signup">
+    <form name="sign-up" class="form form--signup">
       <label class="form__label">
+        <input
+          class="form__field-text"
+          type="text"
+          name="name"
+          placeholder=" "
+          minlength="3"
+          required
+        />
         <span class="form__field-name">name</span>
-        <input class="form__field-text" type="text" name="name" required />
       </label>
 
       <label class="form__label">
+        <input
+          class="form__field-text"
+          type="email"
+          name="mail"
+          placeholder=" "
+          required
+        />
         <span class="form__field-name">eMAIL</span>
-        <input class="form__field-text" type="email" name="mail" required />
         <svg class="form__icon">
           <use href="./images/sprite.svg#mail"></use>
         </svg>
       </label>
 
       <label class="form__label">
-        <span class="form__field-name">pASSWORD</span>
         <input
           type="password"
           class="form__field-text"
           name="password"
+          placeholder=" "
+          minlength="6"
           required
         />
+        <span class="form__field-name">pASSWORD</span>
         <svg class="form__icon">
           <use href="./images/sprite.svg#lock"></use>
         </svg>
@@ -36,23 +51,31 @@
       <button class="form__btn" type="submit">Sign up</button>
     </form>
 
-    <form role="group" class="form form--signin">
+    <form name="sign-in" class="form form--signin">
       <label class="form__label">
+        <input
+          class="form__field-text"
+          type="email"
+          name="mail"
+          placeholder=" "
+          required
+        />
         <span class="form__field-name">eMAIL</span>
-        <input class="form__field-text" type="email" name="mail" required />
         <svg class="form__icon">
           <use href="./images/sprite.svg#mail"></use>
         </svg>
       </label>
 
       <label class="form__label">
-        <span class="form__field-name">pASSWORD</span>
         <input
           type="password"
           class="form__field-text"
           name="password"
+          placeholder=" "
+          minlength="6"
           required
         />
+        <span class="form__field-name">pASSWORD</span>
         <svg class="form__icon">
           <use href="./images/sprite.svg#lock"></use>
         </svg>

@@ -49,13 +49,11 @@
   top: 14px;
   right: 14px;
 
-  transition-property: color, transform;
-  transition-duration: 500ms;
+  @include animated(color);
 
   &:hover,
   &:focus {
     color: getColor('link-focus');
-    transform: rotate(360deg);
   }
 }
 
@@ -74,7 +72,10 @@
 .form__field-name {
   position: absolute;
   top: 16px;
-  left: 24px;
+  left: 22px;
+  padding: 0 2px;
+
+  @include animated(color, transform);
 
   @include media('tablet') {
     top: 20px;
@@ -98,6 +99,18 @@
     padding-left: 40px;
   }
 }
+.form__field-text:not(:placeholder-shown),
+.form__field-text:focus {
+  & + .form__field-name {
+    color: getColor('hover');
+    transform: translateY(-135%);
+
+    background-color: getColor('background-color');
+  }
+  & ~ .form__icon {
+    color: getColor('hover');
+  }
+}
 
 .form__icon {
   position: absolute;
@@ -116,6 +129,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include animated(color);
 
   &--close {
     position: static;
