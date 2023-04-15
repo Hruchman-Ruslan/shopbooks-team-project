@@ -1,0 +1,190 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(17, 17, 17, 0.4);
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  opacity: 0;
+  margin: 0px;
+  position: absolute;
+}
+
+.modal_item {
+  height: 36px;
+  width: 38px;
+  background-color: #4f2ee8;
+}
+.modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  width: 335px;
+  border-radius: 18px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #111111;
+  background-color: #ffffff;
+
+  @media (min-width: 768px) {
+    width: 579px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+.modal_top_section {
+  @media (min-width: 768px) {
+    display: flex;
+    height: 281px;
+    margin-bottom: 40px;
+  }
+}
+.modal_info_section {
+  @media (min-width: 768px) {
+    margin-left: 24px;
+    width: 297px;
+  }
+}
+
+.modal_cover {
+  background-color: #111010;
+  width: 287px;
+  height: 408px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  @media (min-width: 768px) {
+    height: 281px;
+    width: 192px;
+  }
+}
+.modal_book_name {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  margin-bottom: 4px;
+
+  color: #111111;
+  @media (min-width: 768px) {
+    margin-bottom: 8px;
+
+    font-size: 24px;
+    line-height: 1.17;
+  }
+}
+
+.modal_autor {
+  margin-bottom: 18px;
+
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+
+  letter-spacing: -0.04em;
+
+  color: #b4afaf;
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    line-height: 1.29;
+  }
+}
+.modal_discription {
+  margin-bottom: 14px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+
+  letter-spacing: -0.04em;
+  color: #111111;
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+    margin-right: 4px;
+  }
+}
+.modal_shops {
+  height: 36px;
+  display: flex;
+  margin-bottom: 40px;
+}
+.modal_item:last-child {
+  margin-right: 0px;
+}
+.modal_item {
+  margin-right: 20px;
+}
+
+.modal_bottom_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal_button {
+  padding: 14px 23px;
+  border: 2px solid #4f2ee8;
+  border-radius: 40px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+
+  color: #111111;
+
+  @media (min-width: 768px) {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.33;
+
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.modal_info_text {
+  margin-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
+  width: 242px;
+
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: rgba(17, 17, 17, 0.5);
+  @media (min-width: 768px) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 324px;
+    font-size: 12px;
+    line-height: 1.17;
+  }
+}
+.modal_info_text.is-hidden {
+  opacity: 0;
+  margin-top: 0px;
+  position: absolute;
+}
