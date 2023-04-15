@@ -1,4 +1,4 @@
-<div class="backdrop--form is-hidden">
+<div class="backdrop--form">
   <div class="form__wrap">
     <button class="form__icon btn-close" type="button" aria-label="close">
       <svg class="form__icon form__icon--close">
@@ -6,87 +6,98 @@
       </svg>
     </button>
 
-    <form name="sign-up" class="form form--signup">
-      <label class="form__label">
-        <input
-          class="form__field-text"
-          type="text"
-          name="name"
-          placeholder=" "
-          minlength="3"
-          required
-        />
-        <span class="form__field-name">name</span>
-      </label>
+    <div class="form__inner">
+      <form name="sign-up" class="form" data-sign="active">
+        <label class="form__label">
+          <input
+            class="form__field-text"
+            type="text"
+            name="name"
+            placeholder=" "
+            minlength="3"
+            required
+          />
+          <span class="form__field-name">name</span>
+        </label>
 
-      <label class="form__label">
-        <input
-          class="form__field-text"
-          type="email"
-          name="mail"
-          placeholder=" "
-          required
-        />
-        <span class="form__field-name">eMAIL</span>
-        <svg class="form__icon">
-          <use href="./images/sprite.svg#mail"></use>
-        </svg>
-      </label>
+        <label class="form__label">
+          <input
+            class="form__field-text"
+            type="email"
+            name="mail"
+            placeholder=" "
+            required
+          />
+          <span class="form__field-name">eMAIL</span>
+          <svg class="form__icon">
+            <use href="./images/sprite.svg#mail"></use>
+          </svg>
+        </label>
 
-      <label class="form__label">
-        <input
-          type="password"
-          class="form__field-text"
-          name="password"
-          placeholder=" "
-          minlength="6"
-          required
-        />
-        <span class="form__field-name">pASSWORD</span>
-        <svg class="form__icon">
-          <use href="./images/sprite.svg#lock"></use>
-        </svg>
-      </label>
+        <label class="form__label">
+          <input
+            type="password"
+            class="form__field-text"
+            name="password"
+            placeholder=" "
+            minlength="6"
+            required
+          />
+          <span class="form__field-name">pASSWORD</span>
+          <svg class="form__icon">
+            <use href="./images/sprite.svg#lock"></use>
+          </svg>
+        </label>
 
-      <button class="form__btn" type="submit">Sign up</button>
-    </form>
+        <button class="form__btn" type="submit">Sign up</button>
+      </form>
 
-    <form name="sign-in" class="form form--signin">
-      <label class="form__label">
-        <input
-          class="form__field-text"
-          type="email"
-          name="mail"
-          placeholder=" "
-          required
-        />
-        <span class="form__field-name">eMAIL</span>
-        <svg class="form__icon">
-          <use href="./images/sprite.svg#mail"></use>
-        </svg>
-      </label>
+      <form name="sign-in" class="form">
+        <label class="form__label">
+          <input
+            class="form__field-text"
+            type="email"
+            name="mail"
+            placeholder=" "
+            required
+          />
+          <span class="form__field-name">eMAIL</span>
+          <svg class="form__icon">
+            <use href="./images/sprite.svg#mail"></use>
+          </svg>
+        </label>
 
-      <label class="form__label">
-        <input
-          type="password"
-          class="form__field-text"
-          name="password"
-          placeholder=" "
-          minlength="6"
-          required
-        />
-        <span class="form__field-name">pASSWORD</span>
-        <svg class="form__icon">
-          <use href="./images/sprite.svg#lock"></use>
-        </svg>
-      </label>
+        <label class="form__label">
+          <input
+            type="password"
+            class="form__field-text"
+            name="password"
+            placeholder=" "
+            minlength="6"
+            required
+          />
+          <span class="form__field-name">pASSWORD</span>
+          <svg class="form__icon">
+            <use href="./images/sprite.svg#lock"></use>
+          </svg>
+        </label>
 
-      <button class="form__btn" type="submit">Sign in</button>
-    </form>
+        <button class="form__btn" type="submit">Sign in</button>
+      </form>
+    </div>
 
     <div class="sign-wrap">
-      <button class="sign-page is-active" type="button">sign up</button>
-      <button class="sign-page" type="button">sIGN In</button>
+      <button
+        class="sign-page"
+        type="button"
+        data-sign="active"
+        data-form="sign-up"
+      >
+        sign up
+      </button>
+      <button class="sign-page" type="button" data-sign="" data-form="sign-in">
+        sIGN In
+      </button>
     </div>
   </div>
 </div>
