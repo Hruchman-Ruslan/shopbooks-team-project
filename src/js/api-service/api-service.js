@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-class NewsApiBooksService {
+export default class NewsApiBooksService {
   BASE_URL = 'https://books-backend.p.goit.global/books';
 
   constructor() {}
