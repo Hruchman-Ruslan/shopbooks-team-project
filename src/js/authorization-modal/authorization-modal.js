@@ -1,4 +1,5 @@
-import { btnsGroupForChangeForm, formsForRegistration } from './refsForm';
-import { onBtnReplaceForm } from './changeForm';
+import { btnsGroupForChangeForm } from './refsForm';
+import { onBtnReplaceForm, closeModalForm } from './form';
 
 btnsGroupForChangeForm.addEventListener('click', onBtnReplaceForm);
+closeModalForm();
