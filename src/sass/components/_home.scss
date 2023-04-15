@@ -1,24 +1,36 @@
-.home {
-    padding-left: 24px;
-    padding-right: 24px;
-}
+
+
 
 .gallery {
     display: block;
-    margin-left: 40px;
     max-width: 996px;
 
+    @include media('desktop') {
+        margin-left: 40px;
+    }
+
+
     &__title {
-        font-size: 48px;
-        line-height: 108%;
+        font-size: 32px;
+        line-height: calc(38/32);
         letter-spacing: -0.04em;
         margin-bottom: 40px;
+
+        @include media('desktop') {
+            font-size: 48px;
+            line-height: 108%;
+        }
         
     
         &--span {
-            color: getColor('link-focus');
+        color: getColor('link-focus');
         }
     }
+
+    &__item {
+        margin-bottom: 40px;
+    }
+
 
     &__btn{
         min-width: 124px;
@@ -36,7 +48,7 @@
         
     
         border: 2px solid #4F2EE8;
-    border-radius: 40px;
+        border-radius: 40px;
     
     }
 
@@ -62,33 +74,75 @@
 
 .card-container {
 display: flex;
-gap: 24px;
 margin-bottom: 32px;
+flex-direction: column;
 
-&__item{
-    flex-basis: calc((100% - 2*30px)/5);
+
+@include media('tablet') {
+    flex-direction: row;
+    gap: 25px;
+    }
+
+    @include media('desktop'){
+    flex-direction: row;
+    gap: 24px;
+    }  
+    
+
+ &__item {
+
+    &:nth-child(1) {
+        display: block;
+    }
+    &:nth-child(n+2) {
+        display: none;
+    }
+
+    @include media('tablet') {
+
+        &:nth-child(-n+3) {
+           display: block;
+        }
+        &:nth-child(n+4) {
+            display: none;
+        }
+    }
+
+    @include media('desktop') {
+        &:nth-child(n) {
+            display: block;
+        }
+    }
 }
+
 
 &__link {
     display: block;
     border-radius: 8px;
+    text-align: left;
 
     &:hover .overlay,
     &:focus .overlay {
         opacity: 1;
         transform: translateY(0px);
     }
-  } 
+}
+
+&__image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
 &__thumb {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
     margin-bottom: 14px;
-    width: 180px;
+    // width: 180px;
     }
 
 }
-
 
 .desk__subtitle{
     margin-bottom: 4px;
@@ -96,6 +150,10 @@ margin-bottom: 32px;
     line-height: calc(18/16);
     letter-spacing: -0.04em;
     text-transform: uppercase;
+    // white-space: nowrap;
+    // overflow: hidden; 
+    // text-overflow: ellipsis;
+    // display: inline;
 
 }
 
@@ -118,7 +176,8 @@ margin-bottom: 32px;
     opacity: 0;
    
     transform: translateY(100%);
-    transition: transform cubic-bezier(0.075, 0.82, 0.165, 1);
+    // transition: transform cubic-bezier(0.075, 0.82, 0.165, 1);
+    @include animated(transform, opacity);
 
     &__text {
         position: absolute;
