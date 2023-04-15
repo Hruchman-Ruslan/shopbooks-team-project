@@ -1,29 +1,29 @@
 .header {
-  display: flex;
-  align-items: center;
   min-width: 375px;
   height: 64px;
-  border: 1.5px solid #111111;
+  border: 1.5px solid var(--primary-text);
   border-radius: 0px 0px 8px 8px;
+  background-color: var(--background-color);
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .book-svg {
   width: 53px;
   height: 17px;
   margin-left: 8px;
+  fill: var(--primary-text);
 }
 
 .header__logo__container {
   display: flex;
   align-items: center;
-  margin-left: 20px;
   margin-right: auto;
-  @include media('tablet') {
-    margin-left: 32px;
-  }
-  @include media('desktop') {
-    margin-left: 24px;
-  }
 }
 
 .header__logo {
@@ -60,7 +60,7 @@
 
   color: #111111;
   margin-right: 8px;
-  background: #eac645;
+  background: var(--background-header-btn);
   border-radius: 36px;
 }
 .navigation-links__shopping-list {
@@ -73,17 +73,40 @@
   font-size: 14px;
   line-height: calc(18 / 14);
   letter-spacing: -0.04em;
-  color: #111111;
+  color: var(--primary-text);
 
   width: 156px;
   height: 34px;
-  //   background: #eac645;
   border-radius: 36px;
 }
 .navigation-links__shopping-list-icon {
+  fill: var(--primary-text);
   margin-left: 4px;
 }
 
+// Для хедера shopping-list
+// .navigation-links__shopping-list {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 14px;
+//   line-height: calc(18 / 14);
+//   letter-spacing: -0.04em;
+//   color: var(--primary-text);
+
+//   width: 156px;
+//   height: 34px;
+//   background:var(--background-header-btn);
+//   border-radius: 36px;
+// }
+// .navigation-links__shopping-list-icon {
+//   margin-left: 4px;
+// }
+// Для хедера shopping-list
+// CheckBox
 #highload1 {
   display: none;
 }
@@ -157,15 +180,8 @@
 .header__checkBoxBurger {
   display: flex;
   align-items: center;
-  margin-right: 20px;
   min-width: 82px;
   min-height: 28px;
-  @include media('tablet') {
-    margin-right: 32px;
-  }
-  @include media('desktop') {
-    margin-right: 24px;
-  }
 }
 .header__burger-menu-button {
   width: 28px;
@@ -176,10 +192,12 @@
     display: none;
   }
 }
-
+.close {
+  display: none;
+}
 .header__burger-menu-icon {
   fill: currentColor;
-  stroke: black;
+  stroke: var(--primary-text);
   width: 28px;
   height: 28px;
 }
