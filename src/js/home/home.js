@@ -4,15 +4,16 @@ import { Notify } from 'notiflix';
 
 const refs = {
     container: document.querySelector('.gallery__list'),
-
 }
 
 const newsApiBooksService =  new NewsApiBooksService();
-console.log(newsApiBooksService);
 
 newsApiBooksService.GetTopBooks()
 .then(renderBestSellersBooks)
 .catch(onError);
+
+const seeMore = document.querySelector('.gallery__list');
+seeMore.addEventListener('click', onClick)
 
 
 function renderBestSellersBooks(data){
@@ -25,9 +26,9 @@ function renderBestSellersBooks(data){
     `<li class="gallery__item">
     <a class="gallery__link" href="#">${list_name}</a>
     <ul class="card-container">
-    ${books.map(({ book_image, title, author }) =>
+    ${books.map(({ book_image, title, author, _id }) =>
     `<li class="card-container__item">
-    <button type="button" class="card-container__link" href="#">
+    <button type="button"  data-id="${_id}" class="card-container__link">
         <div class="card-container__thumb">
         <img src="${book_image}" alt="book-image" loading="lazy" width="180px" height="256px" class="card-container__image" />
         <div class="overlay">
@@ -52,26 +53,21 @@ function onError(){
     Notify.failure('an error occurred, please try again later');
 }   
 
-const seeMore = document.querySelector('.gallery__list');
-console.log(seeMore);
-seeMore.addEventListener('click', onClick)
-
 function onClick(e){
 
     if (e.target.nodeName === "A") {
         const searchCategotyByLink = e.target.textContent;
-           console.log(searchCategotyByLink); 
         } else 
            
     
-    if (e.target.nodeName === "IMG") {
-        const searchCard = e.target.parentNode.nextElementSibling.firstElementChild.textContent;
-           console.log(searchCard); 
-           } else 
-
     if (e.target.nodeName === "BUTTON") {
-        const searchCategotyByBtn = e.target.previousElementSibling.previousElementSibling.textContent;
-        console.log(searchCategotyByBtn);   
+
+        if (e.target.classList.contains('card-container__link')) {
+            const searchCardById = e.target.dataset.id;
+            return;
+    } 
+     const searchCategotyByBtn = e.target.previousElementSibling.previousElementSibling.textContent;
+          
       }
         
 
