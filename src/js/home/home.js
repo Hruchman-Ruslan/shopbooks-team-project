@@ -3,31 +3,31 @@ import { Notify } from 'notiflix';
 // import bestSellersCardTpl from '../templates/bestSellersCard.hbs'
 
 const refs = {
-    container: document.querySelector('.gallery__list'),
-}
+  container: document.querySelector('.gallery__list'),
+};
 
-const newsApiBooksService =  new NewsApiBooksService();
+const newsApiBooksService = new NewsApiBooksService();
 
-newsApiBooksService.GetTopBooks()
-.then(renderBestSellersBooks)
-.catch(onError);
+newsApiBooksService.GetTopBooks().then(renderBestSellersBooks).catch(onError);
 
 const seeMore = document.querySelector('.gallery__list');
-seeMore.addEventListener('click', onClick)
+seeMore.addEventListener('click', onClick);
 
+function renderBestSellersBooks(data) {
+  if (data.length === 0) {
+    Notify.failure('Oops, there is no books according to your request');
+  }
 
-function renderBestSellersBooks(data){
-
-    if (data.length === 0){
-        Notify.failure('Oops, there is no books according to your request');
-    }
-
-    const markup = data.map(({list_name, books}) =>
-    `<li class="gallery__item">
+  const markup = data
+    .map(
+      ({ list_name, books }) =>
+        `<li class="gallery__item">
     <a class="gallery__link" href="#">${list_name}</a>
     <ul class="card-container">
-    ${books.map(({ book_image, title, author, _id }) =>
-    `<li class="card-container__item">
+    ${books
+      .map(
+        ({ book_image, title, author, _id }) =>
+          `<li class="card-container__item">
     <button type="button"  data-id="${_id}" class="card-container__link">
         <div class="card-container__thumb">
         <img src="${book_image}" alt="book-image" loading="lazy" width="180px" height="256px" class="card-container__image" />
@@ -41,34 +41,30 @@ function renderBestSellersBooks(data){
         </div>                  
     </button>
     </li>`
-).join('')}
+      )
+      .join('')}
 </ul>
 <button class="gallery__btn" type="button">see more</button>
-</li>`).join('');
+</li>`
+    )
+    .join('');
 
-    refs.container.innerHTML= markup;
-   }
+  refs.container.innerHTML = markup;
+}
 
-function onError(){
-    Notify.failure('an error occurred, please try again later');
-}   
+function onError() {
+  Notify.failure('an error occurred, please try again later');
+}
 
-function onClick(e){
-
-    if (e.target.nodeName === "A") {
-        const searchCategotyByLink = e.target.textContent;
-        } else 
-           
-    
-    if (e.target.nodeName === "BUTTON") {
-
-        if (e.target.classList.contains('card-container__link')) {
-            const searchCardById = e.target.dataset.id;
-            return;
-    } 
-     const searchCategotyByBtn = e.target.previousElementSibling.previousElementSibling.textContent;
-          
-      }
-        
-
+function onClick(e) {
+  if (e.target.nodeName === 'A') {
+    const searchCategotyByLink = e.target.textContent;
+  } else if (e.target.nodeName === 'BUTTON') {
+    if (e.target.classList.contains('card-container__link')) {
+      const searchCardById = e.target.dataset.id;
+      return;
+    }
+    const searchCategotyByBtn =
+      e.target.previousElementSibling.previousElementSibling.textContent;
+  }
 }
