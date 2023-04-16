@@ -11,14 +11,14 @@ import {
   formSignUp,
   formSignIn,
 } from './refsForm';
-import { createNewUser } from '../firebase/fetchFirebace';
+import { postFirebase, writeNameUser } from '../firebase/fetchFirebase';
 import { optionsNotiflix } from './libraryOptions';
 
 const app = initializeApp(firebaseConfig);
 
-const formData = {};
 const QUERY_PARAMETER_FOR_CREATE_USER = 'signUp';
 const QUERY_PARAMETER_FOR_SIGN_IN_USER = 'signInWithPassword';
+let formData = {};
 
 export const onBtnReplaceForm = e => {
   if (e.currentTarget === e.target) {
@@ -66,21 +66,27 @@ export const onFormSubmitSignUp = e => {
       '💩 DO NOT play with spaces, all fields must be filled (╬▔皿▔)╯',
       optionsNotiflix
     );
+    e.currentTarget.reset();
     return;
   }
 
-  createNewUser(formData)
+  postFirebase(formData, QUERY_PARAMETER_FOR_CREATE_USER)
+    .then(res => {
+      writeNameUser(res.idToken, formData.name);
+    })
     .then(res => {
       Notify.success(res, optionsNotiflix);
       changeElem(btnsGroupForChangeForm);
       changeElem(formsForRegistration);
+      formData = {};
     })
     .catch(error => {
       const message = JSON.parse(error.request.response);
-      console.log(message.error.message);
       Notify.failure(message.error.message, optionsNotiflix);
+    })
+    .finally(() => {
+      formData = {};
     });
-
   e.currentTarget.reset();
 };
 
@@ -101,6 +107,21 @@ export const onFormSubmitSignIn = e => {
     );
     return;
   }
+
+  postFirebase(formData, QUERY_PARAMETER_FOR_SIGN_IN_USER)
+    .then(res => {
+      console.log(res);
+      Notify.success(`CONGRATULATIONS, ${res.displayName}!`, optionsNotiflix);
+
+      setTimeout(onBtnClose, 2500);
+    })
+    .catch(error => {
+      const message = JSON.parse(error.request.response);
+      Notify.failure(message.error.message, optionsNotiflix);
+    })
+    .finally(() => {
+      formData = {};
+    });
 
   e.currentTarget.reset();
 };

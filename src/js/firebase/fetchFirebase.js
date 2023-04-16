@@ -5,8 +5,8 @@ import axios from 'axios';
 const app = initializeApp(firebaseConfig);
 
 // Реєстрація нового користувача
-export async function createNewUser(userData) {
-  const { mail, password, name } = userData;
+export async function postFirebase(userData, queryParameter) {
+  const { mail, password } = userData;
 
   const newUser = {
     email: mail,
@@ -14,11 +14,10 @@ export async function createNewUser(userData) {
     returnSecureToken: true,
   };
 
-  const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${app._options.apiKey}`;
+  const url = `https://identitytoolkit.googleapis.com/v1/accounts:${queryParameter}?key=${app._options.apiKey}`;
   const response = await axios.post(url, newUser);
 
-  await writeNameUser(response.data.idToken, name);
-  return 'Registration was successful, you can log in';
+  return response.data;
 }
 export async function writeNameUser(idToken, name) {
   const userName = {
@@ -29,7 +28,8 @@ export async function writeNameUser(idToken, name) {
 
   const url = `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${app._options.apiKey}`;
 
-  const response = await axios.post(url, userName);
+  await axios.post(url, userName);
+  return 'Registration was successful, you can log in';
 }
 
 // Зайти до профілю
