@@ -120,6 +120,7 @@
   background-color: inherit;
   border: 2px solid var(--border-form);
   border-radius: 40px;
+  outline: none;
 
   @include media('tablet') {
     height: 64px;
