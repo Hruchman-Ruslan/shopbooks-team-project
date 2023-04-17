@@ -9,15 +9,9 @@
           <use href="./images/sprite.svg#Book"></use>
         </svg>
       </a>
-      <div class="header__navigation-links js-hidden">
-        <a class="navigation-links__home" href="index.html" data-user="log-in"
-          >HOME</a
-        >
-        <a
-          class="navigation-links__shopping-list"
-          href="./shopping.html"
-          data-user="log-in"
-        >
+      <div class="header__navigation-links js-hidden" data-user="log-in">
+        <a class="navigation-links__home" href="index.html">HOME</a>
+        <a class="navigation-links__shopping-list" href="./shopping.html">
           SHOPPING LIST
           <svg
             class="navigation-links__shopping-list-icon"
@@ -70,7 +64,9 @@
           src="./images/noName.png"
           alt="user photo"
         />
-        <span class="header__authenticator-button-in-text">Stephen</span>
+        <span class="header__authenticator-button-in-text" data-user="name"
+          >User</span
+        >
         <svg class="header__authenticarot-button-in-svg" Width="13" height="7">
           <use href="./images/sprite.svg#button-arrow"></use>
         </svg>

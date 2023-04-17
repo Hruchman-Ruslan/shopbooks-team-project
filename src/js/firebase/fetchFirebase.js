@@ -31,5 +31,3 @@ export async function writeNameUser(idToken, name) {
   await axios.post(url, userName);
   return 'Registration was successful, you can log in';
 }
-
-// Зайти до профілю

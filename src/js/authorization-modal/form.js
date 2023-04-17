@@ -3,6 +3,7 @@ import firebaseConfig from '../firebase/firebaseConfig';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import {
+  USER_DATA_KEY_STORAGE,
   btnsGroupForChangeForm,
   formsForRegistration,
   bodyEl,
@@ -13,6 +14,7 @@ import {
 } from './refsForm';
 import { postFirebase, writeNameUser } from '../firebase/fetchFirebase';
 import { optionsNotiflix } from './libraryOptions';
+import { showNavigationToUser, writeUserName } from './interfaceForUser';
 
 const app = initializeApp(firebaseConfig);
 
@@ -110,12 +112,15 @@ export const onFormSubmitSignIn = e => {
 
   postFirebase(formData, QUERY_PARAMETER_FOR_SIGN_IN_USER)
     .then(res => {
-      console.log(res);
       Notify.success(`CONGRATULATIONS, ${res.displayName}!`, optionsNotiflix);
+      localStorage.setItem(USER_DATA_KEY_STORAGE, JSON.stringify(res));
+      showNavigationToUser(res);
+      writeUserName(res);
 
-      setTimeout(onBtnClose, 2500);
+      setTimeout(onBtnClose, 1500);
     })
     .catch(error => {
+      console.log(error);
       const message = JSON.parse(error.request.response);
       Notify.failure(message.error.message, optionsNotiflix);
     })
