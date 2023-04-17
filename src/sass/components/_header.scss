@@ -1,12 +1,11 @@
 .header {
-  min-width: 375px;
   height: 64px;
   border: 1.5px solid var(--primary-text);
   border-radius: 0px 0px 8px 8px;
   background-color: var(--background-color);
 }
 
-.header .container {
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
