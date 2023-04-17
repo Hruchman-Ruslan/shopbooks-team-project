@@ -8,7 +8,7 @@
   padding: 20px 149.5px;
   gap: 10px;
 
-  font-family: 'DM Sans';
+  font-family: 'DMSans-Bold';
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -17,7 +17,7 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
-  color: #111111;
+  color: var(--primary-text);
   background-color: inherit;
 
   position: absolute;
@@ -25,12 +25,12 @@
   left: 40px;
   top: 421px;
 
-  border: 2px solid #4f2ee8;
+  border: 2px solid var(--link-focus);
   border-radius: 40px;
 
   &:hover,
   &:focus {
-    color: #ffffff;
-    background-color: #4f2ee8;
+    color: var(--link-default);
+    background-color: var(--hover);
   }
 }
