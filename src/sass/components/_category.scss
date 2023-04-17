@@ -1,15 +1,18 @@
 .categories {
-  // display: flex;
-
-  &__container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 24px;
+  overflow: hidden;
+  height: 228px;
+  overflow-y: auto;
+  scroll-snap-type: mandatory;
+  margin-right: 0;
+  margin-left: 0;
 
   &__item {
-    display: flex;
+    scroll-snap-align: end;
   }
 
   &__item:not(:last-child) {
@@ -19,7 +22,7 @@
   &__btn {
     font-family: 'DMSans-Regular';
     font-size: 16px;
-    line-height: 18px;
+    line-height: calc(18 / 16);
 
     letter-spacing: -0.02em;
     color: rgba(17, 17, 17, 0.6);
