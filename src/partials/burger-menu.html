@@ -1,7 +1,11 @@
 <div class="menu container">
-<div class="menu__autorization js-hidden" data-user="log-in">
-    <img class="menu__autorization-photo" src="./images/noName.png" alt="user photo" />
-    <p class="menu__autorization-name">User</p>
+  <div class="menu__autorization js-hidden" data-user="log-in">
+    <img
+      class="menu__autorization-photo"
+      src="./images/noName.png"
+      alt="user photo"
+    />
+    <p class="menu__autorization-name" data-user="name">User</p>
   </div>
   <ul class="menu__list">
     <li class="menu__item">
@@ -30,14 +34,17 @@
     height="439"
   />
 
-  <button class="menu__authenticator-button js-is-hidden" data-user="log-out">
+  <button
+    class="menu__authenticator-button js-hidden js-log-out"
+    data-user="log-out"
+  >
     <span class="menu__authenticator-button-text">Sign up</span>
     <svg class="menu__authenticator-button-icon" Width="13" height="10">
       <use href="./images/sprite.svg#arrow"></use>
     </svg>
   </button>
   <button
-    class="menu__authenticator-button menu__authenticator-button-logOut js-hidden"
+    class="menu__authenticator-button js-hidden js-log-out"
     data-user="log-in"
   >
     <span class="menu__authenticator-button-text">Log out</span>

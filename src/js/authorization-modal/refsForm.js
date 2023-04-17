@@ -11,8 +11,6 @@ export const formSignIn = document.querySelector('.form[name="sign-in"]');
 export const reversEntrance = document.querySelectorAll('[data-user="log-in"]');
 export const reversExit = document.querySelectorAll('[data-user="log-out"]');
 export const userDisplayName = document.querySelectorAll('[data-user="name"]');
-export const btnsLogOut = document.querySelectorAll(
-  '.menu__authenticator-button'
-);
+export const btnsLogOut = document.querySelectorAll('.js-log-out');
 
 export const USER_DATA_KEY_STORAGE = 'user-data';
