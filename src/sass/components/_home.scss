@@ -1,11 +1,11 @@
 .gallery {
+    display: block;
+    // max-width: 996px;
+    // min-width: 89px;
 
-  display: block;
-  max-width: 996px;
-
-  @include media('desktop') {
-    margin-left: 40px;
-  }
+//   @include media('desktop') {
+//     margin-left: 40px;
+//   }
 
   &__title {
     font-size: 32px;
@@ -19,7 +19,7 @@
     }
 
     &--span {
-      color: getColor('link-focus');
+      color: var(--link-focus);
 
     }
   }
