@@ -2,39 +2,21 @@ export const foundationItems = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img1x: new URL(
-      '../../images/support-ukraine/image_3@1x.png',
-      import.meta.url
-    ),
-    img2x: new URL(
-      '../../images/support-ukraine/image_3@2x.png',
-      import.meta.url
-    ),
+    img1x: new URL('../../images/support-png/save_@1x.png', import.meta.url),
+    img2x: new URL('../../images/support-png/save_@2x.png', import.meta.url),
   },
   {
     title: 'Project HOPE',
     url: 'https://www.projecthope.org/country/ukraine/',
-    img1x: new URL(
-      '../../images/support-ukraine/image_3@1x.png',
-      import.meta.url
-    ),
-    img2x: new URL(
-      '../../images/support-ukraine/image_3@2x.png',
-      import.meta.url
-    ),
+    img1x: new URL('../../images/support-png/hope_@1x.png', import.meta.url),
+    img2x: new URL('../../images/support-png/hope_@2x.png', import.meta.url),
   },
 
   {
     title: 'UNITED24',
     url: 'https://u24.gov.ua/uk',
-    img1x: new URL(
-      '../../images/support-ukraine/image_3@1x.png',
-      import.meta.url
-    ),
-    img2x: new URL(
-      '../../images/support-ukraine/image_3@2x.png',
-      import.meta.url
-    ),
+    img1x: new URL('../../images/support-png/united_@1x.png', import.meta.url),
+    img2x: new URL('../../images/support-png/united_@2x.png', import.meta.url),
   },
   {
     title: 'International Medical Corps',
