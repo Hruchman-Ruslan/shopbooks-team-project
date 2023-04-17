@@ -9,6 +9,7 @@ function makeFoundationList({ img1x, img2x, title, url }, index) {
   return `<div class="support__ukraine-item swiper-slide">
             <div class="support__ukraine-number">${index}</div>
             <a
+              class "support__ukraine-link"
               href="${url}"
               target="_blank"
               rel="noopener noreferrer"
@@ -23,6 +24,7 @@ function makeFoundationList({ img1x, img2x, title, url }, index) {
                 />
 
                 <img
+                   class="support__ukraine-img" 
                    src="${img1x}"
                    alt="${title}"
                   height="32"

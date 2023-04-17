@@ -2,31 +2,43 @@ export const foundationItems = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img1x: new URL('../../images/support-png/save_@1x.png', import.meta.url),
-    img2x: new URL('../../images/support-png/save_@2x.png', import.meta.url),
+    img1x: new URL(
+      '../../images/support-ukraine/save-children@1x.png',
+      import.meta.url
+    ),
+    img2x: new URL(
+      '../../images/support-ukraine/save-children@2x.png',
+      import.meta.url
+    ),
   },
   {
     title: 'Project HOPE',
     url: 'https://www.projecthope.org/country/ukraine/',
-    img1x: new URL('../../images/support-png/hope_@1x.png', import.meta.url),
-    img2x: new URL('../../images/support-png/hope_@2x.png', import.meta.url),
+    img1x: new URL('../../images/support-ukraine/hope@1x.png', import.meta.url),
+    img2x: new URL('../../images/support-ukraine/hope@2x.png', import.meta.url),
   },
 
   {
     title: 'UNITED24',
     url: 'https://u24.gov.ua/uk',
-    img1x: new URL('../../images/support-png/united_@1x.png', import.meta.url),
-    img2x: new URL('../../images/support-png/united_@2x.png', import.meta.url),
+    img1x: new URL(
+      '../../images/support-ukraine/united24@1x.png',
+      import.meta.url
+    ),
+    img2x: new URL(
+      '../../images/support-ukraine/united24@2x.png',
+      import.meta.url
+    ),
   },
   {
     title: 'International Medical Corps',
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
     img1x: new URL(
-      '../../images/support-ukraine/image_3@1x.png',
+      '../../images/support-ukraine/international-med@1x.png',
       import.meta.url
     ),
     img2x: new URL(
-      '../../images/support-ukraine/image_3@2x.png',
+      '../../images/support-ukraine/international-med@2x.png',
       import.meta.url
     ),
   },
@@ -34,11 +46,11 @@ export const foundationItems = [
     title: 'Medicins Sans Frontieres',
     url: 'https://www.msf.org/ukraine',
     img1x: new URL(
-      '../../images/support-ukraine/image_3@1x.png',
+      '../../images/support-ukraine/med-sans@1x.png',
       import.meta.url
     ),
     img2x: new URL(
-      '../../images/support-ukraine/image_3@2x.png',
+      '../../images/support-ukraine/med-sans@2x.png',
       import.meta.url
     ),
   },
@@ -46,11 +58,11 @@ export const foundationItems = [
     title: 'RAZOM',
     url: 'https://www.razomforukraine.org/',
     img1x: new URL(
-      '../../images/support-ukraine/image_3@1x.png',
+      '../../images/support-ukraine/razom@1x.png',
       import.meta.url
     ),
     img2x: new URL(
-      '../../images/support-ukraine/image_3@2x.png',
+      '../../images/support-ukraine/razom@2x.png',
       import.meta.url
     ),
   },
@@ -58,11 +70,11 @@ export const foundationItems = [
     title: 'Action against hunger',
     url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
     img1x: new URL(
-      '../../images/support-ukraine/image_3@1x.png',
+      '../../images/support-ukraine/action-against@1x.png',
       import.meta.url
     ),
     img2x: new URL(
-      '../../images/support-ukraine/image_3@2x.png',
+      '../../images/support-ukraine/action-against@2x.png',
       import.meta.url
     ),
   },
@@ -70,11 +82,11 @@ export const foundationItems = [
     title: 'World vision',
     url: 'https://www.wvi.org/emergencies/ukraine',
     img1x: new URL(
-      '../../images/support-ukraine/image_3@1x.png',
+      '../../images/support-ukraine/world-vision@1x.png',
       import.meta.url
     ),
     img2x: new URL(
-      '../../images/support-ukraine/image_3@2x.png',
+      '../../images/support-ukraine/world-vision@2x.png',
       import.meta.url
     ),
   },
@@ -82,11 +94,11 @@ export const foundationItems = [
     title: 'Serhiy Prytula Charity Foundation',
     url: 'https://prytulafoundation.org/en',
     img1x: new URL(
-      '../../images/support-ukraine/image_3@1x.png',
+      '../../images/support-ukraine/prytula@1x.png',
       import.meta.url
     ),
     img2x: new URL(
-      '../../images/support-ukraine/image_3@2x.png',
+      '../../images/support-ukraine/prytula@2x.png',
       import.meta.url
     ),
   },
