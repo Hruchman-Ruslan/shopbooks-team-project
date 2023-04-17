@@ -16,9 +16,8 @@ function toggleMenu() {
     
     bodyEl.classList.toggle('active');
     btnCloseEl.classList.toggle('hidden');
-    btnEl.classList.toggle('visible');
+    btnEl.classList.toggle('close');
     body.classList.toggle('noscroll');
-    
     body.classList.add('modal-open');
     
 };
@@ -27,10 +26,9 @@ document.addEventListener('keydown', ({ code }) => {
     
     if (code === 'Escape') {
         bodyEl.classList.remove('active');
-        btnEl.classList.remove('visible');
+        btnEl.classList.remove('close');
         btnCloseEl.classList.remove('hidden');
         body.classList.remove('noscroll');
-        btnEl.removeEventListener('click', toggleMenu);
     }
 })
 
@@ -44,5 +42,5 @@ function handleFormAvtorisation() {
     body.classList.add('modal-open');
     bodyEl.classList.remove('active');
     btnCloseEl.classList.remove('hidden');
-    btnEl.classList.remove('visible');
+    btnEl.classList.remove('close');
 }

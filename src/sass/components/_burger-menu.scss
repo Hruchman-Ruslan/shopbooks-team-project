@@ -37,7 +37,7 @@
         width: 37px;
         height: 37px;
         margin-right: 9px;
-  
+        border-radius: 50%;
     }
 
     .menu__autorization-name {
@@ -95,7 +95,7 @@
 
     .menu__authenticator-button {
         position: relative;
-        top: 350px;
+        top: 450px;
         left: -20px;
         align-items: center;
         min-width: 118px;
@@ -145,39 +145,19 @@
         z-index: 2;
     }
 
-    .header__burger-menu-button {
+    .close {
+        display: none;
         width: 28px;
         height: 28px;
         margin-left: 14px;
-        display: block;
-
-        @include media('tablet') {
-            display: none;
-        }
-
-    }
-
-    .close {
-        display: none;
-        position: fixed;
-        right: 25px;
-        margin-left: 0;
-       
-        z-index: 300;
     }
 
     .hidden{
     display: block;
-    
-    }
-
-    .hade {
-    display: none;
     }
 
     .visible {
-       opacity: 0;
-    @include animated(150ms, opasity);
-    }
+       display: block;
+   }
 
 }

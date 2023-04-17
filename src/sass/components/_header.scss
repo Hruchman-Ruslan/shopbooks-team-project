@@ -5,7 +5,7 @@
   background-color: var(--background-color);
 }
 
-.container {
+.header .container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,7 +202,9 @@
     stroke: var(--hover);
   }
 }
-
+.js-is-hidden {
+  display: flex;
+}
 .header__authenticator-button {
   display: none;
   align-items: center;
@@ -272,10 +274,6 @@
 }
 .js-hidden {
   display: none;
-}
-
-.js-is-hidden {
-  display: flex;
 }
 
 .overlay-svg {
