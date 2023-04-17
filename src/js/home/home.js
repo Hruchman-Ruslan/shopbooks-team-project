@@ -5,41 +5,25 @@ import { Notify } from 'notiflix';
 const refs = {
   container: document.querySelector('.gallery__list'),
 };
-  container: document.querySelector('.gallery__list'),
-};
 
 const newsApiBooksService = new NewsApiBooksService();
-const newsApiBooksService = new NewsApiBooksService();
 
-newsApiBooksService.GetTopBooks().then(renderBestSellersBooks).catch(onError);
+newsApiBooksService.getTopBooks().then(renderBestSellersBooks).catch(onError);
 
 const seeMore = document.querySelector('.gallery__list');
 seeMore.addEventListener('click', onClick);
-seeMore.addEventListener('click', onClick);
 
 function renderBestSellersBooks(data) {
   if (data.length === 0) {
     Notify.failure('Oops, there is no books according to your request');
   }
-function renderBestSellersBooks(data) {
-  if (data.length === 0) {
-    Notify.failure('Oops, there is no books according to your request');
-  }
 
-  const markup = data
-    .map(
-      ({ list_name, books }) =>
-        `<li class="gallery__item">
   const markup = data
     .map(
       ({ list_name, books }) =>
         `<li class="gallery__item">
     <a class="gallery__link" href="#">${list_name}</a>
     <ul class="card-container">
-    ${books
-      .map(
-        ({ book_image, title, author, _id }) =>
-          `<li class="card-container__item">
     ${books
       .map(
         ({ book_image, title, author, _id }) =>
@@ -54,13 +38,13 @@ function renderBestSellersBooks(data) {
         <div class="desk">
         <h3 class="desk__subtitle">${title}</h3>
         <p class="desk__text">${author}</p>
-        </div>                  
+        </div>
     </button>
     </li>`
       )
       .join('')}
 </ul>
-<button class="gallery__btn" type="button">see more</button>
+<button class="gallery__btn button" type="button">see more</button>
 </li>`
     )
     .join('');
