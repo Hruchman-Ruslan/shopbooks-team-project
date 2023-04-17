@@ -9,8 +9,6 @@ const body = document.body;
 
 const btnLogEl = document.querySelector('.menu__authenticator-button');
 
-
-
 btnEl.addEventListener('click', toggleMenu);
 btnCloseEl.addEventListener('click', toggleMenu);
 
@@ -41,8 +39,10 @@ const formEl = document.querySelector('.backdrop--form');
 
 
 function handleFormAvtorisation() {
-    formEl.classList.remove('is-hidden');
 
+    formEl.classList.remove('is-hidden');
     body.classList.add('modal-open');
-    bodyEl.classList.toggle('active');
+    bodyEl.classList.remove('active');
+    btnCloseEl.classList.remove('hidden');
+    btnEl.classList.remove('visible');
 }
