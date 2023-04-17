@@ -1,50 +1,90 @@
 <header class="header">
-  <nav class="header__logo__container">
-    <a class="header__logo" href="index.html">
-      <svg class="logo-svg" Width="25" height="25">
-        <use href="./images/sprite.svg#logo"></use>
-      </svg>
-      <svg class="book-svg" Width="53" height="17">
-        <use href="./images/sprite.svg#Book"></use>
-      </svg>
-    </a>
-    <div class="header__navigation-links">
-      <a class="navigation-links__home" href="index.html">HOME</a>
-      <a
-        class="navigation-links__shopping-list"
-        href="./partials/shopping-list.html"
-      >
-        SHOPPING LIST
-        <svg
-          class="navigation-links__shopping-list-icon"
-          Width="13"
-          height="16"
-        >
-          <use href="./images/sprite.svg#uil"></use>
+  <div class="container">
+    <nav class="header__logo__container">
+      <a class="header__logo" href="index.html">
+        <svg class="logo-svg" Width="25" height="25">
+          <use href="./images/sprite.svg#logo"></use>
+        </svg>
+        <svg class="book-svg" Width="53" height="17">
+          <use href="./images/sprite.svg#Book"></use>
         </svg>
       </a>
+      <div class="header__navigation-links js-hidden" data-user="log-in">
+        <a class="navigation-links__home" href="index.html">HOME</a>
+        <a class="navigation-links__shopping-list" href="./shopping.html">
+          SHOPPING LIST
+          <svg
+            class="navigation-links__shopping-list-icon"
+            Width="13"
+            height="16"
+          >
+            <use href="./images/sprite.svg#uil"></use>
+          </svg>
+        </a>
+      </div>
+    </nav>
+    <div class="header__checkBoxBurger">
+      <div class="checkbox">
+        <input
+          type="checkbox"
+          id="highload1"
+          name="highload1"
+          onchange="changeTheme(this.checked)"
+        />
+        <label
+          for="highload1"
+          data-onlabel=""
+          data-offlabel=""
+          class="lb1"
+        ></label>
+      </div>
+      <button class="header__burger-menu-button" id="open">
+        <svg class="header__burger-menu-icon">
+          <use href="./images/sprite.svg#menu"></use>
+        </svg>
+      </button>
+      <button class="header__burger-menu-button close" id="close">
+        <svg class="header__burger-menu-icon">
+          <use href="./images/sprite.svg#close"></use>
+        </svg>
+      </button>
+      <button class="header__authenticator-button" data-user="log-out">
+        <span class="header__authenticator-button-text">Sign up</span>
+        <svg class="header__authenticator-button-icon" Width="13" height="10">
+          <use href="./images/sprite.svg#arrow"></use>
+        </svg>
+      </button>
+      <div
+        class="header__authenticator-button-in js-hidden"
+        id="open"
+        data-user="log-in"
+      >
+        <img
+          class="header__user-photo"
+          src="./images/noName.png"
+          alt="user photo"
+        />
+        <span class="header__authenticator-button-in-text" data-user="name"
+          >User</span
+        >
+        <svg class="header__authenticarot-button-in-svg" Width="13" height="7">
+          <use href="./images/sprite.svg#button-arrow"></use>
+        </svg>
+        <div class="overlay-svg js-modal">
+          <button
+            class="authenticator-button-change-photo"
+            data-user="changePhoto"
+          >
+            Change photo
+          </button>
+          <button class="authenticator-button">
+            <span class="authenticator-button-text">Log out</span>
+            <svg class="menu__authenticator-button-icon" Width="13" height="10">
+              <use href="./images/sprite.svg#arrow"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
-  </nav>
-  <div class="header__checkBoxBurger">
-    <div class="checkbox">
-      <input type="checkbox" id="highload1" name="highload1" />
-      <label
-        for="highload1"
-        data-onlabel=""
-        data-offlabel=""
-        class="lb1"
-      ></label>
-    </div>
-    <button class="header__burger-menu-button">
-      <svg class="header__burger-menu-icon">
-        <use href="./images/sprite.svg#menu"></use>
-      </svg>
-    </button>
-    <button class="header__authenticator-button">
-      <span class="header__authenticator-button-text">Sign up</span>
-      <svg class="header__authenticator-button-icon" Width="13" height="10">
-        <use href="./images/sprite.svg#arrow"></use>
-      </svg>
-    </button>
   </div>
 </header>

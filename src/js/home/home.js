@@ -5,14 +5,22 @@ import { Notify } from 'notiflix';
 const refs = {
   container: document.querySelector('.gallery__list'),
 };
+  container: document.querySelector('.gallery__list'),
+};
 
+const newsApiBooksService = new NewsApiBooksService();
 const newsApiBooksService = new NewsApiBooksService();
 
 newsApiBooksService.GetTopBooks().then(renderBestSellersBooks).catch(onError);
 
 const seeMore = document.querySelector('.gallery__list');
 seeMore.addEventListener('click', onClick);
+seeMore.addEventListener('click', onClick);
 
+function renderBestSellersBooks(data) {
+  if (data.length === 0) {
+    Notify.failure('Oops, there is no books according to your request');
+  }
 function renderBestSellersBooks(data) {
   if (data.length === 0) {
     Notify.failure('Oops, there is no books according to your request');
@@ -22,8 +30,16 @@ function renderBestSellersBooks(data) {
     .map(
       ({ list_name, books }) =>
         `<li class="gallery__item">
+  const markup = data
+    .map(
+      ({ list_name, books }) =>
+        `<li class="gallery__item">
     <a class="gallery__link" href="#">${list_name}</a>
     <ul class="card-container">
+    ${books
+      .map(
+        ({ book_image, title, author, _id }) =>
+          `<li class="card-container__item">
     ${books
       .map(
         ({ book_image, title, author, _id }) =>

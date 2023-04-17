@@ -1,22 +1,48 @@
 // Use of colors in the project
-$colors: (
+:root {
   // Colors for text
-  'primary-text': #111111,
-
+  --primary-text: #111111;
   //Colors for link
-  'link-default': #ffffff,
-  'link-focus': #4f2ee8,
-  'hover': #4f2ee8,
-  //Colors dark or light there
-  'background-color': #f6f6f6,
-
-  // Colors for btn-form
-  'dark-btn': #f3f3f3,
-  'light-btn': #202024
-);
-@function getColor($key) {
-  @return map-get($colors, $key);
+  --white-color-not-chenge: #ffffff;
+  --black-color-not-chenge: #111111;
+  --link-default: #ffffff;
+  --link-focus: #4f2ee8;
+  --hover: #4f2ee8;
+  --background-color: #f6f6f6;
+  --background-header-btn: #eac645;
+  --background-form: #f6f6f6;
+  --border-form: #111111;
+  --btn-form: #f3f3f3;
 }
+
+[dark] {
+  --primary-text: #ffffff;
+  --background-color: #111111;
+  --hover: #eac645;
+  --link-default: #eee;
+  --link-focus: #4f2ee8;
+  --background-form: #202024;
+  --border-form: #f6f6f6;
+  --btn-form: #202024;
+  --white-color-not-chenge: #ffffff;
+  --black-color-not-chenge: #111111;
+}
+
+// $colors: (
+//   // Colors for text
+//   'primary-text': #111111,
+
+//   //Colors for link
+//   'link-default': #ffffff,
+//   'link-focus': #4f2ee8,
+//   'hover': #4f2ee8,
+//   //Colors dark or light there
+//   'background-color': #f6f6f6
+// );
+
+// @function getColor($key) {
+//   @return map-get($colors, $key);
+// }
 
 // Для використання - пишемо властивість, замість значення викликаємо функцію getColor('тут назва необхідного кольору з карти'). ПРИКЛАД:
 // color: getColor('primary-text');
