@@ -33,3 +33,12 @@ document.addEventListener('click', function (event) {
     modal.classList.remove('js-modal--open');
   }
 });
+
+const btnLogEl = document.querySelector('.header__authenticator-button');
+
+btnLogEl.addEventListener('click', handleFormAvtorisation);
+const formEl = document.querySelector('.backdrop--form');
+
+function handleFormAvtorisation() {
+  formEl.classList.remove('is-hidden');
+}
