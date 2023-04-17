@@ -4,6 +4,7 @@ const btnEl = document.querySelector('#open');
 const bodyEl = document.querySelector('.menu');
 
 const btnCloseEl = document.querySelector('#close');
+console.log(btnCloseEl)
 
 const body = document.body;
 
@@ -17,7 +18,7 @@ btnCloseEl.addEventListener('click', toggleMenu);
 function toggleMenu() {
     
     bodyEl.classList.toggle('active');
-    btnCloseEl.classList.toggle('opacity');
+    btnCloseEl.classList.toggle('hidden');
     btnEl.classList.toggle('visible');
     body.classList.toggle('noscroll');
     
@@ -30,7 +31,7 @@ document.addEventListener('keydown', ({ code }) => {
     if (code === 'Escape') {
         bodyEl.classList.remove('active');
         btnEl.classList.remove('visible');
-        btnCloseEl.classList.remove('opacity');
+        btnCloseEl.classList.remove('hidden');
         body.classList.remove('noscroll');
         btnEl.removeEventListener('click', toggleMenu);
     }

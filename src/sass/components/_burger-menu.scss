@@ -5,11 +5,13 @@
 }
 
 @media screen and (max-width:767px) {
+
     body.noscroll {
         overflow: hidden;
     }
 
     .menu {
+        
         display: block;
         position: fixed;
         top: 64px;
@@ -17,7 +19,7 @@
         width: 100%;
         height: 100%;
         padding: 20px;
-        z-index: 99;
+        z-index: 90;
         background: linear-gradient(rgb(79, 46, 232) 0%, rgb(220, 220, 220) 100%);
         overflow: auto;
         transition: 250ms;
@@ -28,12 +30,33 @@
 
     }
 
+    .menu__autorization {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 126px;
+    }
+    .menu__autorization-photo {
+        width: 37px;
+        height: 37px;
+        margin-right: 9px;
+  
+    }
+
+    .menu__autorization-name {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 1.32;
+           
+        letter-spacing: -0.02em;
+    
+        color: #FFFFFF;
+    }
 
     .menu__list {
 
-        padding-top: 183px;
         margin-bottom: 427px;
         text-align: center;
+        margin-bottom: 126px;
     }
 
 
@@ -53,33 +76,34 @@
         font-size: 14px;
         line-height: calc(18 / 14);
         letter-spacing: -0.04em;
-        color: #111111;
+        color: var(--primary-text);
 
         width: 156px;
         height: 34px;
         border-radius: 36px;
           
         text-transform: uppercase;
-        color: #fff;
+        color: var(--link-default);
 
     }
 
     .current {
         margin-left: 30px;
         padding: 8px 16px;
-        background: #EAC645;
+        background: var(--background-header-btn);
         border-radius: 36px;
-        color: #111111;
+        color: var(--primary-text);
 
     }
 
     .menu__link__icon {
         margin-left: 4px;
-        fill: #fff;
+        fill: var(--link-default);
     }
 
     .menu__authenticator-button {
         position: relative;
+        top: 445px;
         left: -20px;
         align-items: center;
         min-width: 118px;
@@ -90,6 +114,12 @@
         margin-left: 20px;
 
         z-index: 80;
+    }
+
+    .menu__authenticator-button-logOut {
+        display: none;
+        position: relative;
+        left: -162px;
     }
 
     .menu__authenticator-button-text {
@@ -128,18 +158,21 @@
 
     .close {
 
-        position: relative;
+        position: absolute;
         right: 28px;
         // opacity: 0;
         margin-left: 0;
-        transition: opacity 250ms;
-        z-index: 200;
+        // transition: opacity 250ms;
+        z-index: 300;
     }
 
-
-    .opacity {
-        opacity: 1;
+    .hidden{
+    display: block;
     }
+
+    // .opacity {
+    //     opacity: 1;
+    // }
 
     .visible {
         opacity: 0;
