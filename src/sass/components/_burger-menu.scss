@@ -1,34 +1,33 @@
-@media screen and (min-width:768px) {
-    .menu {
-        display: none;
-    }
+@media screen and (min-width: 768px) {
+  .menu {
+    display: none;
+  }
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
+  body.noscroll {
+    overflow: hidden;
+  }
 
-    body.noscroll {
-        overflow: hidden;
-    }
+  .menu {
+    display: block;
+    position: fixed;
+    top: 60px;
+    left: -200%;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    z-index: 90;
+    background: linear-gradient(rgb(79, 46, 232) 0%, rgb(220, 220, 220) 100%);
+    overflow: auto;
+    transition: 250ms;
+  }
 
-    .menu {
-        display: block;
-        position: fixed;
-        top: 60px;
-        left: -200%;
-        width: 100%;
-        height: 100%;
-        padding: 20px;
-        z-index: 90;
-        background: linear-gradient(rgb(79, 46, 232) 0%, rgb(220, 220, 220) 100%);
-        overflow: auto;
-        transition: 250ms;
-    }
+  .menu.active {
+    left: 0;
+  }
 
-    .menu.active {
-        left: 0;
-    }
-
-    .menu__autorization {
+  .menu__autorization {
     display: inline-flex;
     align-items: center;
     margin-bottom: 126px;
@@ -160,4 +159,7 @@
        display: block;
    }
 
+  .visible {
+    display: block;
+  }
 }
