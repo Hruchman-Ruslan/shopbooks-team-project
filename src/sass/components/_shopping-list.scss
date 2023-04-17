@@ -14,7 +14,7 @@
     line-height: 1.19;
   }
   .shoppinglist__titlecolor {
-    color: #4f2ee8;
+    color: var(--link-focus);
   }
   .shoopinglist__emptylist-cont {
     flex-direction: column;
@@ -46,7 +46,7 @@
   }
   .shoppinglist__galery-bookone {
     max-width: 335px;
-    border: 2px solid #4f2ee866;
+    border: 2px solid var(--link-focus);
     border-radius: 16px;
     padding: 20px;
     position: relative;
@@ -92,7 +92,7 @@
     line-height: 1.17;
   }
   .shoppinglist__galery-bookdescription {
-    color: #111;
+    color: var(--border-form);
     width: calc(100% - 7px);
     margin-top: 20px;
     font-size: 14px;
@@ -103,8 +103,8 @@
   .shoopinglist__btnclose {
     width: 28px;
     height: 28px;
-    color: #fff;
-    background-color: #4f2ee8;
+    color: var(--link-default);
+    background-color: var(--link-focus);
     border-radius: 50%;
     justify-content: center;
     align-items: center;
@@ -120,16 +120,16 @@
     .shoppinglist__galery-icon {
         width: 12px;
         height: 12px;
-        fill: #4f2ee8;
-        stroke: #fff;
+        fill: var(--link-focus);
+        stroke: var(--link-default);
       transition: fill 0.3s ease; 
     }
     &:hover {
-      background-color: #EAC645; 
+      background-color: var(--background-header-btn);
       
       .shoppinglist__galery-icon {
-        fill: #EAC645; 
-        stroke:black;
+        fill: var(--background-header-btn);
+        stroke:var(--border-form);
       }
     }
   }

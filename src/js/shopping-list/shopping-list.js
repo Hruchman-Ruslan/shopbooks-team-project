@@ -1,53 +1,73 @@
-// // const Handlebars = require("handlebars");
+const Handlebars = require("handlebars");
+const fs = require('fs');
 
-// // const Handlebars = require("./templates/product-card.hbs");
+// Read the contents of the template file
+const templateSource = fs.readFileSync('product-card.hbs', 'utf-8');
 
-// const test = [
-//     {
-//         id: 1,
-//         title: 'Book 1',
-//         author: 'Author 1',
-//         description: 'Description 1',
-//         image: 'book1.jpg'
-//     },
-//     {
-//         id: 2,
-//         title: 'Book 1',
-//         author: 'Author 1',
-//         description: 'Description 1',
-//         image: 'book1.jpg'
-//     },
-//     {
-//         id: 3,
-//         title: 'Book 1',
-//         author: 'Author 1',
-//         description: 'Description 1',
-//         image: 'book1.jpg'
-//     },
-//     {
-//         id: 4,
-//         title: 'Book 1',
-//         author: 'Author 1',
-//         description: 'Description 1',
-//         image: 'book1.jpg'
-//     }
-//   ]
+// Compile the template
+const template = Handlebars.compile(templateSource);
+// const Handlebars = require("./templates/product-card.hbs");
+
+const test = [
+    {
+        id: 1,
+        title: 'Book 1',
+        author: 'Author 1',
+        description: 'Description 1',
+        image: 'book1.jpg'
+    },
+    {
+        id: 2,
+        title: 'Book 1',
+        author: 'Author 1',
+        description: 'Description 1',
+        image: 'book1.jpg'
+    },
+    {
+        id: 3,
+        title: 'Book 1',
+        author: 'Author 1',
+        description: 'Description 1',
+        image: 'book1.jpg'
+    },
+    {
+        id: 4,
+        title: 'Book 1',
+        author: 'Author 1',
+        description: 'Description 1',
+        image: 'book1.jpg'
+    }
+  ]
+
+  const renderedBooks = template(test);
+
+  // Create a new div element to hold the rendered books
+  const bookListContainer = document.createElement('div');
+  
+  // Set the innerHTML of the div element to the rendered books
+  bookListContainer.
+  book
+  innerHTML = renderedBooks;
+  
+  // Append the div element to the DOM
+  document.body.appendChild(bookListContainer);
+
+
+  
+//   
 // localStorage.setItem('test', JSON.stringify(test));
-// // Функция для сохранения списка в localStorage
-// // function saveListToLocalStorage(test) {
-// //     localStorage.setItem("test", JSON.stringify(list));
-// // }
 
-// // Массив объектов книг
-// // let books = [];
 
-// // Получение данных из localStorage, если они есть
+// Массив объектов книг
+// let books = [];
+
+// Получение данных из localStorage, если они есть
 // if (localStorage.getItem('test')) {
 //     books = JSON.parse(localStorage.getItem('test'));
 //     renderBookList(); // Вызываем функцию рендеринга списка книг при загрузке страницы
 // }
 
-// // Функция для рендеринга списка книг на странице с использованием Handlebars
+// Функция для рендеринга списка книг на странице с использованием Handlebars
 // function renderBookList() {
 //     const bookList = document.getElementById('shoppingList');
 //     const listTitleElement = document.getElementById('shoopinglist__emptylist');
