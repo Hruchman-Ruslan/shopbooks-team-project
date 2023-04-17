@@ -4,7 +4,6 @@ const btnEl = document.querySelector('#open');
 const bodyEl = document.querySelector('.menu');
 
 const btnCloseEl = document.querySelector('#close');
-console.log(btnCloseEl)
 
 const body = document.body;
 

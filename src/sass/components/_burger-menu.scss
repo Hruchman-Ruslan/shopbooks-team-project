@@ -11,7 +11,7 @@
     }
 
     .menu {
-        
+        min-width: 375px;
         display: block;
         position: fixed;
         top: 64px;
@@ -76,7 +76,7 @@
         font-size: 14px;
         line-height: calc(18 / 14);
         letter-spacing: -0.04em;
-        color: var(--primary-text);
+        // color: var(--primary-text);
 
         width: 156px;
         height: 34px;
@@ -157,17 +157,20 @@
     }
 
     .close {
-
-        position: absolute;
+        display: none;
+        position: fixed;
         right: 28px;
-        // opacity: 0;
         margin-left: 0;
-        // transition: opacity 250ms;
+       
         z-index: 300;
     }
 
     .hidden{
     display: block;
+    }
+
+    .hade {
+    display: none;
     }
 
     // .opacity {

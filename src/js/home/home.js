@@ -44,7 +44,7 @@ function renderBestSellersBooks(data) {
       )
       .join('')}
 </ul>
-<button class="gallery__btn" type="button">see more</button>
+<button class="gallery__btn button" type="button">see more</button>
 </li>`
     )
     .join('');
