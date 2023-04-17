@@ -11,11 +11,10 @@
     }
 
     .menu {
-        min-width: 375px;
         display: block;
         position: fixed;
-        top: 64px;
-        left: -100%;
+        top: 60px;
+        left: -200%;
         width: 100%;
         height: 100%;
         padding: 20px;
@@ -27,7 +26,6 @@
 
     .menu.active {
         left: 0;
-
     }
 
     .menu__autorization {
@@ -46,14 +44,11 @@
         font-weight: 700;
         font-size: 22px;
         line-height: 1.32;
-           
         letter-spacing: -0.02em;
-    
         color: #FFFFFF;
     }
 
     .menu__list {
-
         margin-bottom: 427px;
         text-align: center;
         margin-bottom: 126px;
@@ -67,7 +62,6 @@
 
                                                                                                                                                                         
     .menu__link {
-    
         align-items: center;
         justify-content: center;
 
@@ -76,8 +70,6 @@
         font-size: 14px;
         line-height: calc(18 / 14);
         letter-spacing: -0.04em;
-        // color: var(--primary-text);
-
         width: 156px;
         height: 34px;
         border-radius: 36px;
@@ -103,7 +95,7 @@
 
     .menu__authenticator-button {
         position: relative;
-        top: 445px;
+        top: 350px;
         left: -20px;
         align-items: center;
         min-width: 118px;
@@ -114,6 +106,13 @@
         margin-left: 20px;
 
         z-index: 80;
+    }
+
+    .menu__authenticator-button:focus,
+    .menu__authenticator-button:hover {
+        background-color: var(--background-header-btn);
+        border-color: var(--hover);
+               
     }
 
     .menu__authenticator-button-logOut {
@@ -131,9 +130,11 @@
         color: #111111;
         margin-left: 14px;
         margin-right: auto;
-
     }
 
+    .menu__authenticator-button-icon {
+        margin-right: 34px;
+    }
 
     .menu__img {
         position: absolute;
@@ -159,7 +160,7 @@
     .close {
         display: none;
         position: fixed;
-        right: 28px;
+        right: 25px;
         margin-left: 0;
        
         z-index: 300;
@@ -167,18 +168,16 @@
 
     .hidden{
     display: block;
+    
     }
 
     .hade {
     display: none;
     }
 
-    // .opacity {
-    //     opacity: 1;
-    // }
-
     .visible {
-        opacity: 0;
+       opacity: 0;
+    @include animated(150ms, opasity);
     }
 
 }
