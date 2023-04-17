@@ -1,13 +1,10 @@
-
-
-
 .gallery {
     display: block;
-    max-width: 996px;
+    // max-width: 996px;
 
-    @include media('desktop') {
-        margin-left: 40px;
-    }
+    // @include media('desktop') {
+    //     margin-left: 40px;
+    // }
 
 
     &__title {
