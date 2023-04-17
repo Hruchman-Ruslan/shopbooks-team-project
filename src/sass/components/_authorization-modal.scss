@@ -10,7 +10,7 @@
   width: 100vw;
   height: 100vh;
 
-  background: getColor('link-focus');
+  background: var(--link-focus);
 
   &.is-hidden {
     opacity: 0;
@@ -31,8 +31,9 @@
   text-transform: uppercase;
   text-align: center;
 
-  background-color: getColor('background-color');
-  border: 2px solid getColor('primary-text');
+  color: var(--border-form);
+  background-color: var(--background-form);
+  border: 2px solid var(--border-form);
   border-radius: 18px;
 
   @include media('tablet') {
@@ -49,11 +50,13 @@
   top: 14px;
   right: 14px;
 
+  color: var(--border-form);
+
   @include animated(color);
 
   &:hover,
   &:focus {
-    color: getColor('link-focus');
+    color: var(--hover);
   }
 }
 
@@ -95,6 +98,8 @@
   left: 22px;
   padding: 0 2px;
 
+  color: var(--border-form);
+
   @include animated(color, transform);
 
   @include media('tablet') {
@@ -110,8 +115,12 @@
   padding-right: 42px;
   padding-left: 24px;
 
-  border: 2px solid getColor('primary-text');
+  color: var(--border-form);
+
+  background-color: inherit;
+  border: 2px solid var(--border-form);
   border-radius: 40px;
+  outline: none;
 
   @include media('tablet') {
     height: 64px;
@@ -119,16 +128,22 @@
     padding-left: 40px;
   }
 }
+.form__field-text::placeholder {
+  opacity: 0;
+}
+.form__field-text:focus::placeholder {
+  opacity: 1;
+}
 .form__field-text:not(:placeholder-shown),
 .form__field-text:focus {
   & + .form__field-name {
-    color: getColor('hover');
+    color: var(--hover);
     transform: translateY(-135%);
 
-    background-color: getColor('background-color');
+    background-color: var(--background-form);
   }
   & ~ .form__icon {
-    color: getColor('hover');
+    color: var(--hover);
   }
 }
 
@@ -139,16 +154,13 @@
 
   width: 18px;
   height: 18px;
-
-  fill-opacity: 0;
-  display: flex;
-  margin: auto;
-  stroke-width: 0;
-  stroke: currentColor;
-
   display: flex;
   justify-content: center;
   align-items: center;
+
+  fill-opacity: 0;
+  stroke-width: 0;
+  stroke: currentColor;
 
   @include animated(color);
 
@@ -177,8 +189,8 @@
 .form__btn {
   padding-right: 24px;
 
-  color: getColor('dark-btn');
-  background-color: getColor('primary-text');
+  color: var(--btn-form);
+  background-color: var(--border-form);
 }
 
 .sign-wrap {
@@ -194,13 +206,13 @@
 }
 
 .sign-page {
-  color: getColor('primary-text');
+  color: var(--border-form);
   opacity: 0.5;
 
   @include animated(color, opacity);
 
   &[data-sign='active'] {
-    color: getColor('hover');
+    color: var(--link-focus);
     text-decoration-line: underline;
     opacity: 1;
   }

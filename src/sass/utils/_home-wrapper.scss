@@ -1,4 +1,9 @@
 .home__wrapper {
   display: flex;
   flex-direction: column;
+
+  @include min-max('tablet', 'desktop') {
+    flex-direction: row;
+    gap: 32px;
+  }
 }

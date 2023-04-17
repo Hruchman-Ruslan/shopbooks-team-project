@@ -1,4 +1,24 @@
-import { formsForRegistration, bodyEl, backdropEl, btnClose } from './refsForm';
+import { initializeApp } from 'firebase/app';
+import firebaseConfig from '../firebase/firebaseConfig';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+import {
+  btnsGroupForChangeForm,
+  formsForRegistration,
+  bodyEl,
+  backdropEl,
+  btnClose,
+  formSignUp,
+  formSignIn,
+} from './refsForm';
+import { postFirebase, writeNameUser } from '../firebase/fetchFirebase';
+import { optionsNotiflix } from './libraryOptions';
+
+const app = initializeApp(firebaseConfig);
+
+const QUERY_PARAMETER_FOR_CREATE_USER = 'signUp';
+const QUERY_PARAMETER_FOR_SIGN_IN_USER = 'signInWithPassword';
+let formData = {};
 
 export const onBtnReplaceForm = e => {
   if (e.currentTarget === e.target) {
@@ -20,6 +40,7 @@ function changeElem(arrEl) {
   });
 }
 
+// Для закриття форми реєстрації
 const onBackdropClick = e => {
   if (e.currentTarget !== e.target) {
     return;
@@ -35,3 +56,72 @@ export function closeModalForm() {
   backdropEl.addEventListener('click', onBackdropClick);
   btnClose.addEventListener('click', onBtnClose);
 }
+
+// Сабміт форм
+export const onFormSubmitSignUp = e => {
+  e.preventDefault();
+
+  if (!formData.name || !formData.password) {
+    Notify.warning(
+      '💩 DO NOT play with spaces, all fields must be filled (╬▔皿▔)╯',
+      optionsNotiflix
+    );
+    e.currentTarget.reset();
+    return;
+  }
+
+  postFirebase(formData, QUERY_PARAMETER_FOR_CREATE_USER)
+    .then(res => {
+      writeNameUser(res.idToken, formData.name);
+    })
+    .then(res => {
+      Notify.success(res, optionsNotiflix);
+      changeElem(btnsGroupForChangeForm);
+      changeElem(formsForRegistration);
+      formData = {};
+    })
+    .catch(error => {
+      const message = JSON.parse(error.request.response);
+      Notify.failure(message.error.message, optionsNotiflix);
+    })
+    .finally(() => {
+      formData = {};
+    });
+  e.currentTarget.reset();
+};
+
+const onFormData = e => {
+  formData[e.target.name] = e.target.value.trim();
+};
+formSignUp.addEventListener('input', onFormData);
+formSignIn.addEventListener('input', onFormData);
+
+// Sign in
+export const onFormSubmitSignIn = e => {
+  e.preventDefault();
+
+  if (!formData.password) {
+    Notify.warning(
+      '💩 DO NOT play with spaces, all fields must be filled (╬▔皿▔)╯',
+      optionsNotiflix
+    );
+    return;
+  }
+
+  postFirebase(formData, QUERY_PARAMETER_FOR_SIGN_IN_USER)
+    .then(res => {
+      console.log(res);
+      Notify.success(`CONGRATULATIONS, ${res.displayName}!`, optionsNotiflix);
+
+      setTimeout(onBtnClose, 2500);
+    })
+    .catch(error => {
+      const message = JSON.parse(error.request.response);
+      Notify.failure(message.error.message, optionsNotiflix);
+    })
+    .finally(() => {
+      formData = {};
+    });
+
+  e.currentTarget.reset();
+};
