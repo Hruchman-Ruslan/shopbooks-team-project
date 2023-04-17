@@ -5,24 +5,24 @@ export default class NewsApiBooksService {
 
   constructor() {}
 
-  async GetCategoryList() {
+  async getCategoryList() {
     const { data } = await axios(`${this.BASE_URL}/category-list`);
     return data;
   }
 
-  async GetTopBooks() {
+  async getTopBooks() {
     const { data } = await axios(`${this.BASE_URL}/top-books`);
     return data;
   }
 
-  async GetBooksByCategory(nameCategory) {
+  async getBooksByCategory(nameCategory) {
     const { data } = await axios(
       `${this.BASE_URL}/category/?category=${nameCategory}`
     );
     return data;
   }
 
-  async GetBooksById(bookId) {
+  async getBooksById(bookId) {
     const { data } = await axios(`${this.BASE_URL}/${bookId}`);
     return data;
   }
