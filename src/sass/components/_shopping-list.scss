@@ -7,6 +7,13 @@
   .shoopinglist__emptylist {
     display: block;
   }
+
+
+
+
+
+
+  
   .shoppinglist__title {
     padding: 40px 0;
     font-size: 32px;
@@ -49,7 +56,11 @@
     border: 2px solid var(--link-focus);
     border-radius: 16px;
     padding: 20px;
+
     position: relative;
+  }
+  .book:not(:last-child) {
+    padding-bottom: 20px;
   }
   .shoppinglist__galery-booktitle {
     display: flex;

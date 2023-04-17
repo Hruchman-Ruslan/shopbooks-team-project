@@ -1,59 +1,174 @@
-const Handlebars = require("handlebars");
-const fs = require('fs');
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+import 'tui-pagination/dist/tui-pagination.min.css';
 
-// Read the contents of the template file
-const templateSource = fs.readFileSync('product-card.hbs', 'utf-8');
 
-// Compile the template
-const template = Handlebars.compile(templateSource);
-// const Handlebars = require("./templates/product-card.hbs");
-
-const test = [
+const booksData = [
     {
-        id: 1,
-        title: 'Book 1',
-        author: 'Author 1',
-        description: 'Description 1',
-        image: 'book1.jpg'
+      title: 'Книга 1',
+      author: 'Автор 1',
+      description: 'Описание 1'
     },
     {
-        id: 2,
-        title: 'Book 1',
-        author: 'Author 1',
-        description: 'Description 1',
-        image: 'book1.jpg'
+      title: 'Книга 2',
+      author: 'Автор 2',
+      description: 'Описание 2'
     },
     {
-        id: 3,
-        title: 'Book 1',
-        author: 'Author 1',
-        description: 'Description 1',
-        image: 'book1.jpg'
+      title: 'Книга 3',
+      author: 'Автор 3',
+      description: 'Описание 3'
     },
     {
-        id: 4,
-        title: 'Book 1',
-        author: 'Author 1',
-        description: 'Description 1',
-        image: 'book1.jpg'
+      title: 'Книга 4',
+      author: 'Автор 2',
+      description: 'Описание 4'
+    },
+    {
+      title: 'Книга 5',
+      author: 'Автор 2',
+      description: 'Описание 5'
+    },
+    {
+      title: 'Книга 6',
+      author: 'Автор 2',
+      description: 'Описание 4'
+    },
+    {
+      title: 'Книга 7',
+      author: 'Автор 2',
+      description: 'Описание 4'
+    },
+    {
+      title: 'Книга 8',
+      author: 'Автор 2',
+      description: 'Описание 4'
+    },
+    {
+      title: 'Книга 9',
+      author: 'Автор 2',
+      description: 'Описание 4'
+    },
+    {
+      title: 'Книга 10',
+      author: 'Автор 2',
+      description: 'Описание 4'
+    },
+  ];
+if (localStorage.getItem('test')) {
+    books = JSON.parse(localStorage.getItem('test'));
+    renderBooks(); 
+}
+const itemsPerPage = 3; 
+let pageNo = 1; 
+
+// Функция для рендеринга списка книг
+function renderBooks() {
+    const listTitleElement = document.getElementById('shoopinglist__emptylist');
+    if (booksData.length === 0) {
+        listTitleElement.style.display = "block"; 
+    } else {
+        listTitleElement.style.display = "none";
+         
     }
-  ]
+  const startIndex = (pageNo - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const booksList = document.getElementById('shoppingList');
 
-  const renderedBooks = template(test);
+  booksList.innerHTML = '';
 
-  // Create a new div element to hold the rendered books
-  const bookListContainer = document.createElement('div');
+  // Итерируем по подмассиву книг для текущей страницы и создаем элементы для каждой книги
+  for (let i = startIndex; i < endIndex && i < booksData.length; i++) {
+    const book = booksData[i];
+    const bookElement = document.createElement('div');
+    bookElement.classList.add('book');
+    bookElement.innerHTML = `
+    <div class="shoppinglist__galery-bookone">
+          <div class="shoppinglist__galery-booktitle">
+          <div class="shoppinglist__galery-imgavtor">
+              <img class="shoppinglist__galery-img" srcset="./images/shoopinglist/13booktitle.jpg 1x, ./images/shoopinglist/13booktitle@2x.jpg 2x" src="./images/shoopinglist/13booktitle.jpg" alt="booktitle">  
+          </div>
+              <div class="shoppinglist__galery-booknamewithamazon">
+                  <p class="shoppinglist__galery-bookname">${book.title}</p>
+                  <p class="shoppinglist__galery-bookautor">Hardcover fiction</p>
+              </div>
+          </div> 
+ 
+      <div class="shoopinglist__displaynone">
+      <div class="shoopinglist__galery-flex">
+          
+                <ul class="shoppinglist__galery-href">
+                  <li class="shoopinglist__galery-hrefli"><a href="" class="shoppinglist__galery-link" target="_blank" rel="noopener noreferrer" aria-label="amazon">
+                      <img class="shoopinglist__galery-img1" src="./images/shoopinglist/amazon/1amazon.png" srcset="./images/shoopinglist/amazon/1amazon.png 1x, ./images/shoopinglist/amazon/1amazon@2x.png 2x" alt="amazon">
+                  </a></li>
+                  <li class="shoopinglist__galery-hrefli"><a href="" class="shoppinglist__galery-link" target="_blank" rel="noopener noreferrer" aria-label="instagram">
+                      <img class="shoopinglist__galery-img2" src="./images/shoopinglist/amazon/1openbook.png" srcset="./images/shoopinglist/amazon/1openbook.png 1x, ./images/shoopinglist/amazon/1openbook@2x.png 2x" alt="amazon">
+                  </a></li>
+                  <li class="shoopinglist__galery-hrefli"><a href="" class="shoppinglist__galery-link" target="_blank" rel="noopener noreferrer" aria-label="instagram">
+                      <img class="shoopinglist__galery-img3" src="./images/shoopinglist/amazon/2booksshop.png" srcset="./images/shoopinglist/amazon/2booksshop.png 1x, ./images/shoopinglist/amazon/2booksshop@2x.png 2x" alt="amazon">
+                  </a></li>
+              </ul>      
+               <p class="shoppinglist__galery-avtor">${book.author}</p>
+          </div>
+      <p class="shoppinglist__galery-bookdescription">${book.description}</p>
+  </div>
+      <button class="shoopinglist__btnclose" type="button" id="button">
+          <svg class="shoppinglist__galery-icon">
+          <use href="./images/sprite.svg#trash"></use> 
+       </svg></button> 
+      </div>  
+   </div>
+    `;
+    booksList.appendChild(bookElement); // Добавляем созданный элемент книги в список книг
+  }
+}
+
+// Функция для обновления пагинации
+function updatePagination() {
+  const totalItems = booksData.length; // Общее количество книг
+  const totalPages = Math.ceil(totalItems / itemsPerPage); // Количество страниц
+
+    // Инициализируем или обновляем пагинацию
+    const pagination = new Pagination('pagination', {
+      totalItems: totalItems, // Общее количество элементов
+      itemsPerPage: itemsPerPage, // Количество элементов на одной странице
+      visiblePages: 2, // Количество видимых страниц в пагинации
+      page: pageNo, // Текущая страница
+      centerAlign: true, // Выравнивание пагинации по центру
+      template: {
+        // Кастомный шаблон для отображения номеров страниц
+        page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+        currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+        moveButton:
+          '<a href="#" class="tui-page-btn tui-{{type}}">' +
+          '<span class="tui-ico-{{type}}"></span>' +
+          '</a>',
+        disabledMoveButton:
+          '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+          '<span class="tui-ico-{{type}}"></span>' +
+          '</span>'
+      }
+    });
   
-  // Set the innerHTML of the div element to the rendered books
-  bookListContainer.
-  book
-  innerHTML = renderedBooks;
+    // Обработчик события изменения страницы
+    pagination.on('afterMove', event => {
+      pageNo = event.page; 
+      renderBooks(); 
+    });
+  }
   
-  // Append the div element to the DOM
-  document.body.appendChild(bookListContainer);
+  // Инициализируем пагинацию при загрузке страницы
+  document.addEventListener('DOMContentLoaded', () => {
+    renderBooks(); 
+    updatePagination(); 
+  });
 
 
-  
+//   <h2>${book.title}</h2>
+//       <p><strong>Автор:</strong> ${book.author}</p>
+//       <p><strong>Описание:</strong> ${book.description}</p>
+
+
 //   
 // localStorage.setItem('test', JSON.stringify(test));
 
