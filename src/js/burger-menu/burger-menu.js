@@ -21,6 +21,8 @@ function toggleMenu() {
     btnEl.classList.toggle('visible');
     body.classList.toggle('noscroll');
     
+    body.classList.add('modal-open');
+    
 };
 
 document.addEventListener('keydown', ({ code }) => {
@@ -41,4 +43,6 @@ const formEl = document.querySelector('.backdrop--form');
 function handleFormAvtorisation() {
     formEl.classList.remove('is-hidden');
 
+    body.classList.add('modal-open');
+    bodyEl.classList.toggle('active');
 }
