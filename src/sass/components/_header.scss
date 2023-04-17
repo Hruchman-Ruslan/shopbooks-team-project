@@ -241,8 +241,9 @@
   background-color: var(--link-focus);
   border-radius: 36px;
   margin-left: 24px;
-  @include media('tablet') {
-    display: flex;
+  display: flex;
+  @media screen and (max-width: 560px) {
+    display: none;
   }
 }
 .header__authenticarot-button-in-svg {
@@ -290,7 +291,7 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s, transform 0.5s ease-in-out;
-  z-index: 4;
+  z-index: 99;
 }
 
 .js-modal--open {
