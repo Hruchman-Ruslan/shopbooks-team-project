@@ -23,11 +23,33 @@
     transition: 250ms;
   }
 
+<<<<<<< HEAD
   .menu.active {
     left: 0;
   }
 
   .menu__autorization {
+=======
+    .menu {
+        display: block;
+        position: fixed;
+        top: 60px;
+        left: -200%;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        z-index: 90;
+        background: linear-gradient(rgb(79, 46, 232) 0%, rgb(220, 220, 220) 100%);
+        overflow: auto;
+        transition: 250ms;
+    }
+
+    .menu.active {
+        left: 0;
+    }
+
+    .menu__autorization {
+>>>>>>> main
     display: inline-flex;
     align-items: center;
     margin-bottom: 126px;
@@ -38,6 +60,7 @@
     margin-right: 9px;
   }
 
+<<<<<<< HEAD
   .menu__autorization-name {
     font-weight: 700;
     font-size: 22px;
@@ -47,6 +70,21 @@
 
     color: #ffffff;
   }
+=======
+    .menu__autorization-name {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 1.32;
+        letter-spacing: -0.02em;
+        color: #FFFFFF;
+    }
+
+    .menu__list {
+        margin-bottom: 427px;
+        text-align: center;
+        margin-bottom: 126px;
+    }
+>>>>>>> main
 
   .menu__list {
     margin-bottom: 427px;
@@ -59,6 +97,7 @@
     padding-right: 75px;
   }
 
+<<<<<<< HEAD
   .menu__link {
     align-items: center;
     justify-content: center;
@@ -73,6 +112,24 @@
     width: 156px;
     height: 34px;
     border-radius: 36px;
+=======
+                                                                                                                                                                        
+    .menu__link {
+        align-items: center;
+        justify-content: center;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: calc(18 / 14);
+        letter-spacing: -0.04em;
+        width: 156px;
+        height: 34px;
+        border-radius: 36px;
+          
+        text-transform: uppercase;
+        color: var(--link-default);
+>>>>>>> main
 
     text-transform: uppercase;
     color: var(--link-default);
@@ -101,10 +158,92 @@
     border: 1.5px solid #111111;
     border-radius: 18px;
 
+<<<<<<< HEAD
     z-index: 80;
   }
 
   .menu__authenticator-button.js-hidden {
+=======
+    .menu__authenticator-button {
+        position: relative;
+        top: 350px;
+        left: -20px;
+        align-items: center;
+        min-width: 118px;
+        min-height: 48px;
+        background-color: #fff;
+        border: 1.5px solid #111111;
+        border-radius: 18px;
+        margin-left: 20px;
+
+        z-index: 80;
+    }
+
+    .menu__authenticator-button:focus,
+    .menu__authenticator-button:hover {
+        background-color: var(--background-header-btn);
+        border-color: var(--hover);
+               
+    }
+
+    .menu__authenticator-button-logOut {
+        display: none;
+        position: relative;
+        left: -162px;
+    }
+
+    .menu__authenticator-button-text {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: calc(18 / 14);
+        letter-spacing: -0.04em;
+        color: #111111;
+        margin-left: 14px;
+        margin-right: auto;
+    }
+
+    .menu__authenticator-button-icon {
+        margin-right: 34px;
+    }
+
+    .menu__img {
+        position: absolute;
+        top: 400px;
+        left: 0px;
+        width: 100%;
+
+        z-index: 2;
+    }
+
+    .header__burger-menu-button {
+        width: 28px;
+        height: 28px;
+        margin-left: 14px;
+        display: block;
+
+        @include media('tablet') {
+            display: none;
+        }
+
+    }
+
+    .close {
+        display: none;
+        position: fixed;
+        right: 25px;
+        margin-left: 0;
+       
+        z-index: 300;
+    }
+
+    .hidden{
+    display: block;
+    
+    }
+
+    .hade {
+>>>>>>> main
     display: none;
     position: relative;
     left: -162px;
@@ -141,6 +280,7 @@
     }
   }
 
+<<<<<<< HEAD
   .close {
     display: none;
     position: fixed;
@@ -149,6 +289,12 @@
 
     z-index: 300;
   }
+=======
+    .visible {
+       opacity: 0;
+    @include animated(150ms, opasity);
+    }
+>>>>>>> main
 
   .hidden {
     display: block;

@@ -20,3 +20,16 @@ function applySavedTheme() {
 }
 
 applySavedTheme();
+
+const svg = document.querySelector('.header__authenticarot-button-in-svg');
+const modal = document.querySelector('.js-modal');
+
+svg.addEventListener('click', function () {
+  modal.classList.toggle('js-modal--open');
+});
+
+document.addEventListener('click', function (event) {
+  if (!modal.contains(event.target) && !svg.contains(event.target)) {
+    modal.classList.remove('js-modal--open');
+  }
+});

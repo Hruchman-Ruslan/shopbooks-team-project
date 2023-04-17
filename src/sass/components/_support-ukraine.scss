@@ -1,23 +1,27 @@
-// загальний коментар: маржинів ніде  немає,
-// окрім мобільної версії, нижній 40px
+// import swiper css ------------
 
+@import '../../node_modules/swiper/swiper-bundle.css';
+@import '../../node_modules/swiper/swiper.css';
+
+// section -----------------------
 .support__ukraine {
-  width: 100%;
+  max-width: 335px;
   height: 352px;
+  margin-bottom: 40px;
   padding-top: 24px;
   padding-bottom: 20px;
   padding-left: 40px;
   padding-right: 40px;
-  margin-bottom: 40px;
-  color: getColor('link-default');
+
+  color: var(--link-default);
 
   background: radial-gradient(
-      183.6% 183.01% at 59.76% -23.42%,
-      getColor('link-focus') 18.03%,
-      getColor('link-default') 100%
-    )
-    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-  box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+    183.6% 183.01% at 59.76% -23.42%,
+    var(--link-focus) 18.03%,
+    var(--link-default) 100%
+  );
+
+  box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.102);
   border-radius: 16px;
 
   @include media('phone') {
@@ -37,6 +41,8 @@
   }
 }
 
+// title ---------------------
+
 .support__ukraine-title {
   display: flex;
   gap: 12px;
@@ -53,28 +59,59 @@
   fill: currentColor;
 }
 
-.support__ukraine-slyder {
-  display: flex;
-  height: 32px;
-  padding-top: 16px;
-  justify-content: center;
+// foundation-list --------
 
-  //   align-items: center;
+.support__ukraine-item {
+  display: flex;
+  gap: 16px;
+  height: 32px;
+  align-items: center;
+
+  font-family: 'DMSans-Regular';
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: -0.04em;
+}
+
+.support__ukraine-logo {
+  display: block;
+  filter: brightness(0) invert(1);
+  height: 32px;
+  object-fit: contain;
+}
+
+// slider-button----------------
+
+.support__ukraine-slyder-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 16px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+  border: none;
+
+  object-fit: contain;
+  fill: var(--link-focus);
+  background-color: var(--link-default);
 
   @include media('tablet') {
-    padding-top: 32px;
     height: 38px;
+    width: 38px;
+    margin-top: 32px;
   }
 
   @include media('desktop') {
-    padding-top: 40px;
+    margin-top: 40px;
   }
 }
 
 .support__ukraine-slyder-icon {
-  display: block;
-  fill: currentColor;
-  text-align: center;
   height: 32px;
   width: 32px;
 
@@ -84,40 +121,25 @@
   }
 }
 
-.support__ukraine-img {
-  filter: brightness(0) invert(1);
-  height: 32px;
-  object-fit: contain;
-}
+// swiper -------------
 
-.support__ukraine-list {
-  max-height: 188px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  overflow: hidden;
-  //   overflow: scroll;
-  align-items: flex-start;
+.swiper {
+  width: 270px;
+  height: 188px;
+  margin-left: 0;
 
   @include media('tablet') {
-    max-height: 292px;
+    height: 292px;
   }
 }
 
-.support__ukraine-link {
-  display: block;
-  height: 32px;
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none;
 }
 
-.support__ukraine-item {
-  display: flex;
-  height: 32px;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-
-  font-family: 'DMSans-Regular';
-  font-size: 14px;
-  line-height: 1.3;
-  letter-spacing: -0.04em;
+.swiper-button-next {
+  position: static;
+  text-align: center;
+  padding: 0;
 }
