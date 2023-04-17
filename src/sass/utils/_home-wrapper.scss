@@ -3,9 +3,7 @@
   flex-direction: column;
 
   @include min-max('tablet', 'desktop') {
-  flex-direction: row;
-  gap:32px;
-  
-}
-
+    flex-direction: row;
+    gap: 32px;
+  }
 }

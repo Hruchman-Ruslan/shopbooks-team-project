@@ -8,7 +8,7 @@ const refs = {
 
 const newsApiBooksService = new NewsApiBooksService();
 
-newsApiBooksService.GetTopBooks().then(renderBestSellersBooks).catch(onError);
+newsApiBooksService.getTopBooks().then(renderBestSellersBooks).catch(onError);
 
 const seeMore = document.querySelector('.gallery__list');
 seeMore.addEventListener('click', onClick);
