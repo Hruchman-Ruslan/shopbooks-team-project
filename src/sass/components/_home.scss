@@ -1,4 +1,5 @@
 .gallery {
+
   display: block;
   max-width: 996px;
 
@@ -19,6 +20,7 @@
 
     &--span {
       color: getColor('link-focus');
+
     }
   }
 
@@ -37,10 +39,12 @@
     font-family: 'DMSans-Bold';
   }
 
+
   &__list {
     display: flex;
     flex-wrap: wrap;
   }
+
 
   &__link {
     display: block;

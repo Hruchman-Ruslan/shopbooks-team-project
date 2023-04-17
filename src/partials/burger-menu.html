@@ -1,7 +1,14 @@
+
 <div class="menu">
+    
+<div class="menu__autorization js-hidden" data-user="log-in">
+
+    <img class="menu__autorization-photo" src="./images/burger-menu/Ellipse 3.png" alt="photo" width="37" height="37">
+    <p class="menu__autorization-name">Stephen</p>
+</div>
     <ul class="menu__list">
         <li class="menu__item"><a class="menu__link current" id="link" href="index.html">HOME</a></li>
-        <li class="menu__item"><a class="menu__link" id="link" href="./partials/shopping-list.html">
+        <li class="menu__item"><a class="menu__link js-hidden" id="link" href="./shopping.html" data-user="log-in">
                 SHOPPING LIST
                 <svg class="menu__link__icon" Width="13" height="16">
                     <use href="./images/sprite.svg#uil"></use>
@@ -11,8 +18,14 @@
 
     <img class="menu__img" src="./images/burger-menu/Group 6.png" alt="books" width="450" height="439">
 
-    <button class="menu__authenticator-button">
+    <button class="menu__authenticator-button js-is-hidden" data-user="log-out">
         <span class="menu__authenticator-button-text">Sign up</span>
+        <svg class="menu__authenticator-button-icon" Width="13" height="10">
+            <use href="./images/sprite.svg#arrow"></use>
+        </svg>
+    </button>
+    <button class="menu__authenticator-button menu__authenticator-button-logOut js-hidden" data-user="log-in">
+        <span class="menu__authenticator-button-text">Log out</span>
         <svg class="menu__authenticator-button-icon" Width="13" height="10">
             <use href="./images/sprite.svg#arrow"></use>
         </svg>
