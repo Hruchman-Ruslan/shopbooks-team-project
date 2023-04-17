@@ -1,3 +1,7 @@
-.home__wrap {
-  display: flex;
+.home__wrap{
+    
+  @include media('desktop') {
+      display: flex;
+      gap: 40px;
+  }
 }
