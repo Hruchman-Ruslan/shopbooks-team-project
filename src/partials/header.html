@@ -60,7 +60,7 @@
           <use href="./images/sprite.svg#arrow"></use>
         </svg>
       </button>
-      <button
+      <div
         class="header__authenticator-button-in js-hidden"
         id="open"
         data-user="log-in"
@@ -71,10 +71,22 @@
           alt="user photo"
         />
         <span class="header__authenticator-button-in-text">Stephen</span>
+
         <svg class="header__authenticarot-button-in-svg" Width="13" height="7">
           <use href="./images/sprite.svg#button-arrow"></use>
         </svg>
-      </button>
+        <div class="overlay-svg js-modal">
+          <button class="authenticator-button-change-photo">
+            Change photo
+          </button>
+          <button class="authenticator-button">
+            <span class="authenticator-button-text">Log out</span>
+            <svg class="menu__authenticator-button-icon" Width="13" height="10">
+              <use href="./images/sprite.svg#arrow"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </header>
