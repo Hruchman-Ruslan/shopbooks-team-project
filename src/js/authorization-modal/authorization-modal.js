@@ -1,11 +1,16 @@
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from '../firebase/firebaseConfig';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 import { btnsGroupForChangeForm, formSignUp, formSignIn } from './refsForm';
-import { onBtnReplaceForm, closeModalForm, onFormSubmit } from './form';
+import {
+  onBtnReplaceForm,
+  closeModalForm,
+  onFormSubmitSignUp,
+  onFormSubmitSignIn,
+} from './form';
 
 btnsGroupForChangeForm.addEventListener('click', onBtnReplaceForm);
 closeModalForm();
 
-formSignUp.addEventListener('submit', onFormSubmit);
+formSignUp.addEventListener('submit', onFormSubmitSignUp);
+formSignIn.addEventListener('submit', onFormSubmitSignIn);
