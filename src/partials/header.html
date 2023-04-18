@@ -9,7 +9,7 @@
           <use href="./images/sprite.svg#Book"></use>
         </svg>
       </a>
-      <div class="header__navigation-links">
+      <div class="header__navigation-links js-hidden" data-user="log-in">
         <a class="navigation-links__home" href="index.html">HOME</a>
         <a class="navigation-links__shopping-list" href="./shopping.html">
           SHOPPING LIST
@@ -44,17 +44,47 @@
         </svg>
       </button>
       <button class="header__burger-menu-button close" id="close">
-        <svg class="headerburger-menu-icon">
+        <svg class="header__burger-menu-icon">
           <use href="./images/sprite.svg#close"></use>
         </svg>
       </button>
-      <button class="header__authenticator-button">
+      <button class="header__authenticator-button" data-user="log-out">
         <span class="header__authenticator-button-text">Sign up</span>
         <svg class="header__authenticator-button-icon" Width="13" height="10">
           <use href="./images/sprite.svg#arrow"></use>
         </svg>
       </button>
+      <div
+        class="header__authenticator-button-in js-hidden"
+        id="open"
+        data-user="log-in"
+      >
+        <img
+          class="header__user-photo"
+          src="./images/noName.png"
+          alt="user photo"
+        />
+        <span class="header__authenticator-button-in-text" data-user="name"
+          >User</span
+        >
+        <svg class="header__authenticarot-button-in-svg" Width="13" height="7">
+          <use href="./images/sprite.svg#button-arrow"></use>
+        </svg>
+        <div class="overlay-svg js-modal">
+          <button
+            class="authenticator-button-change-photo"
+            data-user="changePhoto"
+          >
+            Change photo
+          </button>
+          <button class="authenticator-button js-log-out">
+            <span class="authenticator-button-text">Log out</span>
+            <svg class="menu__authenticator-button-icon" Width="13" height="10">
+              <use href="./images/sprite.svg#arrow"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-  <script src="./js/header/checkbox.js" ;></script>
 </header>

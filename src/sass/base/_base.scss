@@ -10,22 +10,21 @@ body {
 
 // Container
 .container {
+  outline: 1px solid tomato;
   margin-right: auto;
   margin-left: auto;
   padding-right: 20px;
   padding-left: 20px;
-  max-width: 480px;
+  max-width: 1440px;
 
   @include media('tablet') {
     padding-right: 32px;
     padding-left: 32px;
-    max-width: 768px;
   }
 
   @include media('desktop') {
     padding-right: 24px;
     padding-left: 24px;
-    max-width: 1280px;
   }
 }
 

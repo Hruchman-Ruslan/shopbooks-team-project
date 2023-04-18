@@ -8,7 +8,7 @@ const refs = {
 
 const newsApiBooksService = new NewsApiBooksService();
 
-newsApiBooksService.GetTopBooks().then(renderBestSellersBooks).catch(onError);
+newsApiBooksService.getTopBooks().then(renderBestSellersBooks).catch(onError);
 
 const seeMore = document.querySelector('.gallery__list');
 seeMore.addEventListener('click', onClick);
@@ -38,13 +38,13 @@ function renderBestSellersBooks(data) {
         <div class="desk">
         <h3 class="desk__subtitle">${title}</h3>
         <p class="desk__text">${author}</p>
-        </div>                  
+        </div>
     </button>
     </li>`
       )
       .join('')}
 </ul>
-<button class="gallery__btn" type="button">see more</button>
+<button class="gallery__btn button" type="button">see more</button>
 </li>`
     )
     .join('');
