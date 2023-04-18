@@ -1,6 +1,7 @@
 import NewsApiBooksService from '../api-service/api-service';
 import { Notify } from 'notiflix';
 import renderCardListByCategory from './renderCatdListByCategory';
+import updateTitle from './updateTitle';
 
 const containerEl = document.querySelector('.categories__container');
 const button = document.querySelector('.categories__btn');
@@ -15,28 +16,18 @@ newsApiBooksService
   .catch(erorrQuery);
 
 function onClickCategory(event) {
-  const title = document.querySelector('.gallery__title');
+
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
 
   const searchCategory = event.target.textContent;
   const nameCategory = searchCategory.trim();
-  const words = nameCategory.split(' ').filter(Boolean);
-
-  const lastWord = words[words.length - 1];
-
-  let str = words.slice(0, words.length - 1).join(' ');
-
-  const result = `<h1 class="gallery__title">
-    ${str} <span class="gallery__title--span">${lastWord}</span>
-    </h1>`;
-
-  title.innerHTML = result;
+  // updateTitle(nameCategory);
 
   newsApiBooksService
     .getBooksByCategory(nameCategory)
-    .then(renderCardListByCategory)
+    .then(renderCardListByCategory, updateTitle(nameCategory))
     .catch(erorrQuery);
 }
 

@@ -7,3 +7,4 @@ import './js/category/category';
 import './js/burger-menu/burger-menu';
 import './js/header/checkbox';
 import './js/category/renderCatdListByCategory';
+import './js/category/updateTitle';
