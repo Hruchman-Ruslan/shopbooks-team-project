@@ -1,9 +1,6 @@
 import { foundationItems } from './support-ukraine-arr';
-// import { refs } from '../refs';
 
-const refs = {
-  foundationList: document.querySelector('.swiper-wrapper'),
-};
+const foundationList = document.querySelector('.swiper-wrapper');
 
 function makeFoundationList({ img1x, img2x, title, url }, index) {
   return `<div class="support__ukraine-item swiper-slide">
@@ -42,4 +39,4 @@ const markup = foundationItems
   })
   .join('');
 
-refs.foundationList.innerHTML += markup;
+foundationList.innerHTML += markup;
