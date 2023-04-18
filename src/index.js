@@ -6,3 +6,4 @@ import './js/scroll-up/scroll-up';
 import './js/category/category';
 import './js/burger-menu/burger-menu';
 import './js/header/checkbox';
+import './js/category/renderCatdListByCategory';
