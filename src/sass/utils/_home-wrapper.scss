@@ -1,10 +1,19 @@
 .home__wrapper {
+  justify-content: center;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
+  gap: 40px;
 
   @include min-max('tablet', 'desktop') {
     flex-direction: row;
-    justify-content: space-between;
+    // justify-content: space-between;
     gap: 32px;
+  }
+
+  @include media('desktop') {
+    justify-content: flex-start;
+    gap: 86px;
+    margin-bottom: 0;
   }
 }

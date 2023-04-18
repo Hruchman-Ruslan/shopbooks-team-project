@@ -1,4 +1,6 @@
 .home__wrap {
+margin-top: 40px;
+
   @include media('desktop') {
     display: flex;
     gap: 40px;
