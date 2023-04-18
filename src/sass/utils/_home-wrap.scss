@@ -1,5 +1,6 @@
 .home__wrap {
   padding-top: 40px;
+  flex-direction: row-reverse;
 
   @include media('desktop') {
     display: flex;
