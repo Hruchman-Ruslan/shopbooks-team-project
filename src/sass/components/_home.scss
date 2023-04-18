@@ -1,11 +1,11 @@
 .gallery {
-    display: block;
-    // max-width: 996px;
-    // min-width: 89px;
+  display: block;
+  // max-width: 996px;
+  // min-width: 89px;
 
-//   @include media('desktop') {
-//     margin-left: 40px;
-//   }
+  //   @include media('desktop') {
+  //     margin-left: 40px;
+  //   }
 
   &__title {
     font-size: 32px;
@@ -20,7 +20,6 @@
 
     &--span {
       color: var(--link-focus);
-
     }
   }
 
@@ -39,12 +38,10 @@
     font-family: 'DMSans-Bold';
   }
 
-
   &__list {
     display: flex;
     flex-wrap: wrap;
   }
-
 
   &__link {
     display: block;
