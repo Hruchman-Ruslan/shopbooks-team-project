@@ -24,7 +24,7 @@ export default function renderModal(id) {
 
   const markup = refs.modalRef.innerHTML;
 
-  api.GetBooksById(id).then(load);
+  api.getBooksById(id).then(load);
   function load(data) {
     renderBtn();
     refs.backdropRef.classList.remove('is-hidden');

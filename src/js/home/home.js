@@ -1,5 +1,7 @@
 import NewsApiBooksService from '../api-service/api-service';
 import { Notify } from 'notiflix';
+import renderModal from '../pop-up/pop-up';
+
 // import bestSellersCardTpl from '../templates/bestSellersCard.hbs'
 
 const refs = {
@@ -62,6 +64,7 @@ function onClick(e) {
   } else if (e.target.nodeName === 'BUTTON') {
     if (e.target.classList.contains('card-container__link')) {
       const searchCardById = e.target.dataset.id;
+      renderModal(searchCardById);
       return;
     }
     const searchCategotyByBtn =
