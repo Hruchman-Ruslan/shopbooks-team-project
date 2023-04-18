@@ -23,6 +23,6 @@ let userData = localStorage.getItem(USER_DATA_KEY_STORAGE)
   : null;
 showNavigationToUser(userData);
 userData && writeUserName(userData);
-// window.addEventListener('beforeunload', () =>
-//   localStorage.removeItem(USER_DATA_KEY_STORAGE)
-// );
+// window.addEventListener('beforeunload', e => {
+//   localStorage.removeItem(USER_DATA_KEY_STORAGE);
+// });

@@ -42,11 +42,10 @@ function changeElem(arrEl) {
   });
 }
 
-// Для закриття форми реєстрації
+// To close the registration form
 export const onEscCloseForm = ({ code }) => {
   if (code === 'Escape') {
     onBtnClose();
-    console.log(code);
   }
 };
 const onBackdropClick = e => {
@@ -66,7 +65,7 @@ export function closeModalForm() {
   btnClose.addEventListener('click', onBtnClose);
 }
 
-// Сабміт форм
+// submit for forms - sign...
 export const onFormSubmitSignUp = e => {
   e.preventDefault();
 
@@ -137,3 +136,5 @@ export const onFormSubmitSignIn = e => {
 
   e.currentTarget.reset();
 };
+
+// Add user foto
