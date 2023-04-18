@@ -12,7 +12,7 @@ import { getPagination } from './tuipagination';
 // import bookshop from '../images/shoopinglist/amazon/2booksshop.png';
 // import bookshop2x from '../images/shoopinglist/amazon/2booksshop@2x.png';
 // import sprite from '../images/sprite.svg';
-
+const storage = JSON.parse(localStorage.getItem('basket'));
 const shoppingWrapper = document.querySelector('.shoopinglist__emptylist');
 // let bookArray = [];
  export async function createBooksMarkup(bookIds) {
@@ -93,6 +93,18 @@ const shoppingWrapper = document.querySelector('.shoopinglist__emptylist');
 const basketKeys = JSON.parse(localStorage.getItem('basket'));
 createBooksMarkup(basketKeys);
 
+
+
+
+
+// function removeFromStorage() {
+//     const newBasket = storage.filter(el => el == JSON.stringify(id));
+//     localStorage.setItem('basket', newBasket);
+//   }
+
+
+// const shoppingDelBtn = document.querySelector('.shoopinglist__btnclose');
+// shoppingDelBtn.addEventListener('click', deleteBookFromShopList);
 
 
 
