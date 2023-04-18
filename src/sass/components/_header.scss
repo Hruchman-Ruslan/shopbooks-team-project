@@ -1,5 +1,4 @@
 .header {
-  min-width: 375px;
   height: 64px;
   border: 1.5px solid var(--primary-text);
   border-radius: 0px 0px 8px 8px;
@@ -198,8 +197,14 @@
   stroke: var(--primary-text);
   width: 28px;
   height: 28px;
-}
 
+  &:hover {
+    stroke: var(--hover);
+  }
+}
+.js-is-hidden {
+  display: flex;
+}
 .header__authenticator-button {
   display: none;
   align-items: center;
@@ -229,19 +234,22 @@
   margin-right: 14px;
 }
 .header__authenticator-button-in {
+  position: relative;
   align-items: center;
   min-width: 184px;
   height: 45px;
   background-color: var(--link-focus);
   border-radius: 36px;
   margin-left: 24px;
-  @include media('tablet') {
-    display: flex;
+  display: flex;
+  @media screen and (max-width: 560px) {
+    display: none;
   }
 }
 .header__authenticarot-button-in-svg {
-  width: 23px;
-  height: 27px;
+  cursor: pointer;
+  width: 13px;
+  height: 7px;
   margin-right: 12px;
   margin-left: auto;
 }
@@ -269,6 +277,54 @@
   display: none;
 }
 
-.js-is-hidden {
-  display: flex;
+.overlay-svg {
+  position: absolute;
+  top: 56px;
+  right: 0%;
+  width: 184px;
+  height: 155px;
+  transform: translateY(-15%);
+  background-color: var(--link-focus);
+
+  border-radius: 8px 8px 8px 8px;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, transform 0.5s ease-in-out;
+  z-index: 99;
+}
+
+.js-modal--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0%);
+}
+.authenticator-button-change-photo {
+  width: 118px;
+  height: 48px;
+  background-color: var(--white-color-not-chenge);
+  border: 1.5px solid #111111;
+  border-radius: 18px;
+  color: var(--black-color-not-chenge);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  letter-spacing: -0.04em;
+  margin-bottom: 40px;
+}
+.authenticator-button {
+  width: 118px;
+  height: 48px;
+  background-color: var(--white-color-not-chenge);
+  border: 1.5px solid #111111;
+  border-radius: 18px;
+  margin-left: 50px;
+}
+
+.authenticator-button-text {
+  color: var(--black-color-not-chenge);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  letter-spacing: -0.04em;
 }

@@ -1,5 +1,7 @@
 import NewsApiBooksService from '../api-service/api-service';
 import { Notify } from 'notiflix';
+import renderModal from '../pop-up/pop-up';
+
 // import bestSellersCardTpl from '../templates/bestSellersCard.hbs'
 
 const refs = {
@@ -8,7 +10,7 @@ const refs = {
 
 const newsApiBooksService = new NewsApiBooksService();
 
-newsApiBooksService.GetTopBooks().then(renderBestSellersBooks).catch(onError);
+newsApiBooksService.getTopBooks().then(renderBestSellersBooks).catch(onError);
 
 const seeMore = document.querySelector('.gallery__list');
 seeMore.addEventListener('click', onClick);
@@ -38,7 +40,7 @@ function renderBestSellersBooks(data) {
         <div class="desk">
         <h3 class="desk__subtitle">${title}</h3>
         <p class="desk__text">${author}</p>
-        </div>                  
+        </div>
     </button>
     </li>`
       )
@@ -62,6 +64,7 @@ function onClick(e) {
   } else if (e.target.nodeName === 'BUTTON') {
     if (e.target.classList.contains('card-container__link')) {
       const searchCardById = e.target.dataset.id;
+      renderModal(searchCardById);
       return;
     }
     const searchCategotyByBtn =
