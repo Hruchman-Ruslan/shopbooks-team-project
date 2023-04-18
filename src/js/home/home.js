@@ -9,13 +9,9 @@ import updateTitle from '../category/updateTitle';
 const refs = {
   container: document.querySelector('.gallery__list'),
 };
-
 const newsApiBooksService = new NewsApiBooksService();
-
 newsApiBooksService.getTopBooks().then(renderBestSellersBooks).catch(onError);
-
-const seeMore = document.querySelector('.gallery__list');
-seeMore.addEventListener('click', onClick);
+refs.container.addEventListener('click', onClick);
 
 function renderBestSellersBooks(data) {
   if (data.length === 0) {
