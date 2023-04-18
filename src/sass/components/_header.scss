@@ -61,10 +61,16 @@
   margin-right: 8px;
 
   border-radius: 36px;
+  &:hover {
+    color: var(--hover);
+  }
 }
 .index .navigation-links__home {
   background: var(--background-header-btn);
   color: var(--black-color-not-chenge);
+  &:hover {
+    color: var(--link-focus);
+  }
 }
 
 .navigation-links__shopping-list {
@@ -86,16 +92,22 @@
 .index .navigation-links__shopping-list {
   background-color: var(--background-color);
   color: var(--primary-text);
+  &:hover {
+    color: var(--hover);
+  }
 }
 .navigation-links__shopping-list {
   background: var(--background-header-btn);
+  &:hover {
+    color: var(--link-focus);
+  }
 }
 
 .index .navigation-links__shopping-list-icon {
-  fill: var(--primary-text);
+  fill: currentColor;
 }
 .navigation-links__shopping-list-icon {
-  fill: var(--black-color-not-chenge);
+  fill: currentColor;
   margin-left: 4px;
 }
 
@@ -237,6 +249,10 @@
   border-radius: 36px;
   margin-left: 24px;
   display: flex;
+  fill: var(--white-color-not-chenge);
+  &:hover {
+    fill: var(--background-header-btn);
+  }
   @media screen and (max-width: 560px) {
     display: none;
   }
@@ -306,6 +322,10 @@
   line-height: calc(18 / 14);
   letter-spacing: -0.04em;
   margin-bottom: 40px;
+
+  &:hover {
+    background-color: var(--background-header-btn);
+  }
 }
 .authenticator-button {
   width: 118px;
@@ -314,6 +334,12 @@
   border: 1.5px solid #111111;
   border-radius: 18px;
   margin-left: 50px;
+  stroke: var(--background-header-btn);
+
+  &:hover {
+    background-color: var(--background-header-btn);
+    stroke: var(--link-focus);
+  }
 }
 
 .authenticator-button-text {
