@@ -25,7 +25,7 @@ export function showNavigationToUser(userData) {
       el.classList.remove('js-hidden');
     });
 
-    btnForModal.setAttribute('disabled');
+    btnForModal.setAttribute('disabled', true);
   }
 }
 
