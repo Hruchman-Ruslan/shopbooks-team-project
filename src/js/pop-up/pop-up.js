@@ -1,6 +1,6 @@
 import NewsApiBooksService from '../api-service/api-service';
 
-function renderModal(id) {
+export default function renderModal(id) {
   const api = new NewsApiBooksService();
   const refs = {
     modalRef: document.querySelector('.modal'),
