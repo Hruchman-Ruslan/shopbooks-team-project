@@ -23,11 +23,11 @@ function onClickCategory(event) {
 
   const searchCategory = event.target.textContent;
   const nameCategory = searchCategory.trim();
-  // updateTitle(nameCategory);
+  updateTitle(nameCategory);
 
   newsApiBooksService
     .getBooksByCategory(nameCategory)
-    .then(renderCardListByCategory, updateTitle(nameCategory))
+    .then(renderCardListByCategory)
     .catch(erorrQuery);
 }
 
