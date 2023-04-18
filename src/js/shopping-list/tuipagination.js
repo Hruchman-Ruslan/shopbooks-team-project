@@ -1,10 +1,12 @@
 import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+import 'tui-pagination/dist/tui-pagination.min.css';
 // import { saveToLocalStorage } from './localStarage';
 import { renderShoppingList } from './shopping-list';
 // import { getUniqueBook } from './render-shopping-list';
 
 const paginationEl = document.querySelector('.tui-pagination');
-const localStorageKey = 'bookarray';
+const localStorageKey = 'basket';
 const shoppingUl = document.querySelector('.shoopinglist__galery');
 
 
