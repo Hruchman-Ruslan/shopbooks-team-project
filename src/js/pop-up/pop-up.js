@@ -101,6 +101,7 @@ export default function renderModal(id) {
       refs.backdropRef.classList.add('is-hidden');
       refs.closeRef.removeEventListener('click', closeModal);
       refs.backdropRef.removeEventListener('click', closeModal);
+      window.removeEventListener('keydown', closeModal);
     }
   }
 }
