@@ -12,6 +12,7 @@
     line-height: calc(38 / 32);
     letter-spacing: -0.04em;
     margin-bottom: 40px;
+    color: var( --primary-text);
 
     @include media('desktop') {
       font-size: 48px;
@@ -37,6 +38,7 @@
     float: right;
     position: static;
     font-family: 'DMSans-Bold';
+    color: var(--primary-text);
   }
 
 
@@ -166,6 +168,7 @@
     letter-spacing: -0.04em;
     text-transform: uppercase;
     display: inline;
+    color: var(--primary-text);
   }
 
   &__text {

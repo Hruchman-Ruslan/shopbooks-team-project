@@ -1,6 +1,8 @@
 import NewsApiBooksService from '../api-service/api-service';
 import { Notify } from 'notiflix';
 import renderModal from '../pop-up/pop-up';
+import renderCardListByCategory from '../category/renderCatdListByCategory';
+import updateTitle from '../category/updateTitle';
 
 // import bestSellersCardTpl from '../templates/bestSellersCard.hbs'
 
@@ -59,9 +61,13 @@ function onError() {
 }
 
 function onClick(e) {
+
   if (e.target.nodeName === 'A') {
     const searchCategotyByLink = e.target.textContent;
-  } else if (e.target.nodeName === 'BUTTON') {
+    const nameCategory = searchCategotyByLink.trim(); 
+    newsApiBooksService.getBooksByCategory(nameCategory).then(renderCardListByCategory, updateTitle(nameCategory)).catch(onError);
+  } 
+  else if (e.target.nodeName === 'BUTTON') {
     if (e.target.classList.contains('card-container__link')) {
       const searchCardById = e.target.dataset.id;
       renderModal(searchCardById);
@@ -69,5 +75,7 @@ function onClick(e) {
     }
     const searchCategotyByBtn =
       e.target.previousElementSibling.previousElementSibling.textContent;
+    const nameCategory = searchCategotyByBtn.trim(); 
+    newsApiBooksService.getBooksByCategory(nameCategory).then(renderCardListByCategory,updateTitle(nameCategory)).catch(onError);
   }
 }
