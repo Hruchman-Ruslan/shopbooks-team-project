@@ -1,15 +1,36 @@
 .categories {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 24px;
-  overflow: hidden;
-  height: 228px;
-  overflow-y: auto;
-  scroll-snap-type: mandatory;
-  margin-right: 0;
-  margin-left: 0;
+  min-width: 335px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @include media('tablet') {
+    max-width: 337px;
+  }
+
+  @include media('desktop') {
+    max-width: 356px;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-right: 0;
+    margin-left: 0;
+    height: 228px;
+    overflow: hidden;
+    overflow-y: auto;
+    scroll-snap-type: mandatory;
+    text-align: left;
+
+    @include media('tablet') {
+      height: 472px;
+    }
+
+    @include media('desktop') {
+      height: 472px;
+    }
+  }
 
   &__item {
     scroll-snap-align: end;
@@ -23,21 +44,39 @@
     font-family: 'DMSans-Regular';
     font-size: 16px;
     line-height: calc(18 / 16);
-
+    font-weight: 400;
     letter-spacing: -0.02em;
     color: rgba(17, 17, 17, 0.6);
+
+    @include media('tablet') {
+      line-height: calc(24 / 18);
+    }
   }
 
   &__btn:hover,
   &__btn:focus {
     font-family: 'DMSans-Bold';
     text-transform: uppercase;
-    color: getColor('hover');
+    color: var(--link-focus);
   }
-  &__btn--active {
+  .categories__btn--active {
     font-family: 'DMSans-Bold';
     text-transform: uppercase;
 
-    color: getColor('hover');
+    color: var(--link-focus);
   }
 }
+
+// .card-container__item .a {
+//   display: block;
+//   grid-column-gap: 40px;
+//   flex-direction: column;
+
+//   @include media('tablet') {
+//     display: flex;
+//     flex-direction: row;
+//     gap: 25px;
+
+//     grid-column-gap: 40px;
+//   }
+// }

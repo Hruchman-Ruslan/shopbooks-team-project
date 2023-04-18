@@ -9,17 +9,14 @@
     margin-bottom: 40px;
     color: var( --primary-text);
 
-  
-
     @include media('desktop') {
       font-size: 48px;
       line-height: 108%;
 
     }
-    
+
     &--span {
       color: var(--link-focus);
-
     }
   }
 
@@ -44,7 +41,6 @@
     font-family: 'DMSans-Bold';
   }
 
-
   &__list {
    display: block;
    max-width: 335px;
@@ -56,9 +52,7 @@
     justify-content: center;
     max-width: none;
   }
-  
   }
-
 
   &__link {
     display: block;
