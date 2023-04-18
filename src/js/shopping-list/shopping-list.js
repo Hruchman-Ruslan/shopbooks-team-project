@@ -1,29 +1,31 @@
 import axios from 'axios';
 import NewsApiBooksService from '../api-service/api-service';
-import {removeFromStorage} from '../pop-up/pop-up';
 import { getPagination } from './tuipagination';
 
 
-// const qwer = new NewsApiBooksService();
-// import amazon from '../images/shoopinglist/amazon.png';
-// import amazon2x from '../images/shoopinglist/1amazon@2x.png';
-// import openbook from '../images/shoopinglist/amazon/1openbook.png';
-// import openbook2x from '../images/shoopinglist/amazon/1openbook@2x.png';
-// import bookshop from '../images/shoopinglist/amazon/2booksshop.png';
-// import bookshop2x from '../images/shoopinglist/amazon/2booksshop@2x.png';
-// import sprite from '../images/sprite.svg';
-const storage = JSON.parse(localStorage.getItem('basket'));
+import amazon from '../../images/shoopinglist/amazon/1amazon.png';
+import amazon2x from '../../images/shoopinglist/amazon/1amazon@2x.png';
+import openbook from '../../images/shoopinglist/amazon/1openbook.png';
+import openbook2x from '../../images/shoopinglist/amazon/1openbook@2x.png';
+import bookshop from '../../images/shoopinglist/amazon/2booksshop.png';
+import bookshop2x from '../../images/shoopinglist/amazon/2booksshop@2x.png';
+import sprite from '../../images/sprite.svg';
+
+const basketKeys = JSON.parse(localStorage.getItem('basket'));
+// const storage = JSON.parse(localStorage.getItem('basket'));
 const shoppingWrapper = document.querySelector('.shoopinglist__emptylist');
-// let bookArray = [];
+
  export async function createBooksMarkup(bookIds) {
     const booksService = new NewsApiBooksService();
     const booksData = await Promise.all(bookIds.map(bookId => booksService.getBooksById(bookId)));
     const booksContainer = document.getElementById('shoppingList'); 
+    
     if (booksData.length === 0) {
     shoppingWrapper.style.display = "block";
     } else {
         shoppingWrapper.style.display = "none";
         const booksMarkup = booksData.map(bookData => {
+            console.log(bookData)
             return `<div class="shoppinglist__galery-bookone">
             <div class="shoppinglist__galery-booktitle">
             <div class="shoppinglist__galery-imgavtor">
@@ -34,106 +36,89 @@ const shoppingWrapper = document.querySelector('.shoopinglist__emptylist');
                     <p class="shoppinglist__galery-bookautor">${bookData.list_name}</p>
                 </div>
             </div> 
-        <div class="shoopinglist__displaynone">
-        <div class="shoopinglist__galery-flex">
-                  <ul class="shoppinglist__galery-href">
-                    <li class="shoopinglist__galery-hrefli"><a href="${
-                      bookData.buy_links.find(link => link.name === 'Amazon').url
-                        ? bookData.buy_links.find(link => link.name === 'Amazon').url
-                        : 'https://www.amazon.com/ref=nav_logo'
-                    };
-                    })}">
-                    <img class="shoopinglist__galery-img1"
-                       src="./images/shoopinglist/amazon/1amazon.png"
-                        srcset="./images/shoopinglist/amazon/1amazon.png 1x, 
-                        ./images/shoopinglist/amazon/1amazon@2x.png 2x" 
-                        alt="amazon">
-                    </a></li>
-                    <li class="shoopinglist__galery-hrefli">
-                    <a href="${ bookData.buy_links.find(link => link.name === 'Apple Books').url
+            <div class="shoopinglist__displaynone">
+            <div class="shoopinglist__galery-flex">
+                      <ul class="shoppinglist__galery-href">
+                        <li class="shoopinglist__galery-hrefli"><a href="${
+                            bookData.buy_links.find(link => link.name === 'Amazon').url
+                              ? bookData.buy_links.find(link => link.name === 'Amazon').url
+                              : 'https://www.amazon.com/ref=nav_logo'
+                          };
+                          })}" class="shoppinglist__galery-link" target="_blank" rel="noopener noreferrer" aria-label="amazon">
+                            <img class="shoopinglist__galery-img1"
+                             src="${amazon}"
+                              srcset="${amazon} 1x, 
+                              ${amazon2x} 2x" 
+                              alt="amazon">
+                        </a></li>
+                        <li class="shoopinglist__galery-hrefli">
+                        <a href="${ bookData.buy_links.find(link => link.name === 'Apple Books').url
                         ? bookData.buy_links.find(link => link.name === 'Apple Books').url
                         : 'https://www.apple.com/ua/apple-books/'
                     };
-                    })}">
-                    <img class="shoopinglist__galery-img2" 
-                      src="./images/shoopinglist/amazon/1openbook.png" 
-                      srcset="./images/shoopinglist/amazon/1openbook.png 1x, 
-                      ./images/shoopinglist/amazon/1openbook@2x.png 2x"
-                       alt="amazon">
-                    </a></li>
-                    <li class="shoopinglist__galery-hrefli"><a href="${
-                      bookData.buy_links.find(link => link.name === 'Bookshop').url
-                        ? bookData.buy_links.find(link => link.name === 'Bookshop').url
-                        : 'https://bookshop.org/'
-                    };
-                    })}">
-                    <img class="shoopinglist__galery-img3"
-                    src="./images/shoopinglist/amazon/2booksshop.png" 
-                    srcset="./images/shoopinglist/amazon/2booksshop.png 1x, 
-                    ./images/shoopinglist/amazon/2booksshop@2x.png 2x" 
-                    alt="amazon">
-                    </a></li>
-                </ul>      
-                 <p class="shoppinglist__galery-avtor">${bookData.author}</p>
-            </div>
-        <p class="shoppinglist__galery-bookdescription">${bookData.description ? bookData.description : 'N/A'}</p>
-    </div>
-        <button class="shoopinglist__btnclose" type="button" id="button" data-id="${bookData.id}>
+                    })}" class="shoppinglist__galery-link" target="_blank" rel="noopener noreferrer" aria-label="instagram">
+                            <img class="shoopinglist__galery-img2" 
+                            src="${openbook}" 
+                            srcset="${openbook} 1x, 
+                            ${openbook2x} 2x"
+                             alt="amazon">
+                        </a></li>
+                        <li class="shoopinglist__galery-hrefli">
+                        <a href="${
+                            bookData.buy_links.find(link => link.name === 'Bookshop').url
+                              ? bookData.buy_links.find(link => link.name === 'Bookshop').url
+                              : 'https://bookshop.org/'
+                          };
+                          })}" class="shoppinglist__galery-link" target="_blank" rel="noopener noreferrer" aria-label="instagram">
+                            <img class="shoopinglist__galery-img3"
+                             src="${bookshop}" 
+                             srcset="${bookshop} 1x, 
+                             ${bookshop2x} 2x" 
+                             alt="amazon">
+                        </a></li>
+                    </ul>      
+                     <p class="shoppinglist__galery-avtor">${bookData.author}</p>
+                </div>
+            <p class="shoppinglist__galery-bookdescription">${bookData.description ? bookData.description : 'N/A'}</p>
+        </div>
+        <button class="shoopinglist__btnclose" data-id="${bookData._id}" id="button"  type="button"> 
         <svg class="shoppinglist__galery-icon">
-          <use href="./images/sprite.svg#trash"></use> 
-            </button>  
+          <use href="${sprite}#trash"></use> 
+          </svg></button>  
          </div> `;
           }).join('');
 
           booksContainer.insertAdjacentHTML('beforeend', booksMarkup);
           getPagination(booksContainer);
+
+         // Add event listener to each "shoopinglist__btnclose" button
+         const closeButtonList = document.querySelectorAll('.shoopinglist__btnclose');
+         closeButtonList.forEach(button => {
+             button.addEventListener('click', async (event) => {
+                const bookId = event.currentTarget.dataset.id;
+                removeFromStorage(bookId); // Remove book from localStorage
+                event.target.parentNode.remove(); 
+                
+                 const updatedBookIds = bookIds.filter(id => id !== bookId);
+                 createBooksMarkup(updatedBookIds); // Recreate the books markup with the updated bookIds array
+             });
+         });
  }
 }
 
-const basketKeys = JSON.parse(localStorage.getItem('basket'));
 createBooksMarkup(basketKeys);
-
-
-
-
-
-// function removeFromStorage() {
-//     const newBasket = storage.filter(el => el == JSON.stringify(id));
-//     localStorage.setItem('basket', newBasket);
-//   }
-
-
-// const shoppingDelBtn = document.querySelector('.shoopinglist__btnclose');
-// shoppingDelBtn.addEventListener('click', deleteBookFromShopList);
-
-
-
-// function deleteBookFromShopList(event) {
-//   if (
+function removeFromStorage(bookId) {
     
-//     event.target.parentElement.parentElement.parentElement.classList.value ===
-//     'shoopinglist__btnclose'
-//   ) {
-//     let id =
-//       event.target.parentElement.parentElement.parentElement.parentElement.getAttribute(
-//         'data-id'
-//       );
-//     let ind = bookArray.findIndex(e => e._id === id);
-//     if (ind !== -1) {
-//       bookArray.splice(ind, 1);
-//       saveToLocalStorage(localStorageKey, bookArray);
-//     }
-//     if (bookArray.length === 0) {
-//       shoppingWrapper.hidden = false;
-//     }
-//     if (
-//          JSON.parse(localStorage.getItem(localStorageKey))
-//     ) {
-//       bookElement.innerHTML = '';
-//       renderShoppingList(JSON.parse(localStorage.getItem(localStorageKey)));
-//     }
-//   }
-// }
+    const updatedBasketKeys = basketKeys.filter(id => id !== bookId); // Удаление bookId из массива bookIds
+    localStorage.setItem('basket', JSON.stringify(updatedBasketKeys));
+    
+}
 
-// const shoppingDelBtn = document.querySelector('.shoopinglist__btnclose');
-// shoppingDelBtn.addEventListener('click', deleteBookFromShopList);
+
+
+
+// const newBasket = basketKeys.filter(el => el == JSON.stringify(id));
+
+//       localStorage.setItem('basket', newBasket);
+//       refs.buttonRef.removeEventListener('click', removeFromStorage);
+//       storage = newBasket;
