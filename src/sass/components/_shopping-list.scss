@@ -149,11 +149,10 @@
     }
   }
   
-  
+  // 
 .tui-page-btn {
 border-radius: 50%;
-width: 38px;
-height: 38px;
+
 background-color: var(--background-header-btn);
 border: 1px solid #111111;
 display: flex;
@@ -169,13 +168,5 @@ font-size: 18px;
   }
 }
 }
-#pagination > strong {
-  font-size: 18px;
-}
-a.tui-page-btn.tui-first-child {
-  font-size: 18px;
-}
-#pagination > a:nth-child(4) {
-  font-size: 18px;
-}
-// 
+
+
