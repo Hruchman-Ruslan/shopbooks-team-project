@@ -5,6 +5,8 @@ import {
   btnsLogOut,
   USER_DATA_KEY_STORAGE,
   btnForModal,
+  formForSignEl,
+  formForUserFotoEl,
 } from './refsForm';
 
 export function showNavigationToUser(userData) {
@@ -17,6 +19,8 @@ export function showNavigationToUser(userData) {
     });
 
     btnForModal.removeAttribute('disabled');
+    formForSignEl.classList.add('is-hidden');
+    formForUserFotoEl.classList.remove('is-hidden');
   } else {
     reversEntrance.forEach(el => {
       el.classList.add('js-hidden');
@@ -26,6 +30,8 @@ export function showNavigationToUser(userData) {
     });
 
     btnForModal.setAttribute('disabled', true);
+    formForSignEl.classList.remove('is-hidden');
+    formForUserFotoEl.classList.add('is-hidden');
   }
 }
 

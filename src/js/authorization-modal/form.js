@@ -8,7 +8,7 @@ import {
   formsForRegistration,
   bodyEl,
   backdropEl,
-  btnClose,
+  btnsClose,
   formSignUp,
   formSignIn,
 } from './refsForm';
@@ -62,7 +62,7 @@ const onBtnClose = () => {
 
 export function closeModalForm() {
   backdropEl.addEventListener('click', onBackdropClick);
-  btnClose.addEventListener('click', onBtnClose);
+  btnsClose.forEach(el => el.addEventListener('click', onBtnClose));
 }
 
 // submit for forms - sign...
@@ -137,4 +137,4 @@ export const onFormSubmitSignIn = e => {
   e.currentTarget.reset();
 };
 
-// Add user foto
+// Change user foto

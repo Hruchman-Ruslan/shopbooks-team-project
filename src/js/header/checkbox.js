@@ -40,9 +40,8 @@ document.addEventListener('click', function (event) {
 const btnLogEl = document.querySelector('.header__authenticator-button');
 
 btnLogEl.addEventListener('click', handleFormAvtorisation);
-const formEl = document.querySelector('.backdrop--form');
 
-function handleFormAvtorisation() {
+export function handleFormAvtorisation() {
   backdropEl.classList.remove('is-hidden');
   bodyEl.classList.add('modal-open');
 

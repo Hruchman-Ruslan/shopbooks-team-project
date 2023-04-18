@@ -3,6 +3,7 @@ import {
   formSignUp,
   formSignIn,
   USER_DATA_KEY_STORAGE,
+  btnChangeFoto,
 } from './refsForm';
 import {
   onBtnReplaceForm,
@@ -11,6 +12,7 @@ import {
   onFormSubmitSignIn,
 } from './form';
 import { showNavigationToUser, writeUserName } from './interfaceForUser';
+import { handleFormAvtorisation } from '../header/checkbox';
 
 btnsGroupForChangeForm.addEventListener('click', onBtnReplaceForm);
 closeModalForm();
@@ -26,3 +28,5 @@ userData && writeUserName(userData);
 // window.addEventListener('beforeunload', e => {
 //   localStorage.removeItem(USER_DATA_KEY_STORAGE);
 // });
+
+btnChangeFoto.addEventListener('click', handleFormAvtorisation);
