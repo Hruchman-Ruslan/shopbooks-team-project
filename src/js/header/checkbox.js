@@ -1,3 +1,6 @@
+import { backdropEl, bodyEl } from '../authorization-modal/refsForm';
+import { onEscCloseForm } from '../authorization-modal/form';
+
 window.changeTheme = function (isChecked) {
   if (isChecked) {
     document.body.setAttribute('dark', '');
@@ -40,5 +43,8 @@ btnLogEl.addEventListener('click', handleFormAvtorisation);
 const formEl = document.querySelector('.backdrop--form');
 
 function handleFormAvtorisation() {
-  formEl.classList.remove('is-hidden');
+  backdropEl.classList.remove('is-hidden');
+  bodyEl.classList.add('modal-open');
+
+  document.addEventListener('keydown', onEscCloseForm);
 }

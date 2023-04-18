@@ -1,5 +1,9 @@
 import NewsApiBooksService from '../api-service/api-service';
 import { Notify } from 'notiflix';
+import renderModal from '../pop-up/pop-up';
+import renderCardListByCategory from '../category/renderCatdListByCategory';
+import updateTitle from '../category/updateTitle';
+
 // import bestSellersCardTpl from '../templates/bestSellersCard.hbs'
 
 const refs = {
@@ -38,7 +42,7 @@ function renderBestSellersBooks(data) {
         <div class="desk">
         <h3 class="desk__subtitle">${title}</h3>
         <p class="desk__text">${author}</p>
-        </div>                  
+        </div>
     </button>
     </li>`
       )
@@ -57,14 +61,21 @@ function onError() {
 }
 
 function onClick(e) {
+
   if (e.target.nodeName === 'A') {
     const searchCategotyByLink = e.target.textContent;
-  } else if (e.target.nodeName === 'BUTTON') {
+    const nameCategory = searchCategotyByLink.trim(); 
+    newsApiBooksService.getBooksByCategory(nameCategory).then(renderCardListByCategory, updateTitle(nameCategory)).catch(onError);
+  } 
+  else if (e.target.nodeName === 'BUTTON') {
     if (e.target.classList.contains('card-container__link')) {
       const searchCardById = e.target.dataset.id;
+      renderModal(searchCardById);
       return;
     }
     const searchCategotyByBtn =
       e.target.previousElementSibling.previousElementSibling.textContent;
+    const nameCategory = searchCategotyByBtn.trim(); 
+    newsApiBooksService.getBooksByCategory(nameCategory).then(renderCardListByCategory,updateTitle(nameCategory)).catch(onError);
   }
 }
