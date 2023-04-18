@@ -37,6 +37,14 @@
     padding-right: 40px;
   }
 }
+.modal_close{
+cursor: pointer;
+  position: absolute;
+  right: 31px;
+  top:31px;
+  width: 14px;
+  
+}
 .modal_top_section {
   @media (min-width: 768px) {
     display: flex;
@@ -99,7 +107,7 @@
   }
 }
 
-.modal_autor {
+.modal_author {
   margin-bottom: 18px;
 
   font-style: italic;
