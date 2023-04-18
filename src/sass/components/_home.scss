@@ -12,10 +12,13 @@
     line-height: calc(38 / 32);
     letter-spacing: -0.04em;
     margin-bottom: 40px;
+    color: var(--primary-text);
+    //text-align: center;
 
     @include media('desktop') {
       font-size: 48px;
       line-height: 108%;
+      //text-align: start;
     }
 
     &--span {
@@ -39,8 +42,13 @@
   }
 
   &__list {
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
+
+    @include media('tablet') {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   &__link {
@@ -163,6 +171,7 @@
     letter-spacing: -0.04em;
     text-transform: uppercase;
     display: inline;
+    color: var(--primary-text);
   }
 
   &__text {

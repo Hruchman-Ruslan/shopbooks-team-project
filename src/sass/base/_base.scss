@@ -3,6 +3,8 @@ body {
   font-size: 14px;
   line-height: calc(18 / 16);
 
+  background-color: var(--background-form);
+
   &.modal-open {
     overflow: hidden;
   }
