@@ -1,11 +1,5 @@
 .gallery {
     display: block;
-    // max-width: 996px;
-    // min-width: 89px;
-
-//   @include media('desktop') {
-//     margin-left: 40px;
-//   }
 
   &__title {
     font-size: 32px;
@@ -13,12 +7,15 @@
     letter-spacing: -0.04em;
     margin-bottom: 40px;
     color: var( --primary-text);
+    //text-align: center;
+  
 
     @include media('desktop') {
       font-size: 48px;
       line-height: 108%;
+      //text-align: start;
     }
-
+    
     &--span {
       color: var(--link-focus);
 
@@ -38,13 +35,19 @@
     float: right;
     position: static;
     font-family: 'DMSans-Bold';
-    color: var(--primary-text);
   }
 
 
   &__list {
+   display: block;
+
+    
+   @include media('tablet') {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+  }
+  
   }
 
 

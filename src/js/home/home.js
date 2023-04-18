@@ -77,5 +77,10 @@ function onClick(e) {
       e.target.previousElementSibling.previousElementSibling.textContent;
     const nameCategory = searchCategotyByBtn.trim(); 
     newsApiBooksService.getBooksByCategory(nameCategory).then(renderCardListByCategory,updateTitle(nameCategory)).catch(onError);
+    scrollPage();
   }
+}
+
+function scrollPage(){
+  window.scrollTo(0, 0);
 }
