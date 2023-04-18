@@ -1,22 +1,18 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import 'tui-pagination/dist/tui-pagination.min.css';
-// import { saveToLocalStorage } from './localStarage';
-import { createBooksMarkup } from './shopping-list';
-// import { getUniqueBook } from './render-shopping-list';
-
-const paginationEl = document.querySelector('.tui-pagination');
-const localStorageKey = 'basket';
-const shoppingUl = document.querySelector('.shoopinglist__galery');
+// import 'tui-pagination/dist/tui-pagination.min.css';
+// import { createBooksMarkup } from './shopping-list';
 
 
-export function addPagination(total, page) {
-  const options = {
-    totalItems: total.length,
-    itemsPerPage: 3,
-    visiblePages: 2,
-    page: page,
-    centerAlign: true,
+export function getPagination(booksContainer) {
+  const paginationContainer = document.getElementById('pagination');
+  const totalItems = booksContainer.childElementCount;
+  const itemsPerPage = 3; // Устанавливаем количество элементов на странице равным 3
+
+  const pagination = new Pagination(paginationContainer, {
+    totalItems: totalItems,
+    itemsPerPage: itemsPerPage,
+    visiblePages: 5, // Устанавливаем количество видимых страниц в пагинации
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
     template: {
@@ -36,53 +32,29 @@ export function addPagination(total, page) {
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },
-  };
+  });
 
-  const pagination = new Pagination(paginationEl, options);
+  pagination.on('afterMove', (event) => {
+    const scrollY = window.scrollY;
 
-  return pagination;
-}
+    const currentPage = event.page;
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
 
-const booksPerPage = 3;
-let pagination;
+    const booksItems = Array.from(booksContainer.children);
+    booksItems.forEach((item, index) => {
+      if (index >= startIndex && index < endIndex) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+    window.scrollTo(0, scrollY);
+  });
+ 
+  pagination.movePageTo(1); 
+};
 
-if (
-  JSON.parse(localStorage.getItem(localStorageKey)) &&
-  JSON.parse(localStorage.getItem(localStorageKey)).length > 0
-) {
-  pagination = addPagination(
-    JSON.parse(localStorage.getItem(localStorageKey)),
-    1
-  );
-  pagination.on('beforeMove', renderNextPage);
-}
+              
 
-function renderFirstPage() {
-  if (
-    JSON.parse(localStorage.getItem(localStorageKey)) &&
-    JSON.parse(localStorage.getItem(localStorageKey)).length > 0
-  ) {
-    createBooksMarkup(
-      JSON.parse(localStorage.getItem(localStorageKey)).slice(0, 3)
-    );
-  }
-}
-
-renderFirstPage();
-
-function renderNextPage(eventData) {
-  if (
-    JSON.parse(localStorage.getItem(localStorageKey)) &&
-    JSON.parse(localStorage.getItem(localStorageKey)).length > 0
-  ) {
-    shoppingUl.innerHTML = '';
-    console.log(eventData);
-    const start = (eventData.page - 1) * booksPerPage;
-    const pageItems = JSON.parse(localStorage.getItem(localStorageKey)).slice(
-      start,
-      start + booksPerPage
-    );
-    console.log(start, pageItems);
-    createBooksMarkup(pageItems);
-  }
-}
+  
