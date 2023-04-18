@@ -10,16 +10,9 @@
 .is-hidden {
   opacity: 0;
   pointer-events: none;
-  opacity: 0;
-  margin: 0px;
   position: absolute;
 }
 
-.modal_item {
-  height: 36px;
-  width: 38px;
-  background-color: #4f2ee8;
-}
 .modal {
   position: absolute;
   display: flex;
@@ -44,6 +37,14 @@
     padding-right: 40px;
   }
 }
+.modal_close{
+cursor: pointer;
+  position: absolute;
+  right: 31px;
+  top:31px;
+  width: 14px;
+  
+}
 .modal_top_section {
   @media (min-width: 768px) {
     display: flex;
@@ -57,9 +58,29 @@
     width: 297px;
   }
 }
+.modal_img {
+  height: 100%;
+  width: 100%;
+}
+.modal_img_placeholder {
+  height: 70px;
 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal_shop_img{
+    position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+        
+}
 .modal_cover {
-  background-color: #111010;
+  //background-color: #111010;
+  //background-image: url(./images/shops/Logotype.svg);
+  position: relative;
   width: 287px;
   height: 408px;
   border-radius: 8px;
@@ -86,7 +107,7 @@
   }
 }
 
-.modal_autor {
+.modal_author {
   margin-bottom: 18px;
 
   font-style: italic;
@@ -120,7 +141,7 @@
   }
 }
 .modal_shops {
-  height: 36px;
+  // height: 36px;
   display: flex;
   margin-bottom: 40px;
 }
@@ -128,7 +149,10 @@
   margin-right: 0px;
 }
 .modal_item {
+  height: 36px;
   margin-right: 20px;
+  padding: auto;
+  position: relative;
 }
 
 .modal_bottom_container {
