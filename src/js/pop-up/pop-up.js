@@ -62,7 +62,7 @@ export default function renderModal(id) {
     refs.closeRef.addEventListener('click', closeModal);
     refs.backdropRef.addEventListener('click', closeModal);
     window.addEventListener('keydown', closeModal);
-    function removeFromStorage() {
+     function removeFromStorage() {
       const newBasket = storage.filter(el => el == JSON.stringify(id));
 
       localStorage.setItem('basket', newBasket);
