@@ -57,11 +57,16 @@
   line-height: calc(18 / 14);
   letter-spacing: -0.04em;
 
-  color: var(--black-color-not-chenge);
+  color: var(--primary-text);
   margin-right: 8px;
-  background: var(--background-header-btn);
+
   border-radius: 36px;
 }
+.index .navigation-links__home {
+  background: var(--background-header-btn);
+  color: var(--black-color-not-chenge);
+}
+
 .navigation-links__shopping-list {
   display: flex;
   align-items: center;
@@ -72,39 +77,28 @@
   font-size: 14px;
   line-height: calc(18 / 14);
   letter-spacing: -0.04em;
-  color: var(--primary-text);
-
+  color: var(--black-color-not-chenge);
   width: 156px;
   height: 34px;
   border-radius: 36px;
 }
-.navigation-links__shopping-list-icon {
+
+.index .navigation-links__shopping-list {
+  background-color: var(--background-color);
+  color: var(--primary-text);
+}
+.navigation-links__shopping-list {
+  background: var(--background-header-btn);
+}
+
+.index .navigation-links__shopping-list-icon {
   fill: var(--primary-text);
+}
+.navigation-links__shopping-list-icon {
+  fill: var(--black-color-not-chenge);
   margin-left: 4px;
 }
 
-// Для хедера shopping-list
-// .navigation-links__shopping-list {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 14px;
-//   line-height: calc(18 / 14);
-//   letter-spacing: -0.04em;
-//   color: var(--primary-text);
-
-//   width: 156px;
-//   height: 34px;
-//   background:var(--background-header-btn);
-//   border-radius: 36px;
-// }
-// .navigation-links__shopping-list-icon {
-//   margin-left: 4px;
-// }
-// Для хедера shopping-list
 // CheckBox
 #highload1 {
   display: none;
@@ -234,6 +228,7 @@
   margin-right: 14px;
 }
 .header__authenticator-button-in {
+  cursor: pointer;
   position: relative;
   align-items: center;
   min-width: 184px;
@@ -246,8 +241,8 @@
     display: none;
   }
 }
+
 .header__authenticarot-button-in-svg {
-  cursor: pointer;
   width: 13px;
   height: 7px;
   margin-right: 12px;
@@ -273,9 +268,6 @@
   margin-left: 5px;
   margin-right: 5px;
 }
-.js-hidden {
-  display: none;
-}
 
 .overlay-svg {
   position: absolute;
@@ -294,6 +286,9 @@
   z-index: 99;
 }
 
+.js-hidden {
+  display: none;
+}
 .js-modal--open {
   opacity: 1;
   visibility: visible;

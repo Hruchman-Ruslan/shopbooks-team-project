@@ -13,4 +13,7 @@ export const reversExit = document.querySelectorAll('[data-user="log-out"]');
 export const userDisplayName = document.querySelectorAll('[data-user="name"]');
 export const btnsLogOut = document.querySelectorAll('.js-log-out');
 
+// modal card for book
+export const btnForModal = document.querySelector('.modal_button');
+
 export const USER_DATA_KEY_STORAGE = 'user-data';
