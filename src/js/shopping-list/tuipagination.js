@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import 'tui-pagination/dist/tui-pagination.min.css';
 // import { saveToLocalStorage } from './localStarage';
-import { renderShoppingList } from './shopping-list';
+import { createBooksMarkup } from './shopping-list';
 // import { getUniqueBook } from './render-shopping-list';
 
 const paginationEl = document.querySelector('.tui-pagination');
@@ -62,7 +62,7 @@ function renderFirstPage() {
     JSON.parse(localStorage.getItem(localStorageKey)) &&
     JSON.parse(localStorage.getItem(localStorageKey)).length > 0
   ) {
-    renderShoppingList(
+    createBooksMarkup(
       JSON.parse(localStorage.getItem(localStorageKey)).slice(0, 3)
     );
   }
@@ -83,6 +83,6 @@ function renderNextPage(eventData) {
       start + booksPerPage
     );
     console.log(start, pageItems);
-    renderShoppingList(pageItems);
+    createBooksMarkup(pageItems);
   }
 }
