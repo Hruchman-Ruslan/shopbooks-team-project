@@ -61,6 +61,7 @@ export default function renderModal(id) {
 
     refs.closeRef.addEventListener('click', closeModal);
     refs.backdropRef.addEventListener('click', closeModal);
+    window.addEventListener('keydown', closeModal);
     function removeFromStorage() {
       const newBasket = storage.filter(el => el == JSON.stringify(id));
 
@@ -91,7 +92,11 @@ export default function renderModal(id) {
   }
 
   function closeModal(e) {
-    if (e.target == refs.backdropRef || e.target == refs.closeRef) {
+    if (
+      e.target == refs.backdropRef ||
+      e.target == refs.closeRef ||
+      e.key == 'Escape'
+    ) {
       refs.modalRef.innerHTML = markup;
       refs.backdropRef.classList.add('is-hidden');
       refs.closeRef.removeEventListener('click', closeModal);

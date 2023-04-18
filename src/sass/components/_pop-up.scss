@@ -1,5 +1,6 @@
 .backdrop {
   position: fixed;
+  z-index: +1;
   top: 0;
   left: 0;
   height: 100%;
@@ -14,6 +15,7 @@
 }
 
 .modal {
+  z-index: +1;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -29,7 +31,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border: 2px solid #111111;
-  background-color: #ffffff;
+  background-color: var(--background-form);
 
   @media (min-width: 768px) {
     width: 579px;
@@ -40,12 +42,17 @@
 .modal_close{
 cursor: pointer;
   position: absolute;
-  right: 31px;
-  top:31px;
+  filter: var(--amazon-invert);
   width: 14px;
-  
+right: 12px;
+  top: 12px;
+  @media (min-width: 768px) {
+  right: 31px;
+    top: 31px;
+  }
 }
 .modal_top_section {
+ 
   @media (min-width: 768px) {
     display: flex;
     height: 281px;
@@ -70,7 +77,16 @@ cursor: pointer;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.modal_shop_img_amazon{
+  filter: var(--amazon-invert)grayscale(100%) ;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .modal_shop_img{
+  //filter: grayscale(100%);
+  filter: grayscale(100%)  ;
     position: absolute;
       top: 50%;
       left: 50%;
@@ -78,8 +94,7 @@ cursor: pointer;
         
 }
 .modal_cover {
-  //background-color: #111010;
-  //background-image: url(./images/shops/Logotype.svg);
+ 
   position: relative;
   width: 287px;
   height: 408px;
@@ -98,7 +113,7 @@ cursor: pointer;
   letter-spacing: -0.04em;
   margin-bottom: 4px;
 
-  color: #111111;
+  color: var(--primary-text);
   @media (min-width: 768px) {
     margin-bottom: 8px;
 
@@ -134,7 +149,7 @@ cursor: pointer;
   line-height: 1.29;
 
   letter-spacing: -0.04em;
-  color: #111111;
+  color: var(--primary-text);
   @media (min-width: 768px) {
     margin-bottom: 20px;
     margin-right: 4px;
@@ -174,7 +189,7 @@ cursor: pointer;
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
-  color: #111111;
+  color: var(--primary-text);
 
   @media (min-width: 768px) {
     font-weight: 700;
@@ -186,7 +201,9 @@ cursor: pointer;
     padding-bottom: 20px;
   }
 }
-
+.modal_button:disabled{
+  color: grey;
+}
 .modal_info_text {
   margin-top: 8px;
   margin-left: auto;
