@@ -43,6 +43,12 @@ function changeElem(arrEl) {
 }
 
 // Для закриття форми реєстрації
+export const onEscCloseForm = ({ code }) => {
+  if (code === 'Escape') {
+    onBtnClose();
+    console.log(code);
+  }
+};
 const onBackdropClick = e => {
   if (e.currentTarget !== e.target) {
     return;
@@ -52,6 +58,7 @@ const onBackdropClick = e => {
 const onBtnClose = () => {
   bodyEl.removeAttribute('class');
   backdropEl.classList.add('is-hidden');
+  document.removeEventListener('keydown', onEscCloseForm);
 };
 
 export function closeModalForm() {
