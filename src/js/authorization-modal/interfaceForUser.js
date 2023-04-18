@@ -4,6 +4,7 @@ import {
   userDisplayName,
   btnsLogOut,
   USER_DATA_KEY_STORAGE,
+  btnForModal,
 } from './refsForm';
 
 export function showNavigationToUser(userData) {
@@ -14,6 +15,8 @@ export function showNavigationToUser(userData) {
     reversExit.forEach(el => {
       el.classList.add('js-hidden');
     });
+
+    btnForModal.removeAttribute('disabled');
   } else {
     reversEntrance.forEach(el => {
       el.classList.add('js-hidden');
@@ -21,6 +24,8 @@ export function showNavigationToUser(userData) {
     reversExit.forEach(el => {
       el.classList.remove('js-hidden');
     });
+
+    btnForModal.setAttribute('disabled');
   }
 }
 
