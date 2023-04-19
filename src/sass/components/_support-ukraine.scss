@@ -133,6 +133,8 @@
   width: 20px;
   transform: rotate(180deg);
 
+  @include animated(transform);
+
   @include media('tablet') {
     height: 22px;
     width: 22px;

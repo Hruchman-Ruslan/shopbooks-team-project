@@ -60,6 +60,8 @@
   color: var(--primary-text);
   margin-right: 8px;
 
+  @include animated(color);
+
   border-radius: 36px;
   &:hover {
     color: var(--hover);
@@ -68,6 +70,9 @@
 .index .navigation-links__home {
   background: var(--background-header-btn);
   color: var(--black-color-not-chenge);
+
+  @include animated(color);
+
   &:hover {
     color: var(--link-focus);
   }
@@ -92,12 +97,16 @@
 .index .navigation-links__shopping-list {
   background-color: var(--background-color);
   color: var(--primary-text);
+  @include animated(color);
+
   &:hover {
     color: var(--hover);
   }
 }
 .navigation-links__shopping-list {
   background: var(--background-header-btn);
+  @include animated(color);
+
   &:hover {
     color: var(--link-focus);
   }
@@ -204,6 +213,8 @@
   width: 28px;
   height: 28px;
 
+  @include animated(stroke);
+
   &:hover {
     stroke: var(--hover);
   }
@@ -250,6 +261,8 @@
   margin-left: 24px;
   display: flex;
   fill: var(--white-color-not-chenge);
+  @include animated(fill);
+
   &:hover {
     fill: var(--background-header-btn);
   }
@@ -323,6 +336,8 @@
   letter-spacing: -0.04em;
   margin-bottom: 40px;
 
+  @include animated(background-color);
+
   &:hover {
     background-color: var(--background-header-btn);
   }
@@ -335,6 +350,8 @@
   border-radius: 18px;
   margin-left: 50px;
   stroke: var(--background-header-btn);
+
+  @include animated(background-color, stroke);
 
   &:hover {
     background-color: var(--background-header-btn);
