@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const app = initializeApp(firebaseConfig);
 
-// Реєстрація нового користувача
+// New user registration
 export async function postFirebase(userData, queryParameter) {
   const { mail, password } = userData;
 

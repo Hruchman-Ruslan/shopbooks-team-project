@@ -16,6 +16,28 @@
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
+
+    & .form__wrap {
+      transform: scale(0.5, 0.5) rotate(720deg);
+    }
+  }
+}
+
+.backdrop--form-blur {
+  position: absolute;
+  left: -666px;
+  top: -638px;
+  width: 935px;
+  height: 935px;
+  background: rgba(204, 236, 231, 0.5);
+  filter: blur(539.791px);
+  pointer-events: none;
+
+  @include media('phone') {
+    left: -846px;
+    top: -918px;
+    width: 1421px;
+    height: 1421px;
   }
 }
 
@@ -35,6 +57,8 @@
   background-color: var(--background-form);
   border: 2px solid var(--border-form);
   border-radius: 18px;
+
+  @include animated(transform);
 
   @include media('tablet') {
     padding: 70px 40px 40px;
