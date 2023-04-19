@@ -134,7 +134,8 @@ export const onFormSubmitSignIn = e => {
       btnForModal.removeAttribute('disabled');
 
       setTimeout(onBtnClose, 1500);
-      setTimeout(() => showNavigationToUser(res), 1500);
+      // setTimeout(() => showNavigationToUser(res), 1500);
+      setTimeout(() => location.reload(), 1500);
     })
     .catch(error => {
       const message = JSON.parse(error.request.response);

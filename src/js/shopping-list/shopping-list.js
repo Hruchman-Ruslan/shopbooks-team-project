@@ -15,7 +15,7 @@ let basketKeys = JSON.parse(localStorage.getItem('basket'));
 const shoppingWrapper = document.querySelector('.shoopinglist__emptylist');
 const paginationContainer = document.getElementById('pagination');
 const booksContainer = document.getElementById('shoppingList'); 
-
+const booksgrid = document.getElementById('important'); 
  export async function createBooksMarkup(bookIds) {
     const booksService = new NewsApiBooksService();
     const booksData = await Promise.all(bookIds.map(bookId => 
@@ -23,22 +23,25 @@ const booksContainer = document.getElementById('shoppingList');
 console.log(booksData)
     if (booksData.length === 0) {
     shoppingWrapper.style.display = "block";
+    paginationContainer.style.display = "none";
     } 
      else {
+      
         shoppingWrapper.style.display = "none";
         const booksMarkup = booksData.map(bookData => {   
-            return `<div class="shoppinglist__galery-bookone">
-            <div class="shoppinglist__galery-booktitle">
+            return `
+            <div class="shoppinglist__galery-bookone">
+            <div class="shoppinglist__galeryimportant">
             <div class="shoppinglist__galery-imgavtor">
-                <img class="shoppinglist__galery-img" srcset="${bookData.book_image} 1x, ${bookData.book_image} 2x" src="${bookData.book_image}" alt="booktitle" height:100% width:100%>  
+                <img class="shoppinglist__galery-img" srcset="${bookData.book_image} 1x, ${bookData.book_image} 2x" src="${bookData.book_image}" alt="booktitle" height:100% width:100%>
+                <p class="shopping-list--author__mobile">${bookData.author}</p>
             </div>
+
                 <div class="shoppinglist__galery-booknamewithamazon">
-                    <p class="shoppinglist__galery-bookname">${bookData.title}</p>
+                    <h2 class="shoppinglist__galery-bookname">${bookData.title}</h2>
                     <p class="shoppinglist__galery-bookautor">${bookData.list_name}</p>
                 </div>
-            </div> 
-            <div class="shoopinglist__displaynone">
-            <div class="shoopinglist__galery-flex">
+
                       <ul class="shoppinglist__galery-href">
                         <li class="shoopinglist__galery-hrefli"><a href="${
                             bookData.buy_links.find(link => link.name === 'Amazon').url
@@ -77,19 +80,20 @@ console.log(booksData)
                              ${bookshop2x} 2x" 
                              alt="amazon">
                         </a></li>
-                    </ul>      
-                     <p class="shoppinglist__galery-avtor">${bookData.author}</p>
-                </div>
-            <p class="shoppinglist__galery-bookdescription">${bookData.description ? bookData.description : 'N/A'}</p>
-        </div>
+                    </ul>  
+                    <p class="shoppinglist__galery-bookdescription">${bookData.description ? bookData.description : 'N/A'}</p>    
+                     <p class="shoppinglist__galery-avtor">${bookData.author}</p>           
+        
         <button class="shoopinglist__btnclose" data-id="${bookData._id}" id="button"  type="button"> 
         <svg class="shoppinglist__galery-icon">
           <use href="${sprite}#trash"></use> 
-          </svg></button>  
+          </svg>
+          </button>  
+         </div>
          </div> `;
           }).join('');
           booksContainer.innerHTML = booksMarkup;
-
+          
           const btnCloseList = document.querySelectorAll('.shoopinglist__btnclose');
           btnCloseList.forEach(btnClose => {
             btnClose.addEventListener('click', () => {
@@ -108,14 +112,12 @@ console.log(booksData)
           });
   
           getPagination(booksContainer);
+          
         }
     };
 
       createBooksMarkup(basketKeys);
   
-
-
-
 
 
 
