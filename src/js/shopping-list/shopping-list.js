@@ -11,21 +11,22 @@ import bookshop from '../../images/shoopinglist/amazon/2booksshop.png';
 import bookshop2x from '../../images/shoopinglist/amazon/2booksshop@2x.png';
 import sprite from '../../images/sprite.svg';
 
-const basketKeys = JSON.parse(localStorage.getItem('basket'));
-// const storage = JSON.parse(localStorage.getItem('basket'));
+let basketKeys = JSON.parse(localStorage.getItem('basket'));
 const shoppingWrapper = document.querySelector('.shoopinglist__emptylist');
+const paginationContainer = document.getElementById('pagination');
+const booksContainer = document.getElementById('shoppingList'); 
 
  export async function createBooksMarkup(bookIds) {
     const booksService = new NewsApiBooksService();
-    const booksData = await Promise.all(bookIds.map(bookId => booksService.getBooksById(bookId)));
-    const booksContainer = document.getElementById('shoppingList'); 
-    
+    const booksData = await Promise.all(bookIds.map(bookId => 
+    booksService.getBooksById(bookId)));
+console.log(booksData)
     if (booksData.length === 0) {
     shoppingWrapper.style.display = "block";
-    } else {
+    } 
+     else {
         shoppingWrapper.style.display = "none";
-        const booksMarkup = booksData.map(bookData => {
-            console.log(bookData)
+        const booksMarkup = booksData.map(bookData => {   
             return `<div class="shoppinglist__galery-bookone">
             <div class="shoppinglist__galery-booktitle">
             <div class="shoppinglist__galery-imgavtor">
@@ -87,38 +88,34 @@ const shoppingWrapper = document.querySelector('.shoopinglist__emptylist');
           </svg></button>  
          </div> `;
           }).join('');
+          booksContainer.innerHTML = booksMarkup;
 
-          booksContainer.insertAdjacentHTML('beforeend', booksMarkup);
+          const btnCloseList = document.querySelectorAll('.shoopinglist__btnclose');
+          btnCloseList.forEach(btnClose => {
+            btnClose.addEventListener('click', () => {
+              const bookId = btnClose.getAttribute('data-id');
+              basketKeys = basketKeys.filter(key => key !== bookId);
+              localStorage.setItem('basket', JSON.stringify(basketKeys));
+
+              const bookElem = btnClose.closest('.shoppinglist__galery-bookone');
+              bookElem.remove();
+              getPagination(booksContainer);
+              if (basketKeys.length === 0) {
+                shoppingWrapper.style.display = "block";
+           
+              createBooksMarkup(basketKeys);
+          }});
+          });
+  
           getPagination(booksContainer);
+        }
+    };
 
-         // Add event listener to each "shoopinglist__btnclose" button
-         const closeButtonList = document.querySelectorAll('.shoopinglist__btnclose');
-         closeButtonList.forEach(button => {
-             button.addEventListener('click', async (event) => {
-                const bookId = event.currentTarget.dataset.id;
-                removeFromStorage(bookId); // Remove book from localStorage
-                event.target.parentNode.remove(); 
-                
-                 const updatedBookIds = bookIds.filter(id => id !== bookId);
-                 createBooksMarkup(updatedBookIds); // Recreate the books markup with the updated bookIds array
-             });
-         });
- }
-}
-
-createBooksMarkup(basketKeys);
-function removeFromStorage(bookId) {
-    
-    const updatedBasketKeys = basketKeys.filter(id => id !== bookId); // Удаление bookId из массива bookIds
-    localStorage.setItem('basket', JSON.stringify(updatedBasketKeys));
-    
-}
+      createBooksMarkup(basketKeys);
+  
 
 
 
 
-// const newBasket = basketKeys.filter(el => el == JSON.stringify(id));
 
-//       localStorage.setItem('basket', newBasket);
-//       refs.buttonRef.removeEventListener('click', removeFromStorage);
-//       storage = newBasket;
+
