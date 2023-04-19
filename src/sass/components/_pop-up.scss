@@ -231,3 +231,24 @@ right: 12px;
   margin-top: 0px;
   position: absolute;
 }
+.modal_info_text_registr{
+    margin-top: 8px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 1.2;
+      width: 242px;
+    
+      text-align: center;
+      letter-spacing: -0.04em;
+      color: rgba(17, 17, 17, 0.5);
+    
+      @media (min-width: 768px) {
+        margin-left: auto;
+        margin-right: auto;
+        width: 324px;
+        font-size: 12px;
+        line-height: 1.17;
+      }
+}
