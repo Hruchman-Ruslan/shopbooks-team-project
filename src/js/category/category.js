@@ -3,7 +3,7 @@ import { Notify } from 'notiflix';
 import renderCardListByCategory from './renderCatdListByCategory';
 import updateTitle from './updateTitle';
 
-const containerEl = document.querySelector('.categories__container');
+export const containerEl = document.querySelector('.categories__container');
 const button = document.querySelector('.categories__btn');
 
 const newsApiBooksService = new NewsApiBooksService();
@@ -16,7 +16,6 @@ newsApiBooksService
   .catch(erorrQuery);
 
 function onClickCategory(event) {
-
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
