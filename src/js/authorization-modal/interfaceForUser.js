@@ -5,6 +5,9 @@ import {
   btnsLogOut,
   USER_DATA_KEY_STORAGE,
   btnForModal,
+  formForSignEl,
+  formForUserFotoEl,
+  imageFotoEls,
 } from './refsForm';
 
 export function showNavigationToUser(userData) {
@@ -17,6 +20,10 @@ export function showNavigationToUser(userData) {
     });
 
     btnForModal.removeAttribute('disabled');
+    formForSignEl.classList.add('is-hidden');
+    formForUserFotoEl.classList.remove('is-hidden');
+
+    changeUserFoto(userData);
   } else {
     reversEntrance.forEach(el => {
       el.classList.add('js-hidden');
@@ -26,6 +33,8 @@ export function showNavigationToUser(userData) {
     });
 
     btnForModal.setAttribute('disabled', true);
+    formForSignEl.classList.remove('is-hidden');
+    formForUserFotoEl.classList.add('is-hidden');
   }
 }
 
@@ -43,3 +52,11 @@ const onBtnLogOut = () => {
 btnsLogOut.forEach(el => {
   el.addEventListener('click', onBtnLogOut);
 });
+
+export function changeUserFoto(userData) {
+  imageFotoEls.forEach(imgEl => {
+    if (userData.profilePicture) {
+      imgEl.src = userData.profilePicture;
+    }
+  });
+}
