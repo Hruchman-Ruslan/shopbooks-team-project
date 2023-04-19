@@ -17,13 +17,14 @@ export default function renderModal(id) {
     coverImg: document.querySelector('.modal_img_placeholder'),
     itemsRef: document.querySelectorAll('.modal_item'),
     closeRef: document.querySelector('.modal_close'),
+    scrollRef: document.querySelector('.btn__up'),
   };
-  refs.bodyRef.classList.add('no-scroll');
+  refs.scrollRef.style.display = 'none';
   if (!localStorage.getItem('basket')) {
     localStorage.setItem('basket', '[]');
   }
   let storage = JSON.parse(localStorage.getItem('basket'));
-
+  refs.scrollRef.classList.add('is-hidden');
   const markup = refs.modalRef.innerHTML;
 
   api.getBooksById(id).then(load);
@@ -105,6 +106,7 @@ export default function renderModal(id) {
       refs.closeRef.removeEventListener('click', closeModal);
       refs.backdropRef.removeEventListener('click', closeModal);
       window.removeEventListener('keydown', closeModal);
+      refs.scrollRef.style.display = '';
     }
   }
 }
