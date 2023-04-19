@@ -1,6 +1,6 @@
 .gallery {
   display: block;
-  margin: auto;
+  margin: 0 auto;
 
   @include media('tablet') {
     max-width: 704px;
@@ -48,7 +48,11 @@
 
   &__list {
     display: block;
-    max-width: 335px;
+    max-width: 280px;
+
+    @include media('phone') {
+      max-width: 335px;
+    }
 
     @include media('tablet') {
       display: flex;
@@ -139,6 +143,7 @@
   }
 
   &__thumb {
+    width: 280px;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
