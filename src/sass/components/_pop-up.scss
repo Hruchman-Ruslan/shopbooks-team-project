@@ -39,6 +39,17 @@
     padding-right: 40px;
   }
 }
+.modal_closes {
+  fill: currentColor;
+  stroke: var(--hover-modal-close);
+  width: 28px;
+  height: 28px;
+
+  &:hover {
+    stroke: var(--hover);
+  }
+}
+
 .modal_close {
   cursor: pointer;
   position: absolute;
