@@ -1,14 +1,15 @@
 .categories {
   min-width: 335px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  overflow: hidden;
 
   @include media('tablet') {
     max-width: 337px;
+    padding-bottom: 100px;
   }
 
   @include media('desktop') {
     max-width: 356px;
+    padding-bottom: 0;
   }
 
   &__wrap {
@@ -24,10 +25,6 @@
     text-align: left;
 
     @include media('tablet') {
-      height: 472px;
-    }
-
-    @include media('desktop') {
       height: 472px;
     }
   }
@@ -46,7 +43,7 @@
     line-height: calc(18 / 16);
     font-weight: 400;
     letter-spacing: -0.02em;
-    color: rgba(17, 17, 17, 0.6);
+    color: var(--catigory-text);
 
     @include media('tablet') {
       line-height: calc(24 / 18);
@@ -57,26 +54,25 @@
   &__btn:focus {
     font-family: 'DMSans-Bold';
     text-transform: uppercase;
-    color: var(--link-focus);
+    color: var(--hover);
   }
   .categories__btn--active {
     font-family: 'DMSans-Bold';
     text-transform: uppercase;
 
-    color: var(--link-focus);
+    color: var(--hover);
   }
 }
 
-// .card-container__item .a {
-//   display: block;
-//   grid-column-gap: 40px;
-//   flex-direction: column;
+.a {
+  grid-column-gap: 40px;
+  flex-direction: column;
 
-//   @include media('tablet') {
-//     display: flex;
-//     flex-direction: row;
-//     gap: 25px;
+  @include media('tablet') {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
 
-//     grid-column-gap: 40px;
-//   }
-// }
+    grid-column-gap: 40px;
+  }
+}

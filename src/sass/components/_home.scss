@@ -1,18 +1,17 @@
 .gallery {
-    display: block;
-    margin: auto;
+  display: block;
+  margin: auto;
 
   &__title {
     font-size: 32px;
     line-height: calc(38 / 32);
     letter-spacing: -0.04em;
     margin-bottom: 40px;
-    color: var( --primary-text);
+    color: var(--primary-text);
 
     @include media('desktop') {
       font-size: 48px;
       line-height: 108%;
-
     }
 
     &--span {
@@ -22,12 +21,10 @@
 
   &__item {
     margin-bottom: 94px;
-   
+
     @include media('tablet') {
       margin-bottom: 40px;
     }
-
-
   }
 
   &__btn.button {
@@ -42,16 +39,15 @@
   }
 
   &__list {
-   display: block;
-   max-width: 335px;
+    display: block;
+    max-width: 335px;
 
-    
-   @include media('tablet') {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: none;
-  }
+    @include media('tablet') {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: none;
+    }
   }
 
   &__link {
@@ -71,7 +67,7 @@
   display: flex;
   margin-bottom: 8px;
   flex-direction: column;
- 
+
   @include media('tablet') {
     flex-direction: row;
     gap: 25px;
@@ -121,7 +117,6 @@
   }
 
   &__image {
-
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -135,7 +130,8 @@
     border-radius: 8px;
     margin-bottom: 14px;
     pointer-events: none;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
 
     @include media('phone') {
       width: 335px;
@@ -147,7 +143,6 @@
       height: 316px;
     }
 
-    
     @include media('desktop') {
       width: 180px;
       height: 256px;
@@ -158,7 +153,7 @@
   //   width: 164px;
   //   height: 256px;
   // }
-  
+
   // @media screen and (min-width: 1440px){
   //   width: 180px;
   //       height: 256px;
