@@ -16,9 +16,10 @@ export default function renderModal(id) {
     imgRef: document.querySelector('.modal_img'),
     coverImg: document.querySelector('.modal_img_placeholder'),
     itemsRef: document.querySelectorAll('.modal_item'),
-    closeRef: document.querySelector('.modal_close'),
+    closeRef: document.querySelector('.modal_closes'),
     scrollRef: document.querySelector('.btn__up'),
   };
+  refs.bodyRef.classList.add('no-scroll');
   refs.scrollRef.style.display = 'none';
   if (!localStorage.getItem('basket')) {
     localStorage.setItem('basket', '[]');
