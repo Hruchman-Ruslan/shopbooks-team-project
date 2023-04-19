@@ -1,40 +1,59 @@
 <div class="backdrop is-hidden">
-    <div class="modal ">
-        <div class="modal_top_section">
-            <img src="./images/shops/close.png" alt="X" class="modal_close">
-            <div class="modal_cover">
-                <img src="./images/shops/Logotype.svg" alt="bookcover" class="modal_img_placeholder">
-            </div>
-            <div class="modal_info_section">
-                <p class="modal_book_name">N/A</p>
-                <p class="modal_author">N/A</p>
-                <p class="modal_discription">N/A</p>
-                <ul class="modal_shops">
-                    <li class="modal_item is-hidden" style="width: 62px;">
-                        <a href="" target="_blank">
-                            <img src="./images/shops/amazon.png" alt="amazon" class="modal_shop_img_amazon" style="height: 19px;
-          width: 62px;">
-                        </a>
-                    </li>
-                    <li class="modal_item is-hidden" style="width: 32px;">
-                        <a href="" target="_blank">
-                            <img src="./images/shops/apple-books.png" alt="amazon" class="modal_shop_img" style="height: 32px;
-          width: 33px;"></a>
-                    </li>
-                    <li class="modal_item is-hidden" style="width: 38px;">
-                        <a href="" target="_blank">
-                            <img src="./images/shops/bookshop.png" alt="amazon" class="modal_shop_img" style="height: 38px;
-          width: 36px;"></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="modal_bottom_container">
-            <button class="modal_button" disabled>add to shopping list</button>
-            <p class="modal_info_text is-hidden">Сongratulations! You have added the book to the shopping list. To
-                delete, press
-                the button “Remove from the shopping list”.</p>
-            <p class="modal_info_text_registr">In order to use this button, you need to register</p>
-        </div>
+  <div class="modal">
+    <div class="modal_top_section">
+      <img src="./images/shops/close.png" alt="X" class="modal_close" />
+      <div class="modal_cover">
+        <img
+          src="./images/shops/Logotype.svg"
+          alt="bookcover"
+          class="modal_img_placeholder"
+        />
+      </div>
+      <div class="modal_info_section">
+        <p class="modal_book_name">N/A</p>
+        <p class="modal_author">N/A</p>
+        <p class="modal_discription">N/A</p>
+        <ul class="modal_shops">
+          <li class="modal_item is-hidden" style="width: 62px">
+            <a href="" target="_blank">
+              <img
+                src="./images/shops/amazon.png"
+                alt="amazon"
+                class="modal_shop_img_amazon"
+                style="height: 19px; width: 62px"
+              />
+            </a>
+          </li>
+          <li class="modal_item is-hidden" style="width: 32px">
+            <a href="" target="_blank">
+              <img
+                src="./images/shops/apple-books.png"
+                alt="amazon"
+                class="modal_shop_img"
+                style="height: 32px; width: 33px"
+            /></a>
+          </li>
+          <li class="modal_item is-hidden" style="width: 38px">
+            <a href="" target="_blank">
+              <img
+                src="./images/shops/bookshop.png"
+                alt="amazon"
+                class="modal_shop_img"
+                style="height: 38px; width: 36px"
+            /></a>
+          </li>
+        </ul>
+      </div>
     </div>
+    <div class="modal_bottom_container">
+      <button class="modal_button" disabled>add to shopping list</button>
+      <p class="modal_info_text is-hidden" data-user="log-in">
+        Сongratulations! You have added the book to the shopping list. To
+        delete, press the button “Remove from the shopping list”.
+      </p>
+      <p class="modal_info_text_registr" data-user="log-out">
+        In order to use this button, you need to register
+      </p>
+    </div>
+  </div>
 </div>
