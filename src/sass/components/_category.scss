@@ -1,3 +1,9 @@
+.home__wrap {
+  gap: 40px;
+}
+.home__wrapper {
+  margin: 0 auto;
+}
 .categories {
   min-width: 335px;
   overflow: hidden;
@@ -8,13 +14,14 @@
   }
 
   @include media('desktop') {
-    max-width: 356px;
+    max-width: 316px;
     padding-bottom: 0;
   }
 
   &__wrap {
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     gap: 24px;
     margin-right: 0;
     margin-left: 0;
@@ -44,6 +51,7 @@
     font-weight: 400;
     letter-spacing: -0.02em;
     color: var(--catigory-text);
+    text-align: left;
 
     @include media('tablet') {
       line-height: calc(24 / 18);
@@ -64,15 +72,6 @@
   }
 }
 
-.a {
-  grid-column-gap: 40px;
-  flex-direction: column;
-
-  @include media('tablet') {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-
-    grid-column-gap: 40px;
-  }
+.category__list {
+  gap: 24px;
 }

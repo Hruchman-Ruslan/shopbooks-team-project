@@ -8,7 +8,7 @@ export default function renderCardListByCategory(data) {
   const markupCard = data
     .map(
       ({ book_image, title, author, _id }) =>
-        `<li>
+        `<li class="a ">
           <button type="button" data-id="${_id}" class="card-container__link">
             <div class="card-container__thumb">
               <img

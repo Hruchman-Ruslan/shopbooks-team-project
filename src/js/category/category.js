@@ -24,6 +24,7 @@ function onClickCategory(event) {
   } else {
     button.classList.add('categories__btn--active');
   }
+
   const searchCategory = event.target.textContent;
   const nameCategory = searchCategory.trim();
   updateTitle(nameCategory);
