@@ -1,12 +1,21 @@
 .container.shoop {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   @include min-max('phone', 'desktop') {
     flex-direction: column;
   justify-content: center;
   align-items: center;
   display: flex;
+  padding: 0;
       }
       display: flex;
   
+}
+
+.home__wrap.container.shoppinglist {
+  padding-top: 0;
 }
 .shoppinglist{
   @include media('desktop') {
@@ -32,12 +41,18 @@
   width: 356px;
 }
 
-.shoopinglist__emptylist {
+.shoopinglist__emptyinp {
   display: block;
+
   @include media('desktop') {
-    gap: 60px;
+    gap: 15px;
     display: flex;
     }
+    @include media('tablet') {
+      display: flex;
+    flex-direction: row;
+
+      }
 }
 .shoopinglist__emptylist.hidenn {
   display: none;
@@ -74,6 +89,11 @@
     padding-top: 55px;
     padding-right: 183px;
     }
+    @include min-max('tablet', 'desktop') {
+      margin-top: 150px;
+      margin-bottom: 59px;
+      margin-right: 231px;
+      }
 }
 .shoppinglist__emptytitle {
   color: #0009;
@@ -105,116 +125,8 @@ line-height: 1.33;
   
 }
 
-// ----shoppinglist__support----------------------
-
-// .shoppinglist__galery-booknamewithamazon {
-//   padding-left: 20px;
-// }
-// .shoppinglist__galery-bookautor {
-//   font-weight: 400;
-//   font-size: 12px;
-//   line-height: 1.17;
-//   color: #b4afaf;
-//   padding-top: 4px;
-// }
-// .shoppinglist__galery-bookone {
-//   max-width: 335px;
-//   border: 2px solid var(--link-focus);
-//   border-radius: 16px;
-//   padding: 20px;
-
-//   position: relative;
-// }
-// .book:not(:last-child) {
-//   padding-bottom: 20px;
-// }
-// .shoppinglist__galery-booktitle {
-//   display: flex;
-// }
-// .shoopinglist__galery-flex {
-//   flex-direction: row-reverse;
-//   justify-content: space-between;
-//   align-items: center;
-//   display: flex;
-// }
-// .shoppinglist__galery-href {
-//   width: calc(100% - 120px);
-//   align-items: center;
-//   margin-top: -140px;
-//   padding-right: 36px;
-//   display: flex;
-// }
-// .shoopinglist__galery-hrefli:not(:last-child) {
-//   padding-right: 14px;
-// }
-
-// .shoopinglist__galery-img1 {
-//   width: 48px;
-//   height: 15px;
-// }
-// .shoopinglist__galery-img2 {
-//   width: 28px;
-//   height: 27px;
-// }
-// .shoopinglist__galery-img3 {
-//   width: 32px;
-//   height: 30px;
-// }
-
-// .shoppinglist__galery-avtor {
-//   color: #b4afaf;
-//   margin-top: 4px;
-//   font-size: 12px;
-//   font-weight: 400;
-//   line-height: 1.17;
-// }
-// .shoppinglist__galery-bookdescription {
-//   color: var(--border-form);
-//   width: calc(100% - 7px);
-//   margin-top: 20px;
-//   font-size: 14px;
-//   font-weight: 400;
-//   line-height: 1.29;
-// }
 // --pagination---------------------
-.shoopinglist__btnclose {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background-color: transparent;
-  border: none;
 
-  width: 28px;
-  height: 28px;
-  color: var(--link-default);
-  background-color: var(--link-focus);
-  border-radius: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  transition: background-color 0.3s ease;
-
-  .shoppinglist__galery-icon {
-    width: 12px;
-    height: 12px;
-    fill: var(--link-focus);
-    stroke: var(--link-default);
-    transition: fill 0.3s ease;
-  }
-  &:hover {
-    background-color: var(--background-header-btn);
-
-    .shoppinglist__galery-icon {
-      fill: var(--background-header-btn);
-      stroke: var(--border-form);
-    }
-  }
-}
 
 // .tui-pagination * {
 //   -moz-user-select: none;
@@ -240,7 +152,9 @@ line-height: 1.33;
     height: 44px;
     margin-top: 40px;
   }
- 
+ @include media('tablet', max) {
+  margin-top: 20px;
+  }
 }
 
 .tui-pagination .tui-page-btn {
@@ -446,8 +360,9 @@ line-height: 1.33;
   gap: 20px;
 }
 
-.shoopinglist__galery .shoppinglist__galery-bookone.atention.shoppinglist__galery-booktwo{
-  display: grid;
+ .shoppinglist__galeryimportant{
+  display: grid ;
+  // display: grid !important;
   grid-template-columns: 0.3fr 145px;
   grid-template-rows: min-content 1fr 1fr;
   gap: 0px 0px;
@@ -460,7 +375,7 @@ line-height: 1.33;
   border-radius: 16px;
   padding: 20px;
   overflow: hidden;
-  @media screen and (min-width: 768px) {
+  @include media('tablet') {
     grid-template-columns: 116px 1fr 1fr;
     grid-template-rows: 1fr 1fr 30px;
     gap: 0px 0px;
@@ -471,6 +386,10 @@ line-height: 1.33;
     padding: 24px;
     min-height: 213px;
     min-width: 704px;
+  }
+  @include media('desktop') {
+    
+    min-width: 881px;
   }
   @media screen and (min-width: 1440px) {
     min-width: 996px;
@@ -510,7 +429,7 @@ line-height: 1.33;
   line-height: 1.12;
   margin-bottom: 4px;
   max-width: 145px;
-  @media screen and (max-width: 370px) {
+  @media screen and (max-width: 375px) {
     max-width: 30vw;
   }
         @media screen and (max-width: 300px) {
@@ -524,10 +443,12 @@ line-height: 1.33;
   line-height: 1.17;
   color: var(--second-font-color);
   margin-bottom: 24px;
+  color: #B4AFAF;
   @media screen and (min-width: 768px) {
     margin-bottom: 14px;
+    
   }
-    @media screen and (max-width: 370px) {
+    @media screen and (max-width: 375px) {
       max-width: 30vw;
     }
 }
@@ -537,7 +458,7 @@ line-height: 1.33;
   font-size: 12px;
   line-height: 1.17;
   margin-bottom: 20px;
-  color: var(--second-font-color);
+  color: #B4AFAF;
   grid-area: author;
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
@@ -586,5 +507,48 @@ line-height: 1.33;
   @media screen and (max-width: 370px) {
     flex-direction: column;
     gap: 13px;
+  }
+}
+.shoopinglist__btnclose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 28px;
+  right: 8px;
+ border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  width: 28px;
+  height: 28px;
+  color: var(--link-default);
+  background-color: var(--link-focus);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
+  @include media('tablet') {
+    width: 38px;
+    height: 38px;
+}
+
+  .shoppinglist__galery-icon {
+    width: 12px;
+    height: 12px;
+    fill: var(--link-focus);
+    stroke: var(--link-default);
+    transition: fill 0.3s ease;
+    @include media('tablet') {
+      width: 17px;
+      height: 17px;
+  }
+  }
+  &:hover {
+    background-color: var(--background-header-btn);
+
+    .shoppinglist__galery-icon {
+      fill: var(--background-header-btn);
+      stroke: var(--border-form);
+    }
   }
 }
