@@ -45,6 +45,8 @@
   width: 28px;
   height: 28px;
 
+  @include animated(stroke);
+
   &:hover {
     stroke: var(--hover);
   }
