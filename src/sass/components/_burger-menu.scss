@@ -69,34 +69,55 @@
     width: 156px;
     height: 34px;
     border-radius: 36px;
+    padding: 8px 16px;
 
     text-transform: uppercase;
-    color: var(--link-default);
+    
     &:hover {
      color: var(--hover);
     }
   }
 
 
-
-
-
-
-
-  .current {
+  .menu__link-home {
+    color: var(--white-color-not-chenge);
       font-weight: 700;
-      margin-left: 30px;
+      margin-left: -30px;
      
   }
 
-  .index .menu__link {
-    padding: 8px 16px;
+  .index .menu__link-home {
     background: var(--background-header-btn);
-    border-radius: 36px;
-    color: var(--primary-text);
+        color: var(--black-color-not-chenge);
+    
+        &:hover {
+            color: var(--link-focus);
+        }
 }
 
-    .index .menu__link__icon {
+.menu__link-shopping-list {
+    color: var(--black-color-not-chenge);
+}
+
+.index .menu__link-shopping-list {
+    
+    background-color: transparent;
+    color: var(--white-color-not-chenge);
+
+    &:hover {
+        color: var(--hover);
+    }
+}
+
+.menu__link-shopping-list {
+background: var(--background-header-btn);
+
+    &:hover {
+        color: var(--link-focus);
+    }
+}
+
+.index .menu__link__icon {
     fill: currentColor;
     }
 
