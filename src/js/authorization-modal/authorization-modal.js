@@ -2,6 +2,7 @@ import {
   btnsGroupForChangeForm,
   formSignUp,
   formSignIn,
+  formChangeFoto,
   USER_DATA_KEY_STORAGE,
   btnChangeFoto,
 } from './refsForm';
@@ -10,6 +11,7 @@ import {
   closeModalForm,
   onFormSubmitSignUp,
   onFormSubmitSignIn,
+  onFormSubmitChangeFoto,
 } from './form';
 import { showNavigationToUser, writeUserName } from './interfaceForUser';
 import { handleFormAvtorisation } from '../header/checkbox';
@@ -19,6 +21,7 @@ closeModalForm();
 
 formSignUp.addEventListener('submit', onFormSubmitSignUp);
 formSignIn.addEventListener('submit', onFormSubmitSignIn);
+formChangeFoto.addEventListener('submit', onFormSubmitChangeFoto);
 
 let userData = localStorage.getItem(USER_DATA_KEY_STORAGE)
   ? JSON.parse(localStorage.getItem(USER_DATA_KEY_STORAGE))

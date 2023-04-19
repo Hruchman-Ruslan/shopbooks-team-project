@@ -31,3 +31,16 @@ export async function writeNameUser(idToken, name) {
   await axios.post(url, userName);
   return 'Registration was successful, you can log in';
 }
+
+export async function writeFotoUser(idToken, photoUrl) {
+  const linkForUserFoto = {
+    idToken,
+    photoUrl,
+    returnSecureToken: true,
+  };
+
+  const url = `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${app._options.apiKey}`;
+
+  const response = await axios.post(url, linkForUserFoto);
+  return response.data;
+}
