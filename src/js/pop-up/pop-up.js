@@ -3,6 +3,7 @@ import NewsApiBooksService from '../api-service/api-service';
 export default function renderModal(id) {
   const api = new NewsApiBooksService();
   const refs = {
+    bodyRef: document.querySelector('body'),
     modalRef: document.querySelector('.modal'),
     backdropRef: document.querySelector('.backdrop'),
 
@@ -17,6 +18,7 @@ export default function renderModal(id) {
     itemsRef: document.querySelectorAll('.modal_item'),
     closeRef: document.querySelector('.modal_close'),
   };
+  refs.bodyRef.classList.add('no-scroll');
   if (!localStorage.getItem('basket')) {
     localStorage.setItem('basket', '[]');
   }
@@ -62,7 +64,7 @@ export default function renderModal(id) {
     refs.closeRef.addEventListener('click', closeModal);
     refs.backdropRef.addEventListener('click', closeModal);
     window.addEventListener('keydown', closeModal);
-     function removeFromStorage() {
+    function removeFromStorage() {
       const newBasket = storage.filter(el => el == JSON.stringify(id));
 
       localStorage.setItem('basket', newBasket);
@@ -98,6 +100,7 @@ export default function renderModal(id) {
       e.key == 'Escape'
     ) {
       refs.modalRef.innerHTML = markup;
+      refs.bodyRef.classList.remove('no-scroll');
       refs.backdropRef.classList.add('is-hidden');
       refs.closeRef.removeEventListener('click', closeModal);
       refs.backdropRef.removeEventListener('click', closeModal);
