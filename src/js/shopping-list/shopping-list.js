@@ -27,18 +27,18 @@ console.log(booksData)
      else {
         shoppingWrapper.style.display = "none";
         const booksMarkup = booksData.map(bookData => {   
-            return `<div class="shoppinglist__galery-bookone">
-            <div class="shoppinglist__galery-booktitle">
+            return `<div class="shoppinglist__galery-bookone atention shoppinglist__galery-booktwo">
+
             <div class="shoppinglist__galery-imgavtor">
-                <img class="shoppinglist__galery-img" srcset="${bookData.book_image} 1x, ${bookData.book_image} 2x" src="${bookData.book_image}" alt="booktitle" height:100% width:100%>  
+                <img class="shoppinglist__galery-img" srcset="${bookData.book_image} 1x, ${bookData.book_image} 2x" src="${bookData.book_image}" alt="booktitle" height:100% width:100%>
+                <p class="shopping-list--author__mobile">${bookData.author}}</p>
             </div>
+
                 <div class="shoppinglist__galery-booknamewithamazon">
-                    <p class="shoppinglist__galery-bookname">${bookData.title}</p>
+                    <h2 class="shoppinglist__galery-bookname">${bookData.title}</h2>
                     <p class="shoppinglist__galery-bookautor">${bookData.list_name}</p>
                 </div>
-            </div> 
-            <div class="shoopinglist__displaynone">
-            <div class="shoopinglist__galery-flex">
+
                       <ul class="shoppinglist__galery-href">
                         <li class="shoopinglist__galery-hrefli"><a href="${
                             bookData.buy_links.find(link => link.name === 'Amazon').url
@@ -77,15 +77,15 @@ console.log(booksData)
                              ${bookshop2x} 2x" 
                              alt="amazon">
                         </a></li>
-                    </ul>      
-                     <p class="shoppinglist__galery-avtor">${bookData.author}</p>
-                </div>
-            <p class="shoppinglist__galery-bookdescription">${bookData.description ? bookData.description : 'N/A'}</p>
-        </div>
+                    </ul>  
+                    <p class="shoppinglist__galery-bookdescription">${bookData.description ? bookData.description : 'N/A'}</p>    
+                     <p class="shoppinglist__galery-avtor">${bookData.author}</p>           
+        
         <button class="shoopinglist__btnclose" data-id="${bookData._id}" id="button"  type="button"> 
+        <div>
         <svg class="shoppinglist__galery-icon">
           <use href="${sprite}#trash"></use> 
-          </svg></button>  
+          </svg></div></button>  
          </div> `;
           }).join('');
           booksContainer.innerHTML = booksMarkup;
@@ -119,3 +119,71 @@ console.log(booksData)
 
 
 
+{/* <div class="shoppinglist__galery-bookone">
+
+        <div class="shoppinglist__galery-imgavtor">
+          <img
+            class="shoppinglist__galery-img"
+            src="${book.book_image}"
+            alt=""
+          />
+          <p class="shopping-list--author__mobile">${book.author}</p>
+        </div>
+
+
+        <div class="shoppinglist__galery-booknamewithamazon">
+          <h2 class="shoppinglist__galery-bookname">${book.title}</h2>
+          <p class="shoppinglist__galery-bookautor">
+          ${book.list_name}
+          </p>
+        </div>
+
+        <ul class="shoppinglist__galery-href">
+          <li>
+            <a href="${
+              book.buy_links.find(link => link.name === 'Amazon').url
+                ? book.buy_links.find(link => link.name === 'Amazon').url
+                : 'https://www.amazon.com/ref=nav_logo'
+            };
+            })}">
+            <img class="book-stores__img img-amazon" srcset=" ${amazon} 1x, ${amazon2x}   2x
+            "src="${amazon}" alt="Amazon" width="62" height="19">
+            </a>
+          </li>
+          <li>
+            <a href="${
+              book.buy_links.find(link => link.name === 'Apple Books').url
+                ? book.buy_links.find(link => link.name === 'Apple Books').url
+                : 'https://www.apple.com/ua/apple-books/'
+            };
+            })}">
+            <img class="book-stores__img" srcset=" ${ibook} 1x, ${ibook2x}   2x
+            "src="${ibook}" alt="Apple Books" width="33" height="32">
+            </a>
+          </li>
+          <li>
+            <a href="${
+              book.buy_links.find(link => link.name === 'Bookshop').url
+                ? book.buy_links.find(link => link.name === 'Bookshop').url
+                : 'https://bookshop.org/'
+            };
+            })}">
+            <img class="book-stores__img" srcset=" ${bookshop} 1x, ${bookshop2x}   2x
+            "src="${bookshop}" alt="Bookshops" width="38" height="36">
+            </a>
+          </li>
+        </ul>
+        <p class="shoppinglist__galery-bookdescription">
+        ${book.description ? book.description : 'N/A'}
+        </p>
+
+
+        <p class="shoppinglist__galery-avtor">${book.author}</p>
+        <button class="shopping-list--btn" type="button">
+          <div>
+          <svg class="shopping-list--btn__icon">
+            <use href="${sprite + '#icon-dump'}"></use>
+          </svg>
+          </div>
+        </button>
+      </li> */}
