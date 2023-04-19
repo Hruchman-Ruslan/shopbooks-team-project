@@ -1,3 +1,9 @@
+import { Notify } from 'notiflix';
+
+const refs = {
+  container: document.querySelector('.gallery__list'),
+};
+
 export default function renderBestSellersBooks(data) {
     if (data.length === 0) {
       Notify.failure('Oops, there is no books according to your request');
