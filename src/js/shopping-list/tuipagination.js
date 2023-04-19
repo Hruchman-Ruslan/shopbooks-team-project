@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
-import 'tui-pagination/dist/tui-pagination.min.css';
+// import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.min.css';
 import { createBooksMarkup } from './shopping-list';
 
 
