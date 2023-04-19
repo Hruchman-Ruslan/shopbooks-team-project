@@ -46,7 +46,8 @@ export function writeUserName(userData) {
 
 const onBtnLogOut = () => {
   localStorage.removeItem(USER_DATA_KEY_STORAGE);
-  showNavigationToUser(false);
+  showNavigationToUser();
+  location.reload();
 };
 
 btnsLogOut.forEach(el => {
