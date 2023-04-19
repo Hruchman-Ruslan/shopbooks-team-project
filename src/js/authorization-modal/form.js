@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from '../firebase/firebaseConfig';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 import {
   USER_DATA_KEY_STORAGE,
@@ -119,7 +120,7 @@ export const onFormSubmitSignIn = e => {
   e.preventDefault();
 
   if (!formData.password) {
-    Notify.warning(
+    Report.failure(
       '💩 DO NOT play with spaces, all fields must be filled (╬▔皿▔)╯',
       optionsNotiflix
     );
@@ -152,25 +153,45 @@ export const onFormSubmitSignIn = e => {
 export const onFormSubmitChangeFoto = e => {
   e.preventDefault();
 
-  const userData = JSON.parse(localStorage.getItem(USER_DATA_KEY_STORAGE));
-
-  writeFotoUser(userData.idToken, formData.link)
-    .then(res => {
-      Notify.success(
-        `${res.displayName} to see your new profile picture: log out and log back into your profile.`,
-        optionsNotiflix
-      );
-      setTimeout(onBtnClose, 1500);
-    })
-    .catch(error => {
+  isImageLink(formData.link).then(isImage => {
+    if (!isImage) {
       Notify.failure(
-        `${userData.displayName} needs to enter his profile again.`,
+        `${userData.displayName}, The entered link does not lead to an image. Please enter a valid link to an image.`,
         optionsNotiflix
       );
-    })
-    .finally(() => {
-      formData = {};
-    });
+      return;
+    }
+
+    const userData = JSON.parse(localStorage.getItem(USER_DATA_KEY_STORAGE));
+
+    writeFotoUser(userData.idToken, formData.link)
+      .then(res => {
+        Report.success(
+          `${res.displayName} to see your new profile picture: log out and log back into your profile.`,
+          optionsNotiflix
+        );
+        setTimeout(onBtnClose, 1500);
+      })
+      .catch(error => {
+        Notify.failure(
+          `${userData.displayName} needs to enter his profile again.`,
+          optionsNotiflix
+        );
+      })
+      .finally(() => {
+        formData = {};
+      });
+  });
 
   e.currentTarget.reset();
 };
+
+async function isImageLink(link) {
+  try {
+    const res = await fetch(link, { method: 'HEAD' });
+    const type = res.headers.get('Content-Type');
+    return type.startsWith('image/');
+  } catch (error) {
+    return false;
+  }
+}
