@@ -16,11 +16,14 @@ newsApiBooksService
   .catch(erorrQuery);
 
 function onClickCategory(event) {
-
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
-
+  if (event.target.classList !== 'categories__btn--active') {
+    button.classList.remove('categories__btn--active');
+  } else {
+    button.classList.add('categories__btn--active');
+  }
   const searchCategory = event.target.textContent;
   const nameCategory = searchCategory.trim();
   updateTitle(nameCategory);

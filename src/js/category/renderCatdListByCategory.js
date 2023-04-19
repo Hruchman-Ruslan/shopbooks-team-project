@@ -1,16 +1,14 @@
 const containerGalleryList = document.querySelector('.gallery__list');
 
-
 export default function renderCardListByCategory(data) {
+  if (data.length === 0) {
+    Notify.failure('Oops, there is no books found in this category');
+  }
 
-    if (data.length === 0) {
-        Notify.failure('Oops, there is no books found in this category');
-      }
-
-    const markupCard = data
-      .map(
-        ({ book_image, title, author, _id }) =>
-          `<li class="card-container__item">
+  const markupCard = data
+    .map(
+      ({ book_image, title, author, _id }) =>
+        `<li>
           <button type="button" data-id="${_id}" class="card-container__link">
             <div class="card-container__thumb">
               <img
@@ -31,10 +29,7 @@ export default function renderCardListByCategory(data) {
             </div>
           </button>
         </li>`
-      )
-      .join('');
-    containerGalleryList.innerHTML = markupCard;
-  }
-
-
-  
+    )
+    .join('');
+  containerGalleryList.innerHTML = markupCard;
+}
