@@ -138,6 +138,7 @@
     border: 1.5px solid #111111;
     border-radius: 18px;
     margin-left: 20px;
+    stroke: var(--background-header-btn);
 
     z-index: 80;
   }
@@ -146,6 +147,7 @@
   .menu__authenticator-button:hover {
     background-color: var(--background-header-btn);
     border-color: var(--hover);
+    stroke: var(--link-focus);
   }
 
   .menu__authenticator-button.js-hidden {
