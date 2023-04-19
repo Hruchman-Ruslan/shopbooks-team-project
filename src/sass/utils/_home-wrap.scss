@@ -1,8 +1,10 @@
 .home__wrap {
-margin-top: 40px;
+  padding-top: 40px;
+  flex-direction: column-reverse;
+  display: flex;
 
   @include media('desktop') {
-    display: flex;
     gap: 40px;
+    flex-direction: row-reverse;
   }
 }

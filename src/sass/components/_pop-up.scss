@@ -1,6 +1,7 @@
 .backdrop {
+  z-index: 11;
   position: fixed;
-  z-index: +1;
+  
   top: 0;
   left: 0;
   height: 100%;
@@ -15,7 +16,7 @@
 }
 
 .modal {
-  z-index: +1;
+ 
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -46,6 +47,7 @@ cursor: pointer;
   width: 14px;
 right: 12px;
   top: 12px;
+  
   @media (min-width: 768px) {
   right: 31px;
     top: 31px;
