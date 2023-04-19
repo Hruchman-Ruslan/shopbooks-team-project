@@ -2,6 +2,14 @@
   display: block;
   margin: auto;
 
+  @include media('tablet') {
+    max-width: 704px;
+  }
+
+  @include media('desktop') {
+   max-width: 996px;
+  }
+
   &__title {
     font-size: 32px;
     line-height: calc(38 / 32);
@@ -60,7 +68,15 @@
     color: #b4afaf;
     text-transform: uppercase;
     margin-bottom: 18px;
+
+    &:hover,
+    &:focus {
+      font-family: 'DMSans-Bold';
+      color: var(--hover);
+    }
   }
+
+
 }
 
 .card-container {
@@ -123,8 +139,6 @@
   }
 
   &__thumb {
-    // min-width: 285px;
-    // min-height: 187px;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
@@ -149,16 +163,13 @@
     }
   }
 
-  // @media screen and (min-width: 1280px){
-  //   width: 164px;
-  //   height: 256px;
-  // }
+
 
   // @media screen and (min-width: 1440px){
   //   width: 180px;
-  //       height: 256px;
+        
   // }
-  //   }
+    
 }
 
 .desk {
@@ -208,7 +219,6 @@
   opacity: 0;
 
   transform: translateY(100%);
-  // transition: transform cubic-bezier(0.075, 0.82, 0.165, 1);
   @include animated(transform, opacity);
 
   &__text {
