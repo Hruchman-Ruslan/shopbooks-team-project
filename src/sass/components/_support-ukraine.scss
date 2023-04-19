@@ -1,9 +1,10 @@
-// import swiper css ------------
+// SUPPORT-UKRAINE
 
+// import swiper css
 @import '../../node_modules/swiper/swiper-bundle.css';
 @import '../../node_modules/swiper/swiper.css';
 
-// section -----------------------
+// section
 .support__ukraine {
   max-width: 356px;
   height: 352px;
@@ -24,18 +25,19 @@
   border-radius: 16px;
 
   @include media('tablet') {
+    width: 335px;
     height: 472px;
     padding-bottom: 14px;
   }
 
   @include media('desktop') {
+    width: 356px;
     height: 490px;
     padding-bottom: 24px;
   }
 }
 
-// title ---------------------
-
+// title
 .support__ukraine-title {
   display: flex;
   gap: 12px;
@@ -56,8 +58,7 @@
   fill: currentColor;
 }
 
-// foundation-list --------
-
+// foundation-list
 .support__ukraine-item {
   display: flex;
   gap: 16px;
@@ -91,8 +92,7 @@
   filter: brightness(0) invert(1);
 }
 
-// slider-button----------------
-
+// slider-button
 .support__ukraine-slyder-btn {
   display: flex;
   justify-content: center;
@@ -113,8 +113,7 @@
 
   @include animated(transform);
 
-  &:hover,
-  &:focus {
+  &:hover {
     transform: scale(1.2);
   }
 
@@ -134,21 +133,22 @@
   width: 20px;
   transform: rotate(180deg);
 
+  @include animated(transform);
+
   @include media('tablet') {
     height: 22px;
     width: 22px;
   }
 }
 
-// swiper -------------
-
+// swiper
 .swiper {
-  width: 240px;
+  width: 200px;
   height: 188px;
   margin-left: 0;
 
   @include media('phone') {
-    width: 295px;
+    width: 255px;
   }
 
   @include media('tablet') {

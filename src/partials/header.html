@@ -38,7 +38,11 @@
           class="lb1"
         ></label>
       </div>
-      <button class="header__burger-menu-button" id="open">
+      <button
+        class="header__burger-menu-button"
+        id="open"
+        aria-label="burger menu"
+      >
         <svg class="header__burger-menu-icon">
           <use href="./images/sprite.svg#menu"></use>
         </svg>
@@ -59,6 +63,7 @@
           class="header__user-photo"
           src="./images/noName.png"
           alt="user photo"
+          data-userFoto
         />
         <span class="header__authenticator-button-in-text" data-user="name"
           >User</span

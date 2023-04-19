@@ -13,13 +13,13 @@
     display: block;
     position: fixed;
     top: 60px;
-    left: -200%;
+    left: -110%;
     width: 100%;
     height: calc(100vh - 60px);
     padding: 20px;
     z-index: 90;
     background: linear-gradient(rgb(79, 46, 232) 0%, rgb(220, 220, 220) 100%);
-    transition: 250ms;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .menu.active {
@@ -30,6 +30,11 @@
     display: inline-flex;
     align-items: center;
     margin-bottom: 126px;
+  }
+  .menu__autorization.js-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
   }
   .menu__autorization-photo {
     width: 37px;
@@ -69,17 +74,53 @@
     width: 156px;
     height: 34px;
     border-radius: 36px;
+    padding: 8px 16px;
 
     text-transform: uppercase;
-    color: var(--link-default);
+
+    &:hover {
+      color: var(--hover);
+    }
   }
 
-  .current {
-    margin-left: 30px;
-    padding: 8px 16px;
+  .menu__link-home {
+    color: var(--white-color-not-chenge);
+    font-weight: 700;
+    margin-left: -30px;
+  }
+
+  .index .menu__link-home {
     background: var(--background-header-btn);
-    border-radius: 36px;
-    color: var(--primary-text);
+    color: var(--black-color-not-chenge);
+
+    &:hover {
+      color: var(--link-focus);
+    }
+  }
+
+  .menu__link-shopping-list {
+    color: var(--black-color-not-chenge);
+  }
+
+  .index .menu__link-shopping-list {
+    background-color: transparent;
+    color: var(--white-color-not-chenge);
+
+    &:hover {
+      color: var(--hover);
+    }
+  }
+
+  .menu__link-shopping-list {
+    background: var(--background-header-btn);
+
+    &:hover {
+      color: var(--link-focus);
+    }
+  }
+
+  .index .menu__link__icon {
+    fill: currentColor;
   }
 
   .menu__link__icon {
@@ -97,6 +138,7 @@
     border: 1.5px solid #111111;
     border-radius: 18px;
     margin-left: 20px;
+    stroke: var(--background-header-btn);
 
     z-index: 80;
   }
@@ -105,6 +147,7 @@
   .menu__authenticator-button:hover {
     background-color: var(--background-header-btn);
     border-color: var(--hover);
+    stroke: var(--link-focus);
   }
 
   .menu__authenticator-button.js-hidden {

@@ -5,7 +5,7 @@
   //Colors for link
   --white-color-not-chenge: #ffffff;
   --black-color-not-chenge: #111111;
- 
+  --hover-modal-close: #111111;
   --link-default: #ffffff;
   --link-focus: #4f2ee8;
   --hover: #4f2ee8;
@@ -15,12 +15,14 @@
   --border-form: #111111;
   --btn-form: #f3f3f3;
   --amazon-invert: invert(0%);
+  --catigory-text: rgba(17, 17, 17, 0.6);
+  --shoppinglis-gallery: #ffffff;
 }
 
 [dark] {
   --primary-text: #ffffff;
   --background-color: #111111;
- 
+  --hover-modal-close: #4f2ee8;
   --hover: #eac645;
   --link-default: #eee;
   --link-focus: #4f2ee8;
@@ -30,6 +32,8 @@
   --white-color-not-chenge: #ffffff;
   --black-color-not-chenge: #111111;
   --amazon-invert: invert(100%);
+  --catigory-text: rgba(255, 255, 255, 0.6);
+  --shoppinglis-gallery: #111111;
 }
 
 // $colors: (

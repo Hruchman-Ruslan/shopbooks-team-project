@@ -1,9 +1,9 @@
 import { foundationItems } from './support-ukraine-arr';
 
-const foundationList = document.querySelector('.swiper-wrapper');
+const foundationListEl = document.querySelector('.swiper-wrapper');
 
 function makeFoundationList({ img1x, img2x, title, url }, index) {
-  return `<div class="support__ukraine-item swiper-slide">
+  return `<li class="support__ukraine-item swiper-slide">
             <div class="support__ukraine-number">${index}</div>
             <a
               class "support__ukraine-link"
@@ -29,7 +29,7 @@ function makeFoundationList({ img1x, img2x, title, url }, index) {
                 />
               </picture>
             </a>
-          </div>`;
+          </li>`;
 }
 
 const markup = foundationItems
@@ -39,4 +39,4 @@ const markup = foundationItems
   })
   .join('');
 
-foundationList.innerHTML += markup;
+foundationListEl.innerHTML += markup;

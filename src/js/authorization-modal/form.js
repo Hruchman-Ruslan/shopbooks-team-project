@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from '../firebase/firebaseConfig';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 import {
   USER_DATA_KEY_STORAGE,
@@ -8,13 +9,23 @@ import {
   formsForRegistration,
   bodyEl,
   backdropEl,
-  btnClose,
+  btnsClose,
   formSignUp,
   formSignIn,
+  formChangeFoto,
+  btnForModal,
 } from './refsForm';
-import { postFirebase, writeNameUser } from '../firebase/fetchFirebase';
+import {
+  postFirebase,
+  writeNameUser,
+  writeFotoUser,
+} from '../firebase/fetchFirebase';
 import { optionsNotiflix } from './libraryOptions';
-import { showNavigationToUser, writeUserName } from './interfaceForUser';
+import {
+  showNavigationToUser,
+  writeUserName,
+  changeUserFoto,
+} from './interfaceForUser';
 
 const app = initializeApp(firebaseConfig);
 
@@ -62,7 +73,7 @@ const onBtnClose = () => {
 
 export function closeModalForm() {
   backdropEl.addEventListener('click', onBackdropClick);
-  btnClose.addEventListener('click', onBtnClose);
+  btnsClose.forEach(el => el.addEventListener('click', onBtnClose));
 }
 
 // submit for forms - sign...
@@ -86,7 +97,6 @@ export const onFormSubmitSignUp = e => {
       Notify.success(res, optionsNotiflix);
       changeElem(btnsGroupForChangeForm);
       changeElem(formsForRegistration);
-      formData = {};
     })
     .catch(error => {
       const message = JSON.parse(error.request.response);
@@ -103,13 +113,14 @@ const onFormData = e => {
 };
 formSignUp.addEventListener('input', onFormData);
 formSignIn.addEventListener('input', onFormData);
+formChangeFoto.addEventListener('input', onFormData);
 
 // Sign in
 export const onFormSubmitSignIn = e => {
   e.preventDefault();
 
   if (!formData.password) {
-    Notify.warning(
+    Report.failure(
       '💩 DO NOT play with spaces, all fields must be filled (╬▔皿▔)╯',
       optionsNotiflix
     );
@@ -120,13 +131,14 @@ export const onFormSubmitSignIn = e => {
     .then(res => {
       Notify.success(`CONGRATULATIONS, ${res.displayName}!`, optionsNotiflix);
       localStorage.setItem(USER_DATA_KEY_STORAGE, JSON.stringify(res));
-      showNavigationToUser(res);
       writeUserName(res);
+      btnForModal.removeAttribute('disabled');
 
       setTimeout(onBtnClose, 1500);
+      // setTimeout(() => showNavigationToUser(res), 1500);
+      setTimeout(() => location.reload(), 1500);
     })
     .catch(error => {
-      console.log(error);
       const message = JSON.parse(error.request.response);
       Notify.failure(message.error.message, optionsNotiflix);
     })
@@ -137,4 +149,49 @@ export const onFormSubmitSignIn = e => {
   e.currentTarget.reset();
 };
 
-// Add user foto
+// Change user foto
+export const onFormSubmitChangeFoto = e => {
+  e.preventDefault();
+
+  isImageLink(formData.link).then(isImage => {
+    if (!isImage) {
+      Notify.failure(
+        `${userData.displayName}, The entered link does not lead to an image. Please enter a valid link to an image.`,
+        optionsNotiflix
+      );
+      return;
+    }
+
+    const userData = JSON.parse(localStorage.getItem(USER_DATA_KEY_STORAGE));
+
+    writeFotoUser(userData.idToken, formData.link)
+      .then(res => {
+        Report.success(
+          `${res.displayName} to see your new profile picture: log out and log back into your profile.`,
+          optionsNotiflix
+        );
+        setTimeout(onBtnClose, 1500);
+      })
+      .catch(error => {
+        Notify.failure(
+          `${userData.displayName} needs to enter his profile again.`,
+          optionsNotiflix
+        );
+      })
+      .finally(() => {
+        formData = {};
+      });
+  });
+
+  e.currentTarget.reset();
+};
+
+async function isImageLink(link) {
+  try {
+    const res = await fetch(link, { method: 'HEAD' });
+    const type = res.headers.get('Content-Type');
+    return type.startsWith('image/');
+  } catch (error) {
+    return false;
+  }
+}

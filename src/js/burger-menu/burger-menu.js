@@ -19,6 +19,8 @@ function toggleMenu() {
   btnEl.classList.toggle('close');
   body.classList.toggle('noscroll');
   body.classList.add('modal-open');
+  body.classList.remove('modal-open');
+    
 }
 
 document.addEventListener('keydown', ({ code }) => {
@@ -27,6 +29,7 @@ document.addEventListener('keydown', ({ code }) => {
     btnEl.classList.remove('close');
     btnCloseEl.classList.remove('hidden');
     body.classList.remove('noscroll');
+    body.classList.remove('modal-open');
   }
 });
 
