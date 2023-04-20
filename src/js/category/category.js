@@ -28,8 +28,6 @@ function onClickBtn(event) {
     .catch(erorrQuery);
 }
 
-// Вызов отдельных категорий
-
 export const containerEl = document.querySelector('.categories__container');
 const button = document.querySelector('.categories__btn');
 containerEl.addEventListener('click', onClickCategory);
@@ -79,3 +77,5 @@ function erorrQuery() {
     'Sorry, there are no books matching your search query. Please try again.'
   );
 }
+
+// Вызов отдельных категорий
