@@ -9,13 +9,17 @@
   overflow: hidden;
 
   @include media('tablet') {
-    max-width: 337px;
+    width: 337px;
     padding-bottom: 100px;
   }
 
   @include media('desktop') {
-    max-width: 316px;
+    width: 356px;
     padding-bottom: 0;
+  }
+
+  &__wrapper {
+    margin-bottom: 24px;
   }
 
   &__wrap {
@@ -33,6 +37,21 @@
 
     @include media('tablet') {
       height: 472px;
+    }
+  }
+
+  &__wrap::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &__wrap::-webkit-scrollbar-thumb {
+    background-color: var(--category-skroll);
+    border-radius: 12px;
+    width: 8px;
+    height: 114px;
+
+    @include media('tablet') {
+      height: 167px;
     }
   }
 
@@ -64,15 +83,6 @@
     font-family: 'DMSans-Bold';
     text-transform: uppercase;
     color: var(--hover);
-    // font-size: 4vw;
-
-    // @include media('phone', min) {
-    //   font-size: 4vw;
-    // }
-
-    // @include media('tablet') {
-    //   font-size: 14px;
-    // }
   }
 
   .categories__btn--active {
