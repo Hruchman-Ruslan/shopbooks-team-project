@@ -26,6 +26,10 @@
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.102);
   border-radius: 16px;
 
+  @include media('phone') {
+    width: 335px;
+  }
+
   @include media('tablet') {
     width: 335px;
     height: 472px;
@@ -47,7 +51,7 @@
   padding-bottom: 40px;
 
   text-align: left;
-  font-size: 7.093vw;
+  font-size: 5.093vw;
   line-height: 1.14;
   letter-spacing: -0.04em;
 
@@ -120,7 +124,7 @@
   fill: var(--link-focus);
   background-color: var(--white-color-not-chenge);
 
-  @include animated(transform);
+  // @include animated(transform);
 
   &:hover {
     transform: scale(1.2);
