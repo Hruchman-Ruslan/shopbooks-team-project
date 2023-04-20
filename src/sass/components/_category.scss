@@ -10,7 +10,7 @@
 
   @include media('tablet') {
     width: 337px;
-    padding-bottom: 100px;
+    padding-bottom: 60px;
   }
 
   @include media('desktop') {
@@ -36,7 +36,7 @@
     text-align: left;
 
     @include media('tablet') {
-      height: 472px;
+      height: 432px;
     }
   }
 
@@ -90,10 +90,16 @@
     text-transform: uppercase;
 
     color: var(--hover);
-    // font-size: 4vw;
   }
 }
 
 .category__list {
-  gap: 24px;
+  margin-bottom: 40px;
+  // row-gap: 40px;
+
+  @include media('tablet') {
+    row-gap: 40px;
+    column-gap: 24px;
+    margin-bottom: 0;
+  }
 }
