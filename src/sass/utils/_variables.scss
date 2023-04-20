@@ -17,6 +17,7 @@
   --amazon-invert: invert(0%);
   --catigory-text: rgba(17, 17, 17, 0.6);
   --shoppinglis-gallery: #ffffff;
+  --category-skroll: #e0e0e0;
 }
 
 [dark] {
@@ -34,6 +35,7 @@
   --amazon-invert: invert(100%);
   --catigory-text: rgba(255, 255, 255, 0.6);
   --shoppinglis-gallery: #111111;
+  --category-skroll: rgba(17, 17, 17, 0.6);
 }
 
 // $colors: (
