@@ -25,11 +25,13 @@
   border-radius: 16px;
 
   @include media('tablet') {
+    width: 335px;
     height: 472px;
     padding-bottom: 14px;
   }
 
   @include media('desktop') {
+    width: 356px;
     height: 490px;
     padding-bottom: 24px;
   }
@@ -130,6 +132,8 @@
   height: 20px;
   width: 20px;
   transform: rotate(180deg);
+
+  @include animated(transform);
 
   @include media('tablet') {
     height: 22px;

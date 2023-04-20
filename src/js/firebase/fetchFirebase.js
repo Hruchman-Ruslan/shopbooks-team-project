@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const app = initializeApp(firebaseConfig);
 
-// Реєстрація нового користувача
+// New user registration
 export async function postFirebase(userData, queryParameter) {
   const { mail, password } = userData;
 
@@ -30,4 +30,17 @@ export async function writeNameUser(idToken, name) {
 
   await axios.post(url, userName);
   return 'Registration was successful, you can log in';
+}
+
+export async function writeFotoUser(idToken, photoUrl) {
+  const linkForUserFoto = {
+    idToken,
+    photoUrl,
+    returnSecureToken: true,
+  };
+
+  const url = `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${app._options.apiKey}`;
+
+  const response = await axios.post(url, linkForUserFoto);
+  return response.data;
 }

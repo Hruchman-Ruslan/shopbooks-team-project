@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 // import 'tui-pagination/dist/tui-pagination.min.css';
-// import { createBooksMarkup } from './shopping-list';
+import { createBooksMarkup } from './shopping-list';
 
 
 export function getPagination(booksContainer) {
@@ -56,5 +56,3 @@ export function getPagination(booksContainer) {
 };
 
               
-
-  

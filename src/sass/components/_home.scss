@@ -1,6 +1,14 @@
 .gallery {
   display: block;
-  margin: auto;
+  margin: 0 auto;
+
+  @include media('tablet') {
+    max-width: 704px;
+  }
+
+  @include media('desktop') {
+    max-width: 996px;
+  }
 
   &__title {
     font-size: 32px;
@@ -40,7 +48,11 @@
 
   &__list {
     display: block;
-    max-width: 335px;
+    max-width: 280px;
+
+    @include media('phone') {
+      max-width: 335px;
+    }
 
     @include media('tablet') {
       display: flex;
@@ -60,6 +72,14 @@
     color: #b4afaf;
     text-transform: uppercase;
     margin-bottom: 18px;
+
+    @include animated(color);
+
+    &:hover,
+    &:focus {
+      font-family: 'DMSans-Bold';
+      color: var(--hover);
+    }
   }
 }
 
@@ -113,6 +133,8 @@
     &:focus .overlay {
       opacity: 1;
       transform: translateY(0px);
+
+      @include animated(transform);
     }
   }
 
@@ -123,8 +145,7 @@
   }
 
   &__thumb {
-    // min-width: 285px;
-    // min-height: 187px;
+    width: 280px;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
@@ -149,16 +170,10 @@
     }
   }
 
-  // @media screen and (min-width: 1280px){
-  //   width: 164px;
-  //   height: 256px;
-  // }
-
   // @media screen and (min-width: 1440px){
   //   width: 180px;
-  //       height: 256px;
+
   // }
-  //   }
 }
 
 .desk {
@@ -208,7 +223,6 @@
   opacity: 0;
 
   transform: translateY(100%);
-  // transition: transform cubic-bezier(0.075, 0.82, 0.165, 1);
   @include animated(transform, opacity);
 
   &__text {
