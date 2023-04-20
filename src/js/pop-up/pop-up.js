@@ -25,7 +25,6 @@ export default function renderModal(id) {
     localStorage.setItem('basket', '[]');
   }
   let storage = JSON.parse(localStorage.getItem('basket'));
-  refs.scrollRef.classList.add('is-hidden');
   const markup = refs.modalRef.innerHTML;
 
   api.getBooksById(id).then(load);
