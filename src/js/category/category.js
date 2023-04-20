@@ -2,6 +2,7 @@ import NewsApiBooksService from '../api-service/api-service';
 import { Notify } from 'notiflix';
 import renderCardListByCategory from './renderCatdListByCategory';
 import updateTitle from './updateTitle';
+import renderBestSellersBooks from '../home/renderBestSellersBooks';
 
 const newsApiBooksService = new NewsApiBooksService();
 
@@ -22,7 +23,7 @@ function onClickBtn(event) {
   title.innerHTML = result;
   newsApiBooksService
     .getTopBooks()
-    .then(renderCardListByCategory)
+    .then(renderBestSellersBooks)
 
     .catch(erorrQuery);
 }
