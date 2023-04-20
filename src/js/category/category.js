@@ -3,11 +3,36 @@ import { Notify } from 'notiflix';
 import renderCardListByCategory from './renderCatdListByCategory';
 import updateTitle from './updateTitle';
 
-const containerEl = document.querySelector('.categories__container');
-const button = document.querySelector('.categories__btn');
-
 const newsApiBooksService = new NewsApiBooksService();
 
+const btnAllCategory = document.querySelector('.btn');
+
+// вызов всех категорий (Топ-категории)
+
+btnAllCategory.addEventListener('click', onClickBtn);
+function onClickBtn(event) {
+  if (event.target.classList !== 'categories__btn--active') {
+    btnAllCategory.classList.remove('categories__btn--active');
+  } else {
+    btnAllCategory.classList.add('categories__btn--active');
+  }
+  if (event.target) {
+  }
+
+  const result = `<h1 class="gallery__title">Best Sellers <span class="gallery__title--span">Books</span></h1>`;
+  const title = document.querySelector('.gallery__title');
+  title.innerHTML = result;
+  newsApiBooksService
+    .getTopBooks()
+    .then(renderCardListByCategory)
+
+    .catch(erorrQuery);
+}
+
+// Вызов отдельных категорий
+
+const containerEl = document.querySelector('.categories__container');
+const button = document.querySelector('.categories__btn');
 containerEl.addEventListener('click', onClickCategory);
 
 newsApiBooksService
