@@ -5,7 +5,7 @@
   margin: 0 auto;
 }
 .categories {
-  min-width: 335px;
+  max-width: 335px;
   overflow: hidden;
 
   @include media('tablet') {
