@@ -1,12 +1,20 @@
 .backdrop {
-  z-index: 11;
+  z-index: 80;
   position: fixed;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   background-color: rgba(17, 17, 17, 0.4);
+
+  &.is-hidden .modal {
+    display: none;
+  }
 }
 
 .is-hidden {
@@ -16,6 +24,7 @@
 }
 
 .modal {
+  display: block;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -27,11 +36,10 @@
   padding-top: 40px;
   padding-bottom: 40px;
 
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   border: 2px solid var(--primary-text);
   background-color: var(--background-form);
+
+  animation: flip-in-hor-bottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
   @include media('phone', max) {
     width: 90%;
@@ -226,6 +234,8 @@
 
   color: var(--primary-text);
 
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+
   @media (min-width: 768px) {
     font-weight: 700;
     font-size: 18px;
@@ -263,6 +273,7 @@
   letter-spacing: -0.04em;
   color: var(--border-form);
   opacity: 0.5;
+
   @media (min-width: 768px) {
     margin-left: auto;
     margin-right: auto;
@@ -302,4 +313,30 @@
 }
 .modal_info_text_registr.js-hidden {
   display: none;
+}
+
+@keyframes flip-in-hor-bottom {
+  0% {
+    -webkit-transform: rotateX(80deg);
+    transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
 }
