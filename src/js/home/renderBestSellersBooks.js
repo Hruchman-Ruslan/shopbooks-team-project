@@ -27,8 +27,8 @@ export default function renderBestSellersBooks(data) {
           </div>
           </div>
           <div class="desk">
-          <h3 class="desk__subtitle">${title}</h3>
-          <p class="desk__text">${author}</p>
+          <h3 class="desk__subtitle">${title ? title : 'N/A'}</h3>
+          <p class="desk__text">${author ? author : 'N/A'}</p>
           </div>
       </button>
       </li>`
