@@ -1,4 +1,6 @@
-import { containerEl } from '../category/category';
+import { containerEl, btnAllCategory } from '../category/category';
+import { formSignUp, formSignIn } from '../authorization-modal/refsForm';
+
 export const spinnerWrap = document.querySelector('.spinner__wrap');
 
 // function showSpinner() {
@@ -6,7 +8,10 @@ export const spinnerWrap = document.querySelector('.spinner__wrap');
 // }
 
 window.addEventListener('load', hideSpinner);
+btnAllCategory.addEventListener('click', slawSpinner);
 containerEl.addEventListener('click', activeSpinner);
+formSignUp.addEventListener('submit', activeSpinner);
+formSignIn.addEventListener('submit', activeSpinner);
 
 function hideSpinner() {
   setTimeout(() => {
@@ -18,19 +23,12 @@ function activeSpinner() {
   spinnerWrap.style.display = 'flex';
   setTimeout(() => {
     spinnerWrap.style.display = 'none';
-  }, 1500);
+  }, 700);
 }
 
-//document.addEventListener('DOMContentLoaded', showSpinner);
-
-// function handleWrapLoad() {
-// spinnerWrap.classList.add('hide');
-// setTimeout(() => {
-// spinnerWrap.classList.add('hide');
-// spinnerWrap.remove();
-// }, 2500);
-// }
-// export default window.onload = function () {
-//   let spinnerWrap = document.querySelector('.spinner__wrap');
-//   spinnerWrap.style.display = 'none';
-// };
+function slawSpinner() {
+  spinnerWrap.style.display = 'flex';
+  setTimeout(() => {
+    spinnerWrap.style.display = 'none';
+  }, 2500);
+}

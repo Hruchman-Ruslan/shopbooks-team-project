@@ -6,7 +6,7 @@ import renderBestSellersBooks from '../home/renderBestSellersBooks';
 
 const newsApiBooksService = new NewsApiBooksService();
 
-const btnAllCategory = document.querySelector('.btn');
+export const btnAllCategory = document.querySelector('.btn');
 
 // вызов всех категорий (Топ-категории)
 
