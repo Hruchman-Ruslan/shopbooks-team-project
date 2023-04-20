@@ -33,6 +33,10 @@
   border: 2px solid var(--primary-text);
   background-color: var(--background-form);
 
+  @include media('phone', max) {
+    width: 90%;
+  }
+
   @media (min-width: 768px) {
     width: 579px;
     padding-left: 40px;
@@ -58,6 +62,7 @@
   position: absolute;
   filter: var(--amazon-invert);
   top: 12px;
+  right: 12px;
 
   @media (min-width: 768px) {
     right: 31px;
@@ -124,6 +129,11 @@
   height: 408px;
   border-radius: 8px;
   margin-bottom: 14px;
+
+  @include media('phone', max) {
+    width: 99%;
+  }
+
   @media (min-width: 768px) {
     height: 281px;
     width: 192px;

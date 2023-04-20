@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 150;
 
   display: flex;
   justify-content: center;
@@ -25,20 +25,20 @@
 
 .backdrop--form-blur {
   position: absolute;
-  left: -666px;
-  top: -638px;
-  width: 935px;
-  height: 935px;
-  background: rgba(204, 236, 231, 0.5);
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 65%;
+  background: rgba(204, 236, 231, 0.7);
   filter: blur(539.791px);
   pointer-events: none;
 
-  @include media('phone') {
-    left: -846px;
-    top: -918px;
-    width: 1421px;
-    height: 1421px;
-  }
+  // @include media('phone') {
+  //   left: -846px;
+  //   top: -918px;
+  //   width: 1421px;
+  //   height: 1421px;
+  // }
 }
 
 .form__wrap {
