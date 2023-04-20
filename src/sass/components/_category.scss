@@ -94,12 +94,11 @@
 }
 
 .category__list {
-  margin-bottom: 40px;
-  // row-gap: 40px;
+  gap: 24px;
 
-  @include media('tablet') {
-    row-gap: 40px;
-    column-gap: 24px;
-    margin-bottom: 0;
+  & .a {
+    @include media('tablet', max) {
+      margin-bottom: 24px;
+    }
   }
 }
