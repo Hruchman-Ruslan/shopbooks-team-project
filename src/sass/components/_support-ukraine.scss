@@ -90,6 +90,13 @@
   margin-right: auto;
   margin-left: 0;
   filter: brightness(0) invert(1);
+
+  @include animated(filter);
+
+  &:hover,
+  &:focus {
+    filter: grayscale(0%) drop-shadow(5px 5px 5px var(--catigory-text));
+  }
 }
 
 // slider-button
