@@ -18,6 +18,10 @@
     padding-bottom: 0;
   }
 
+  &__wrapper {
+    margin-bottom: 24px;
+  }
+
   &__wrap {
     display: flex;
     flex-direction: column;
@@ -64,15 +68,6 @@
     font-family: 'DMSans-Bold';
     text-transform: uppercase;
     color: var(--hover);
-    // font-size: 4vw;
-
-    // @include media('phone', min) {
-    //   font-size: 4vw;
-    // }
-
-    // @include media('tablet') {
-    //   font-size: 14px;
-    // }
   }
 
   .categories__btn--active {
