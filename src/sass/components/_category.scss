@@ -96,4 +96,10 @@
 
 .category__list {
   gap: 24px;
+
+  & .a {
+    @include media('tablet', max) {
+      margin-bottom: 24px;
+    }
+  }
 }
