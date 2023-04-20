@@ -16,7 +16,7 @@ export default function renderModal(id) {
     imgRef: document.querySelector('.modal_img'),
     coverImg: document.querySelector('.modal_img_placeholder'),
     itemsRef: document.querySelectorAll('.modal_item'),
-    closeRef: document.querySelector('.modal_closes'),
+    closeRef: document.querySelector('.modal_close'),
     scrollRef: document.querySelector('.btn__up'),
   };
   refs.bodyRef.classList.add('no-scroll');
@@ -63,7 +63,7 @@ export default function renderModal(id) {
       }
     });
 
-    refs.closeRef.addEventListener('click', closeModal);
+    refs.closeRef.addEventListener('click', changeAtClosing);
     refs.backdropRef.addEventListener('click', closeModal);
     window.addEventListener('keydown', closeModal);
     function removeFromStorage() {
@@ -98,16 +98,20 @@ export default function renderModal(id) {
   function closeModal(e) {
     if (
       e.target == refs.backdropRef ||
-      e.target == refs.closeRef ||
+      // e.target == refs.closeRef ||
       e.key == 'Escape'
     ) {
-      refs.modalRef.innerHTML = markup;
-      refs.bodyRef.classList.remove('no-scroll');
-      refs.backdropRef.classList.add('is-hidden');
-      refs.closeRef.removeEventListener('click', closeModal);
-      refs.backdropRef.removeEventListener('click', closeModal);
-      window.removeEventListener('keydown', closeModal);
-      refs.scrollRef.style.display = '';
+      changeAtClosing();
     }
+  }
+
+  function changeAtClosing() {
+    refs.modalRef.innerHTML = markup;
+    refs.bodyRef.classList.remove('no-scroll');
+    refs.backdropRef.classList.add('is-hidden');
+    refs.closeRef.removeEventListener('click', changeAtClosing);
+    refs.backdropRef.removeEventListener('click', closeModal);
+    window.removeEventListener('keydown', closeModal);
+    refs.scrollRef.style.display = '';
   }
 }

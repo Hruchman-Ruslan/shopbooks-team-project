@@ -40,6 +40,7 @@
   }
 }
 .modal_closes {
+  display: block;
   fill: currentColor;
   stroke: var(--hover-modal-close);
   width: 28px;
@@ -56,8 +57,6 @@
   cursor: pointer;
   position: absolute;
   filter: var(--amazon-invert);
-  width: 14px;
-  right: 12px;
   top: 12px;
 
   @media (min-width: 768px) {
@@ -96,14 +95,28 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @include animated(filter);
+
+  &:hover,
+  &:focus {
+    filter: var(--amazon-invert) grayscale(0%)
+      drop-shadow(5px 5px 5px var(--catigory-text));
+  }
 }
 .modal_shop_img {
-  //filter: grayscale(100%);
   filter: grayscale(100%);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @include animated(filter);
+
+  &:hover,
+  &:focus {
+    filter: grayscale(0%) drop-shadow(5px 5px 5px var(--catigory-text));
+  }
 }
 .modal_cover {
   position: relative;
@@ -117,6 +130,7 @@
   }
 }
 .modal_book_name {
+  max-width: 275px;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -211,10 +225,20 @@
     padding-top: 20px;
     padding-bottom: 20px;
   }
+
+  @include animated(background-color, color);
+
+  &:hover {
+    background-color: var(--link-focus);
+    color: var(--white-color-not-chenge);
+  }
 }
 .modal_button:disabled {
   color: grey;
   cursor: default;
+  &:hover {
+    background-color: inherit;
+  }
 }
 .modal_info_text {
   margin-top: 8px;
@@ -227,7 +251,8 @@
 
   text-align: center;
   letter-spacing: -0.04em;
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--border-form);
+  opacity: 0.5;
   @media (min-width: 768px) {
     margin-left: auto;
     margin-right: auto;
@@ -255,7 +280,7 @@
 
   text-align: center;
   letter-spacing: -0.04em;
-  color: rgb(17, 17, 17);
+  color: var(--border-form);
 
   @media (min-width: 768px) {
     margin-left: auto;
