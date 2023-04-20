@@ -10,6 +10,21 @@ body {
   }
 }
 
+body::-webkit-scrollbar {
+  width: 14px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--scroll);
+  border-radius: 12px;
+  width: 8px;
+  height: 114px;
+
+  @include media('tablet') {
+    height: 167px;
+  }
+}
+
 // Container
 .container {
   margin-right: auto;
