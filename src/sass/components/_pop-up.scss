@@ -15,6 +15,37 @@
   &.is-hidden .modal {
     display: none;
   }
+
+  @media screen and (max-height: 800px) and (max-width: 768px) {
+    align-items: flex-start;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 14px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--scroll);
+      border-radius: 12px;
+      width: 8px;
+      height: 114px;
+    }
+  }
+  @media screen and (max-height: 500px) and (min-width: 769px) {
+    align-items: flex-start;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 14px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--scroll);
+      border-radius: 12px;
+      width: 8px;
+      height: 114px;
+    }
+  }
 }
 
 .is-hidden {
@@ -24,6 +55,13 @@
 }
 
 .modal {
+  @media screen and (max-height: 800px) and (max-width: 768px) {
+    margin: 20px auto;
+  }
+
+  @media screen and (max-height: 500px) and (min-width: 769px) {
+    margin: 20px auto;
+  }
   display: block;
   position: absolute;
   display: flex;
