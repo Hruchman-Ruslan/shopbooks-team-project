@@ -105,4 +105,7 @@
     margin-bottom: 0;
   }
 
+  @include media('desktop'){
+    column-gap: 20px;
+  }
 }
